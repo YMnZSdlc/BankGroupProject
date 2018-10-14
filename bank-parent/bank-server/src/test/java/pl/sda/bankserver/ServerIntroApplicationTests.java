@@ -1,4 +1,4 @@
-package com.example.serverintro;
+package pl.sda.bankserver;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

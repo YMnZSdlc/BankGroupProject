@@ -1,4 +1,4 @@
-package com.example.serverintro;
+package pl.sda.bankserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

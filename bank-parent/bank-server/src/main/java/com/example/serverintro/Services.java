@@ -3,7 +3,6 @@ package com.example.serverintro;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.cglib.core.Local;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

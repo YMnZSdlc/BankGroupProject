@@ -19,8 +19,5 @@ public class AccountCategory {
     private Integer id;
     @Column(name = "category_name")
     private String categoryName;
-
-    public AccountCategory(String category_name) {
-        this.categoryName = categoryName;
-    }
+    
 }

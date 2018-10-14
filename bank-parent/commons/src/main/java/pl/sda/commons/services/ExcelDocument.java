@@ -1,4 +1,7 @@
-package pl.sda;
+package pl.sda.commons.services;
+
+import pl.sda.Document;
+import pl.sda.DocumentType;
 
 public class ExcelDocument extends Document {
 

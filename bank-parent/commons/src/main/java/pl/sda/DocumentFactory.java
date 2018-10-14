@@ -1,5 +1,9 @@
 package pl.sda;
 
+import pl.sda.commons.services.CsvDocument;
+import pl.sda.commons.services.ExcelDocument;
+import pl.sda.commons.services.PdfDocument;
+
 public class DocumentFactory {
 
     public Document createDocument(String text, DocumentType docType) {

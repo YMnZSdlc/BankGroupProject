@@ -1,7 +1,6 @@
 package com.example.serverintro;
 
 import lombok.NoArgsConstructor;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,8 +21,6 @@ public class HistoryAccount {
     private String currency;
     private int senderAccount;
     private int recipientAccount;
-
-
 
     public int getOperationNo() {
         return operationNo;

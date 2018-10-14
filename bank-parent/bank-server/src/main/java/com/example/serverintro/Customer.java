@@ -22,11 +22,7 @@ public class Customer {
     private int phoneNo;
     private Date dateOfBirth;
     private Sex sex;
-
-
-
-
-
+    
     public String getFirstName() {
         return firstName;
     }

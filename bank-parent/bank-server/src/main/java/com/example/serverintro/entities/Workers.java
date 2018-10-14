@@ -1,6 +1,5 @@
 package com.example.serverintro.entities;
 
-
 import com.example.serverintro.enums.Sex;
 import com.sun.istack.internal.NotNull;
 import lombok.Getter;
@@ -10,7 +9,6 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -19,6 +17,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Validated
 public class Workers {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -29,15 +28,15 @@ public class Workers {
     @NotNull
     private Integer salary;
     private Integer pesel;
-    @Column(name = "create_date")
-    private LocalDateTime createDate;
+    @Column(name = "employment_date")
+    private Date employmentDate;
     private String email;
     @NotNull
     @Size(max = 9)
+    @Column(name = "phone_no")
     private Integer phoneNo;
     private Sex sex;
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
-
 
 }

@@ -1,8 +1,5 @@
 package com.example.serverintro.entities;
 
-
-
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +14,7 @@ import javax.validation.constraints.NotNull;
 public class Departments {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name = "dept_name")
     @NotNull
@@ -28,4 +25,5 @@ public class Departments {
     @NotNull
     @Column(name = "dept_phone_no")
     private Integer deptPhoneNo;
+
 }

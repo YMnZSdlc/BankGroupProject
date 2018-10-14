@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Setter
 @Getter
@@ -14,9 +15,13 @@ import javax.persistence.*;
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
+    private Integer id;
     @Column(name = "card_no")
-    Integer cardNo;
+    private Integer cardNo;
     @Column(name = "cvc_cvv_code")
-    Integer cvcCvvCode;
+    private Integer cvcCvvCode;
+    @Column(name = "activation_date")
+    private Date activationDate;
+    @Column(name = "expire_date")
+    private Date expireDate;
 }

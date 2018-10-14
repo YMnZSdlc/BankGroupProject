@@ -16,9 +16,9 @@ public class AccountCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
+    private Integer id;
     @Column(name = "category_name")
-    String categoryName;
+    private String categoryName;
 
     public AccountCategory(String category_name) {
         this.categoryName = categoryName;

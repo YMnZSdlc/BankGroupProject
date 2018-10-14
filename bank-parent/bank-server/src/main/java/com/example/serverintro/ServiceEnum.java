@@ -13,6 +13,6 @@ public enum ServiceEnum {
     PAYMENT(4, "PAYMENT"),
     WITHDRAWAL(5, "WITHDRAWAL");
 
-    private int numverValue;
+    private int numberValue;
     private String plName;
 }

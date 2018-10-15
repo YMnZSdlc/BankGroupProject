@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bank-parent/bank-parent.iml" filepath="$PROJECT_DIR$/bank-parent/bank-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bank-parent/commons/commons.iml" filepath="$PROJECT_DIR$/bank-parent/commons/commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sda_ldz_9.iml" filepath="$PROJECT_DIR$/.idea/sda_ldz_9.iml" />
+    </modules>
+  </component>
+</project>

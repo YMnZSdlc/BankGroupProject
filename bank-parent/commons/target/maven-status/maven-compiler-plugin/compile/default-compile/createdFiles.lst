@@ -1,0 +1,9 @@
+pl\sda\DocumentType.class
+pl\sda\commons\services\ExcelDocument.class
+pl\sda\commons\MainClass.class
+pl\sda\commons\services\XmlDocument.class
+pl\sda\commons\services\CsvDocument.class
+pl\sda\commons\services\PdfDocument.class
+pl\sda\DocumentFactory.class
+pl\sda\commons\MockData.class
+pl\sda\Document.class

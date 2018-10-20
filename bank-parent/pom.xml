@@ -7,8 +7,8 @@
     <packaging>pom</packaging>
     <name>bank-parent</name>
     <modules>
-        <module>bank-server</module>
         <module>bank-client</module>
         <module>commons</module>
+        <module>bank-server</module>
     </modules>
 </project>

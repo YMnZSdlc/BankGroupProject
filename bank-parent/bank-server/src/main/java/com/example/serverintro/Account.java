@@ -7,10 +7,7 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -20,7 +17,10 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String acc_no;
-    private LocalDateTime create_date;
-    private BigDecimal acc_balance;
+    @Column(name = "acc_no")
+    private String accNo;
+    @Column(name = "create_date")
+    private LocalDateTime createDate;
+    @Column(name = "acc_balance")
+    private BigDecimal accBalance;
 }

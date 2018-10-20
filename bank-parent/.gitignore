@@ -28,5 +28,6 @@ hs_err_pid*
 /commons/commons.iml
 /bank-parent.iml
 
-/commons/ExampleExcel.xls
-/commons/.~lock.ExampleExcel.xls#
+/commons/*.xls
+/commons/.~lock.*.xls#
+

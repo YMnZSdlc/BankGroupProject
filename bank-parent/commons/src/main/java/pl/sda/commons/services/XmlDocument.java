@@ -2,7 +2,6 @@ package pl.sda.commons.services;
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
-import pl.sda.Document;
 import pl.sda.DocumentType;
 import pl.sda.commons.MockData;
 
@@ -19,10 +18,8 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XmlDocument extends Document {
-    public XmlDocument(String text, DocumentType docType) {
-        super(text, docType);
-    }
+public class XmlDocument  {
+
 
     public void mockToXml(MockData mockData) {
         try {

@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,4 +25,11 @@ public class Departments {
     @NotNull
     @Column(name = "dept_phone_no")
     private Integer deptPhoneNo;
+
+    @OneToMany(mappedBy = "department")
+    private List<Customer> customers;
+
+    @OneToMany(mappedBy = "department")
+    private List<Workers> workers;
+
 }

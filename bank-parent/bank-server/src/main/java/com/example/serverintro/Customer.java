@@ -4,6 +4,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -29,7 +30,13 @@ public class Customer {
     private Date date_of_birth;
     @Column(name="sex")
     private SexEnum sex;
-    @ManyToOne
+
+    @ManyToMany(mappedBy="customers")
+    private List<Account> accounts;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Departments department;
 
     public String getFirstName() {
         return firstName;

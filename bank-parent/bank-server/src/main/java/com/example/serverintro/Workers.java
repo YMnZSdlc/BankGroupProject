@@ -36,4 +36,9 @@ public class Workers {
     private SexEnum sex;
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Departments department;
+
 }

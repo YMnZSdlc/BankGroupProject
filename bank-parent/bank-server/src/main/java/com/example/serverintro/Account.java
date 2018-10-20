@@ -37,4 +37,14 @@ public class Account {
     @JoinColumn(name = "category_id")
     private AccountCategory accountCategory;
 
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "account")
+    private HistoryAccount historyAccount;
+
+    @ManyToMany
+    @JoinTable(
+            name = "customer_accounts",
+            joinColumns=@JoinColumn(name="customer_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="account_id", referencedColumnName = "id")
+    )
+    private List<Customer> customers;
 }

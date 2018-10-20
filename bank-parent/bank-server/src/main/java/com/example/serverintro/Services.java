@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "Services")
+@Table(name = "services")
 public class Services {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,21 +22,21 @@ public class Services {
     @Column(name = "service")
     private ServiceEnum service;
     @Column(name = "service_no")
-    private int serviceNo;
+    private int number;
     @Column(name = "service_title")
-    private String serviceTitle;
+    private String title;
     @Column(name = "service_date")
-    private LocalDateTime serviceDate;
+    private LocalDateTime date;
     @Column(name = "service_amount")
-    private BigDecimal serviceAmount;
+    private BigDecimal amount;
     @Column(name = "service_currency")
-    private String serviceCurrency;
+    private String currency;
     @Column(name = "service_start_time")
-    private LocalDateTime serviceStartTime;
+    private LocalDateTime startTime;
     @Column(name = "service_end_time")
-    private LocalDateTime serviceEndTime;
+    private LocalDateTime endTime;
     @Column(name = "service_sender_account")
-    private String serviceSenderAccount;
+    private String senderAccount;
     @Column(name = "service_recipient_account")
-    private String serviceRecipientAccount;
+    private String recipientAccount;
 }

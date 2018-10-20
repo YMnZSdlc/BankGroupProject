@@ -13,15 +13,16 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name ="Account")
+@Table(name ="accounts")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
     @Column(name = "acc_no")
-    private String accNo;
+    private String number;
     @Column(name = "create_date")
     private LocalDateTime createDate;
     @Column(name = "acc_balance")
-    private BigDecimal accBalance;
+    private BigDecimal balance;
 }

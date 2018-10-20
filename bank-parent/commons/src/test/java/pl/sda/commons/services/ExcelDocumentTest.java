@@ -23,7 +23,7 @@ class ExcelDocumentTest {
         ExcelDocument document = new ExcelDocument("xls", DocumentType.EXCEL);
 
         //when
-        Boolean actualResult = document.saveToXLS(exampleToWtite);
+        Boolean actualResult = document.saveToExcel(exampleToWtite);
 
         //then
         Assertions.assertTrue(actualResult);

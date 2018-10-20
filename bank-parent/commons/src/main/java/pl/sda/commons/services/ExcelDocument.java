@@ -11,6 +11,7 @@ import pl.sda.commons.MockData;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.Collection;
 
 //EXCEL -> *.xls
 public class ExcelDocument extends Document {
@@ -24,11 +25,26 @@ public class ExcelDocument extends Document {
 
 //    MockData mockData = new MockData(22, "Hello ", "World !!!");
 
+    public boolean saveToExcel(MockData data) {
+
+        //            worker.getClass().isAssignableFrom(Collections.class);
+        //            worker.getClass().cast()
+        if (data.getClass().isAssignableFrom(Collection.class)) {
+            
+
+        } else {
+            return saveToXLS(data);
+        }
+
+        return false;
+    }
+
     public boolean saveToXLS(MockData data) {
         WritableWorkbook exampleXls = null;
 
         try {
             exampleXls = Workbook.createWorkbook(new File(EXCEL_FILE_LOCATION));
+
 
             // create Excel sheet name from class name
             WritableSheet excelSheet = exampleXls.createSheet(data.getClass().getSimpleName(), 0);
@@ -52,14 +68,13 @@ public class ExcelDocument extends Document {
             Field[] fields = aClass.getDeclaredFields();
 
 
-
             // create Excel label name from fields name
             int col = 0;
             int row = 0;
             for (Field field : fields) {
-                label = new Label(col, row, field.getName(),labelFormat);
+                label = new Label(col, row, field.getName(), labelFormat);
                 excelSheet.addCell(label);
-                col ++;
+                col++;
             }
 
             // create Excel content from Class content
@@ -67,9 +82,9 @@ public class ExcelDocument extends Document {
             row = 1;
             for (Field field : fields) {
                 field.setAccessible(true);
-                label = new Label(col,row,  ""+field.get(data), contentFormat);
+                label = new Label(col, row, "" + field.get(data), contentFormat);
                 excelSheet.addCell(label);
-                col ++;
+                col++;
             }
 
             exampleXls.write();

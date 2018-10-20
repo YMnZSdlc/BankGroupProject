@@ -1,6 +1,5 @@
 package pl.sda.commons.services;
 
-import org.junit.platform.commons.util.StringUtils;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 import pl.sda.Document;

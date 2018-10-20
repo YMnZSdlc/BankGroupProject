@@ -1,10 +1,8 @@
 package com.example.serverintro;
 
 import lombok.NoArgsConstructor;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -12,14 +10,23 @@ import java.util.Date;
 public class HistoryAccount {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="Id")
     private Integer id;
+    @Column(name="operaionNo")
     private int operationNo;
+    @Column(name="operationTitle")
     private String operationTitle;
+    @Column(name="operationDate")
     private Date operationDate;
+    @Column(name="transactionType")
     private String transactionType;
+    @Column(name="amount")
     private Integer amount;
+    @Column(name="currency")
     private String currency;
+    @Column(name="senderAccount")
     private int senderAccount;
+    @Column(name="recipientAccount")
     private int recipientAccount;
 
     public int getOperationNo() {

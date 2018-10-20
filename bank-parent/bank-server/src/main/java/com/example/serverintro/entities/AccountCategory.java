@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "acount_category")
 public class AccountCategory {
 
     @Id
@@ -19,5 +20,4 @@ public class AccountCategory {
     private Integer id;
     @Column(name = "category_name")
     private String categoryName;
-    
 }

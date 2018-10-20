@@ -17,11 +17,15 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name = "card_no")
-    private Integer cardNo;
+    private Long cardNo;
     @Column(name = "cvc_cvv_code")
     private Integer cvcCvvCode;
     @Column(name = "activation_date")
     private Date activationDate;
     @Column(name = "expire_date")
     private Date expireDate;
+    @Enumerated(EnumType.STRING)
+    @Column(name="card_type")
+    private CardType cardType;
+
 }

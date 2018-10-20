@@ -1,5 +1,5 @@
 package com.example.serverintro;
 
-public enum Sex {
-    M,F
+public enum SexEnum {
+    M, F
 }

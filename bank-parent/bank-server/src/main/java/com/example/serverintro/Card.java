@@ -1,4 +1,4 @@
-package com.example.serverintro.entities;
+package com.example.serverintro;
 
 
 import lombok.Getter;
@@ -26,6 +26,6 @@ public class Card {
     private Date expireDate;
     @Enumerated(EnumType.STRING)
     @Column(name="card_type")
-    private CardType cardType;
+    private CardTypeEnum cardType;
 
 }

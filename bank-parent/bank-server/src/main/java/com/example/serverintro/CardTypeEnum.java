@@ -1,11 +1,11 @@
-package com.example.serverintro.entities;
+package com.example.serverintro;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum CardType {
+public enum CardTypeEnum {
     MAESTRO("maestro"),
 
     VISTA("vista"),

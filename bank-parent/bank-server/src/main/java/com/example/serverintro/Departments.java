@@ -1,4 +1,4 @@
-package com.example.serverintro.entities;
+package com.example.serverintro;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

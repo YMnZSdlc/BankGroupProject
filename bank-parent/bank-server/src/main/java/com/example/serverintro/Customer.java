@@ -28,7 +28,7 @@ public class Customer {
     @Column(name="dateOfBirth")
     private Date dateOfBirth;
     @Column(name="sex")
-    private Sex sex;
+    private SexEnum sex;
 
     public String getFirstName() {
         return firstName;

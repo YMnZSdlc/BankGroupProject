@@ -1,6 +1,5 @@
-package com.example.serverintro.entities;
+package com.example.serverintro;
 
-import com.example.serverintro.enums.Sex;
 import com.sun.istack.internal.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +16,6 @@ import java.util.Date;
 @NoArgsConstructor
 @Validated
 public class Workers {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -35,8 +33,7 @@ public class Workers {
     @Size(max = 9)
     @Column(name = "phone_no")
     private Integer phoneNo;
-    private Sex sex;
+    private SexEnum sex;
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
-
 }

@@ -28,6 +28,7 @@ public class HistoryAccount {
     private int senderAccount;
     @Column(name="recipientAccount")
     private int recipientAccount;
+    @ManyToMany
 
     public int getOperationNo() {
         return operationNo;

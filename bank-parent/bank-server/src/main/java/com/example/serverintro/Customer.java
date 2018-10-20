@@ -23,12 +23,13 @@ public class Customer {
     private Date createDate;
     @Column(name="email")
     private String email;
-    @Column(name="phoneNo")
-    private int phoneNo;
+    @Column(name="phone_no")
+    private int phone_no;
     @Column(name="dateOfBirth")
-    private Date dateOfBirth;
+    private Date date_of_birth;
     @Column(name="sex")
     private SexEnum sex;
+    @ManyToOne
 
     public String getFirstName() {
         return firstName;
@@ -70,19 +71,17 @@ public class Customer {
         this.email = email;
     }
 
-    public int getPhoneNo() {
-        return phoneNo;
+    public int getPhone_no() {
+        return phone_no;
     }
 
-    public void setPhoneNo(int phoneNo) {
-        this.phoneNo = phoneNo;
+    public void setPhone_no(int phone_no) {
+        this.phone_no = phone_no;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
+    public Date getDate_of_birth() { return date_of_birth; }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setDate_of_Birth(Date date_of_birth) {
+        this.date_of_birth = date_of_birth;
     }
 }

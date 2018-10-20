@@ -20,4 +20,7 @@ public class AccountCategory {
     private Integer id;
     @Column(name = "category_name")
     private String categoryName;
+
+    @OneToOne(fetch=FetchType.LAZY, mappedBy="accountCategory")
+    private Account account;
 }

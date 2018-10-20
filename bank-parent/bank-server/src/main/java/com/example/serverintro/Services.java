@@ -39,4 +39,8 @@ public class Services {
     private String senderAccount;
     @Column(name = "service_recipient_account")
     private String recipientAccount;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
+    private Account account;
 }

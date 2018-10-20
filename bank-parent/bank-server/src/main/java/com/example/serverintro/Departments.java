@@ -12,7 +12,6 @@ import javax.validation.constraints.NotNull;
 @Setter
 @NoArgsConstructor
 public class Departments {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -25,5 +24,4 @@ public class Departments {
     @NotNull
     @Column(name = "dept_phone_no")
     private Integer deptPhoneNo;
-
 }

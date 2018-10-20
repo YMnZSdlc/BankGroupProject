@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name ="accounts")
+@Table(name = "accounts")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,4 +26,15 @@ public class Account {
     private LocalDateTime createDate;
     @Column(name = "acc_balance")
     private BigDecimal balance;
+
+    @OneToMany(mappedBy = "account")
+    private List<Services> services;
+
+    @OneToMany(mappedBy = "account")
+    private List<Card> cards;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private AccountCategory accountCategory;
+
 }

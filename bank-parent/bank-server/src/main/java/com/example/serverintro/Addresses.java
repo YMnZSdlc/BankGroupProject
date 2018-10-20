@@ -13,7 +13,6 @@ import javax.persistence.Id;
 @Getter
 @NoArgsConstructor
 public class Addresses {
-
     @Id
     private Integer id;
     @Column(name = "street_name")

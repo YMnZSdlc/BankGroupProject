@@ -28,7 +28,10 @@ public class HistoryAccount {
     private int senderAccount;
     @Column(name="recipientAccount")
     private int recipientAccount;
-    @ManyToMany
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
+    private Account account;
 
     public int getOperationNo() {
         return operationNo;

@@ -4,7 +4,6 @@ import jxl.Workbook;
 import jxl.format.Colour;
 import jxl.write.*;
 import jxl.write.biff.RowsExceededException;
-import pl.sda.Document;
 import pl.sda.DocumentType;
 import pl.sda.commons.MockData;
 
@@ -14,13 +13,9 @@ import java.lang.reflect.Field;
 import java.util.Collection;
 
 //EXCEL -> *.xls
-public class ExcelDocument extends Document {
+public class ExcelDocument {
 
     public static final String EXCEL_FILE_LOCATION = "ExampleExcel.xls";
-
-    public ExcelDocument(String text, DocumentType docType) {
-        super(text, docType);
-    }
 
 
 //    MockData mockData = new MockData(22, "Hello ", "World !!!");

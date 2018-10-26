@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-public class Departments {
+public class Department {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,15 +30,15 @@ public class Departments {
     @NotNull
     @Column(name = "dept_phone_no")
     @Pattern(regexp = "^(\\+48|)(\\s+|)([0-9]{9}|(\\d{3})\\s+(\\d{3})\\s+(\\d{3}))$")
-    private Integer deptPhoneNo;
+    private String deptPhoneNo;
     
     @OneToMany(mappedBy = "department")
     private List<Customer> customers;
     
     @OneToMany(mappedBy = "department")
-    private List<Workers> workers;
+    private List<Worker> workers;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
-    private Addresses addresses;
+    private Address address;
 }

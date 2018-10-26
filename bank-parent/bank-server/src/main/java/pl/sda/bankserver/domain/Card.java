@@ -1,15 +1,15 @@
 package pl.sda.bankserver.domain;
 
 
-import pl.sda.bankserver.domain.enums.CardTypeEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.sda.bankserver.domain.enums.CardTypeEnum;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Setter
 @Getter
@@ -31,11 +31,11 @@ public class Card {
     
     @Column(name = "activation_date")
     @NotNull
-    private Date activationDate;
+    private LocalDate activationDate;
     
     @Column(name = "expire_date")
     @NotNull
-    private Date expireDate;
+    private LocalDate expireDate;
     
     @Enumerated(EnumType.STRING)
     @Column(name = "card_type")

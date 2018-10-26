@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-public class Addresses {
+public class Address {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,12 +36,12 @@ public class Addresses {
     @Pattern(regexp = "^[0-9]{2}-[0-9]{3}$")
     private String zipCode;
     
-    @OneToMany(mappedBy = "addresses")
+    @OneToMany(mappedBy = "address")
     private List<Customer> customersAddresses;
     
-    @OneToMany(mappedBy = "addresses")
-    private List<Workers> workersAddresses;
+    @OneToMany(mappedBy = "address")
+    private List<Worker> workerAddresses;
     
-    @OneToMany(mappedBy = "addresses")
-    private List<Workers> departamentsAddresses;
+    @OneToMany(mappedBy = "address")
+    private List<Worker> departamentsAddresses;
 }

@@ -1,15 +1,17 @@
 package pl.sda.bankserver.domain;
 
-import pl.sda.bankserver.domain.enums.SexEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
+import pl.sda.bankserver.domain.enums.SexEnum;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -20,12 +22,10 @@ import java.util.List;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id")
     private Integer id;
     
     @NotNull
     @Pattern(regexp = "^(?=\\S*[a-z])(?=\\S*[A-Z])(?=\\S*\\d)\\S{10,20}$")
-    @Size(min = 10, max = 20)
     private String password;
     
     @Column(name = "first_name")
@@ -47,7 +47,8 @@ public class Customer {
     
     @Column(name = "create_date")
     @NotNull
-    private Date createDate;
+    @Past
+    private LocalDateTime createDate;
     
     @Column(name = "email")
     @NotNull
@@ -57,13 +58,13 @@ public class Customer {
     @Column(name = "phone_no")
     @NotNull
     @Pattern(regexp = "^(\\+48|)(\\s+|)([0-9]{9}|(\\d{3})\\s+(\\d{3})\\s+(\\d{3}))$")
-    private int phoneNumber;
+    private String phoneNumber;
     
     @Column(name = "date_of_birth")
-    @Pattern(regexp = "^([1][9][0-9]{2}|[2][0][0-1][0-9])-([0][0-9]|[1][0-2])-([1-2][0-9]|[0][1-9]|[3][0-1])$")
-    private Date dateOfBirth;
+    @Past
+    private LocalDate dateOfBirth;
     
-    @Column(name = "sex")
+    @Enumerated(EnumType.STRING)
     private SexEnum sex;
     
     @ManyToMany(mappedBy = "customers")
@@ -71,9 +72,9 @@ public class Customer {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
-    private Departments department;
+    private Department department;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
-    private Addresses addresses;
+    private Address address;
 }

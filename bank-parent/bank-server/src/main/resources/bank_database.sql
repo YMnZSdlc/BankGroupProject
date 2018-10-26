@@ -43,14 +43,14 @@ PRIMARY KEY (id),
  alter table workers add department_id int;
  alter table workers add constraint fk_worker_dep FOREIGN KEY (department_id) REFERENCES departments(id);
  
- create table addresses (
+create table addresses (
 id INT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (id),
-street_name varchar(30),
-street_no varchar(10),
+street_name varchar(30) NOT NULL ,
+street_no varchar(10) NOT NULL,
 home_no varchar(10),
-city varchar(30),
-zip_code varchar(6)
+city varchar(30) NOT NULL,
+zip_code varchar(6) NOT NULL
 );
 
 alter table workers add address_id int;

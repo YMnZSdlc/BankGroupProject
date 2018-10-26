@@ -1,4 +1,4 @@
-package com.example.serverintro;
+package pl.sda.bankserver.domain.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

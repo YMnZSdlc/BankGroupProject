@@ -1,9 +1,8 @@
 package pl.sda.bankserver.domain;
 
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import pl.sda.bankserver.domain.enums.CardTypeEnum;
 
 import javax.persistence.*;
@@ -11,14 +10,18 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
-@Setter
-@Getter
+@Data
 @Entity
 @NoArgsConstructor
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "card_type")
+    @NotNull
+    private CardTypeEnum cardType;
     
     @Column(name = "card_no")
     @NotNull
@@ -36,10 +39,6 @@ public class Card {
     @Column(name = "expire_date")
     @NotNull
     private LocalDate expireDate;
-    
-    @Enumerated(EnumType.STRING)
-    @Column(name = "card_type")
-    private CardTypeEnum cardType;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")

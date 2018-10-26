@@ -30,7 +30,7 @@ public class Department {
     @NotNull
     @Column(name = "dept_phone_no")
     @Pattern(regexp = "^(\\+48|)(\\s+|)([0-9]{9}|(\\d{3})\\s+(\\d{3})\\s+(\\d{3}))$")
-    private String deptPhoneNo;
+    private String phoneNumber;
     
     @OneToMany(mappedBy = "department")
     private List<Customer> customers;

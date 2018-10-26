@@ -1,13 +1,12 @@
 package pl.sda.bankserver.domain;
 
-import com.sun.istack.internal.NotNull;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.validation.annotation.Validated;
 import pl.sda.bankserver.domain.enums.SexEnum;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -15,8 +14,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Validated
 public class Worker {
@@ -24,7 +22,7 @@ public class Worker {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     
-    @javax.validation.constraints.NotNull
+    @NotNull
     @Pattern(regexp = "^(?=\\S*[a-z])(?=\\S*[A-Z])(?=\\S*\\d)\\S{10,20}$")
     @Size(min = 10, max = 20)
     private String password;

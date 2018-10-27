@@ -8,11 +8,10 @@ import lombok.Getter;
 public enum CardTypeEnum {
     MAESTRO("maestro"),
 
-    VISTA("vista"),
+    VISA("visa"),
 
-    MASTERCARD("mastercard"),
+    MASTERCARD("mastercard");
 
-    POKER("poker");
     private String cardTypeName;
 
 }

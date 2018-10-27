@@ -2,6 +2,7 @@ package pl.sda.bankserver.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 @Entity
 @Data
 @NoArgsConstructor
+@Validated
 public class AccountHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

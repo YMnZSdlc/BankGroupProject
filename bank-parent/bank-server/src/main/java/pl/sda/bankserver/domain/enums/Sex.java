@@ -1,5 +1,8 @@
 package pl.sda.bankserver.domain.enums;
 
-public enum SexEnum {
+import lombok.Getter;
+
+@Getter
+public enum Sex {
     M, F
 }

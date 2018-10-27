@@ -1,8 +1,8 @@
 package pl.sda.bankserver.domain;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @Table(name = "accounts")
+@Validated
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

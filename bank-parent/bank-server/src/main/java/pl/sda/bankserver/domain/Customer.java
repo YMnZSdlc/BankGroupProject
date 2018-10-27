@@ -3,7 +3,7 @@ package pl.sda.bankserver.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import pl.sda.bankserver.domain.enums.SexEnum;
+import pl.sda.bankserver.domain.enums.Sex;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -65,7 +65,7 @@ public class Customer {
     private LocalDate dateOfBirth;
     
     @Enumerated(EnumType.STRING)
-    private SexEnum sex;
+    private Sex sex;
     
     @ManyToMany(mappedBy = "customers")
     private List<Account> accounts;

@@ -3,6 +3,7 @@ package pl.sda.bankserver.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import pl.sda.bankserver.domain.enums.CardTypeEnum;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 @Data
 @Entity
 @NoArgsConstructor
+@Validated
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

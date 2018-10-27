@@ -2,6 +2,7 @@ package pl.sda.bankserver.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,6 +13,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Validated
 public class Department {
     
     @Id

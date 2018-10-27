@@ -1,9 +1,9 @@
 package pl.sda.bankserver.domain;
 
-import pl.sda.bankserver.domain.enums.ServiceEnum;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.springframework.validation.annotation.Validated;
+import pl.sda.bankserver.domain.enums.ServiceEnum;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -12,10 +12,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@Table(name = "services")
+@Validated
 public class Services {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

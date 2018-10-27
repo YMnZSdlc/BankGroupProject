@@ -7,6 +7,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import javax.validation.constraints.Pattern;
 import java.lang.reflect.Field;
 import java.util.Set;
 
@@ -37,134 +38,162 @@ public class AddressTest {
     }
     
     @Test
-    public void ifAddressisValid() {
+    private void ifAddressisValid() {
+        //given
         Address address = createValidAddress();
-        
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), true);
     }
     
     @Test
-    public void ifStreetNameIsNullValidationFails() {
+    private void ifStreetNameIsNullValidationFails() {
+        //given
         Address address = createValidAddress();
         address.setStreetName(null);
-    
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), false);
     }
     
     @Test
-    public void ifStreetNameIsTooLongValidationFails() {
+    private void ifStreetNameIsTooLongValidationFails() {
+        //given
         Address address = createValidAddress();
         address.setStreetName("Ulica ktorej nazwa jest stanowczo za dluga");
-        
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), false);
     }
     
     @Test
-    public void ifStreetNumberIsNullValidationFails() {
+    private void ifStreetNumberIsNullValidationFails() {
+        //given
         Address address = createValidAddress();
         address.setStreetNo(null);
-        
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), false);
     }
     
     @Test
-    public void ifStreetNumberIsTooLongValidationFails() {
+    private void ifStreetNumberIsTooLongValidationFails() {
+        //given
         Address address = createValidAddress();
         address.setStreetNo("1 Stanowczo za dlugi numer");
-        
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), false);
     }
     
     @Test
-    public void ifHometNumberIsTooLongValidationFails() {
+    private void ifHometNumberIsTooLongValidationFails() {
+        //given
         Address address = createValidAddress();
         address.setHomeNo("123456789123");
-        
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), false);
     }
     
     @Test
-    public void ifCityIsTooLongValidationFails() {
+    private void ifCityIsTooLongValidationFails() {
+        //given
         Address address = createValidAddress();
         address.setCity("Miasto ktorego nazwa jest stanowczo za dluga");
-        
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), false);
     }
     
     @Test
-    public void ifCityIsNullValidationFails() {
+    private void ifCityIsNullValidationFails() {
+        //given
         Address address = createValidAddress();
         address.setCity(null);
-        
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), false);
     }
     
     @Test
-    public void ifZipCodeIsTooLongValidationFails() {
+    private void ifZipCodeIsTooLongValidationFails() {
+        //given
         Address address = createValidAddress();
         address.setZipCode("92-1234");
-        
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), false);
     }
     
     @Test
-    public void ifZipCodeIsTooShortValidationFails() {
+    private void ifZipCodeIsTooShortValidationFails() {
+        //given
         Address address = createValidAddress();
         address.setZipCode("12");
-        
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), false);
     }
     
     @Test
-    public void ifZipCodeIsNullValidationFails() {
+    private void ifZipCodeIsNullValidationFails() {
+        //given
         Address address = createValidAddress();
         address.setZipCode(null);
-        
+        //when
         Set<ConstraintViolation<Address>> violations = validator.validate(address);
+        //then
         assertEquals(violations.isEmpty(), false);
     }
-    
-    
-    public void streetNumberRegex(String streetNo, boolean validates) throws NoSuchFieldException {
-        Field field = Address.class.getDeclaredField("streetNo");
-        javax.validation.constraints.Pattern[] annotations = field.getAnnotationsByType(javax.validation.constraints.Pattern.class);
-        assertEquals(streetNo.matches(annotations[0].regexp()), validates);
+
+    private Pattern[] getPatterns(String model) throws NoSuchFieldException {
+        Field field = Address.class.getDeclaredField(model);
+        return field.getAnnotationsByType(Pattern.class);
+    }
+
+    @Test
+    private void testInvalidStreetNumber() throws NoSuchFieldException {
+        //when
+        Pattern[] annotations = getPatterns("streetNo");
+        //then
+        assertEquals("aaaaaaaa".matches(annotations[0].regexp()), false);
     }
     
     @Test
-    public void testInvalidStreetNumber() throws NoSuchFieldException {
-        streetNumberRegex("aaaaaaaa", false);
+    private void testValidStreetNumber() throws NoSuchFieldException {
+        //when
+        Pattern[] annotations = getPatterns("streetNo");
+        //then
+        assertEquals("666".matches(annotations[0].regexp()), true);
+        assertEquals("666A".matches(annotations[0].regexp()), true);
     }
     
     @Test
-    public void testValidStreetNumber() throws NoSuchFieldException {
-        streetNumberRegex("666", true);
-        streetNumberRegex("666A", true);
-    }
-    
-    public void zipCodeRegex(String zipCode, boolean validates) throws NoSuchFieldException {
-        Field field = Address.class.getDeclaredField("zipCode");
-        javax.validation.constraints.Pattern[] annotations = field.getAnnotationsByType(javax.validation.constraints.Pattern.class);
-        assertEquals(zipCode.matches(annotations[0].regexp()), validates);
+    private void testInvalidZipCode() throws NoSuchFieldException {
+        //when
+        Pattern[] annotations = getPatterns("zipCode");
+        //then
+        assertEquals("123456".matches(annotations[0].regexp()), false);
     }
     
     @Test
-    public void testInvalidZipCode() throws NoSuchFieldException {
-        zipCodeRegex("123456", false);
+    private void testValidZipCode() throws NoSuchFieldException {
+        //when
+        Pattern[] annotations = getPatterns("zipCode");
+        //then
+        assertEquals("66-666".matches(annotations[0].regexp()), true);
     }
-    
-    @Test
-    public void testValidZipCode() throws NoSuchFieldException {
-        zipCodeRegex("66-666", true);
-    }
+
+
 }

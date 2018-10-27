@@ -3,8 +3,6 @@ package pl.sda.commons.services;
 import jxl.Workbook;
 import jxl.format.Colour;
 import jxl.write.*;
-import jxl.write.biff.RowsExceededException;
-import pl.sda.DocumentType;
 import pl.sda.commons.MockData;
 
 import java.io.File;
@@ -111,7 +109,7 @@ public class ExcelDocument {
             return false;
         }
 
-    
+
         public boolean saveOneToXLS(Object data){
             WritableWorkbook exampleXls = null;
             String prefix = data.getClass().getSimpleName();

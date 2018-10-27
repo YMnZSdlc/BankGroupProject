@@ -1,8 +1,6 @@
 package pl.sda.commons.services;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pl.sda.DocumentType;
 import pl.sda.commons.MockData;
 
 import java.util.ArrayList;

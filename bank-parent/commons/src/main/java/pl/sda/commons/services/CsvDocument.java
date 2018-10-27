@@ -49,13 +49,15 @@ public class CsvDocument {
         }
         return true;
     }
+
     static boolean saveToCSV(List<MockData> mockData) throws IOException {
         if (!mockData.getClass().isAssignableFrom(Collection.class)) {
             return printToFile(mockData);
         }
         return false;
     }
-    private static List<MockData> mockDataList(){
+
+    private static List<MockData> mockDataList() {
         List<String> exampleList = new ArrayList<>();
         exampleList.add("Sample 1");
         exampleList.add("Sample 2");
@@ -70,3 +72,4 @@ public class CsvDocument {
         return mockData;
     }
 
+}

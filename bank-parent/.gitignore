@@ -37,3 +37,4 @@ commons/src/main/java/pl/sda/commons/factory/
 commons/target/generated-sources/
 commons/target/generated-test-sources/
 
+/commons/target/

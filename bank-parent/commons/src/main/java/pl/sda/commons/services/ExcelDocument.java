@@ -10,12 +10,13 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Collection;
 
-//EXCEL -> *.xls
 public class ExcelDocument implements ConvertToFile {
 
-    public static final String EXCEL_FILE_EXTENSION = "Example.xls";
+    private static final String EXCEL_FILE_EXTENSION = "Example.xls";
 
-    public boolean generateXLS(Object data) {
+    @Override
+    public boolean convert(Object data) {
+
         assert data != null : "To jest NULL";
 
         if (Collection.class.isAssignableFrom(data.getClass())) {
@@ -25,7 +26,7 @@ public class ExcelDocument implements ConvertToFile {
         }
     }
 
-    public boolean saveListToXLS(Collection<?> data) {
+    private boolean saveListToXLS(Collection<?> data) {
         WritableWorkbook exampleXls = null;
         String prefix = data.getClass().getSimpleName();
 
@@ -72,10 +73,10 @@ public class ExcelDocument implements ConvertToFile {
         return false;
     }
 
-    
-        public boolean saveOneToXLS(Object data){
-            WritableWorkbook exampleXls = null;
-            String prefix = data.getClass().getSimpleName();
+
+    private boolean saveOneToXLS(Object data) {
+        WritableWorkbook exampleXls = null;
+        String prefix = data.getClass().getSimpleName();
 
         try {
             exampleXls = Workbook.createWorkbook(new File(prefix + EXCEL_FILE_EXTENSION));
@@ -155,10 +156,5 @@ public class ExcelDocument implements ConvertToFile {
         contentFont.setColour(Colour.BLACK);
         contentFormat.setFont(contentFont);
         return contentFormat;
-    }
-
-    @Override
-    public void convert(Object object) {
-
     }
 }

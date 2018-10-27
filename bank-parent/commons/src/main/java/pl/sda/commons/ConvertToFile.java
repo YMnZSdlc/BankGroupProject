@@ -1,6 +1,7 @@
 package pl.sda.commons;
 
+@FunctionalInterface
 public interface ConvertToFile {
 
-    public void convert( Object object);
+     boolean convert( Object object);
 }

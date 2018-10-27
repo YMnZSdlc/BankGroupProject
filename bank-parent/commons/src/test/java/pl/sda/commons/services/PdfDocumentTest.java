@@ -2,11 +2,14 @@ package pl.sda.commons.services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import pl.sda.commons.ConvertObjectToFile;
 import pl.sda.commons.MockData;
 import pl.sda.commons.MockDataTwo;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static pl.sda.commons.DocumentType.PDF;
 
 class PdfDocumentTest {
 
@@ -21,7 +24,8 @@ class PdfDocumentTest {
         exampleList.add("Sample 4");
         MockData mockData = new MockData(22, "Hello ", "World!!", exampleList);
         //when
-        boolean result = PdfDocument.saveToPdf(mockData);
+        ConvertObjectToFile convertObjectToFile = new ConvertObjectToFile(PDF);
+        boolean result = convertObjectToFile.convert(mockData);
         //then
         Assertions.assertTrue(result);
 
@@ -45,7 +49,8 @@ class PdfDocumentTest {
         list.add(mockData1);
 
         //when
-        boolean result = PdfDocument.saveToPdf(list);
+        ConvertObjectToFile convertObjectToFile = new ConvertObjectToFile(PDF);
+        boolean result = convertObjectToFile.convert(list);
         //then
         Assertions.assertTrue(result);
 
@@ -72,7 +77,8 @@ class PdfDocumentTest {
         MockDataTwo mockDataTwo = new MockDataTwo("JAAAAAZDA", list);
 
         //when
-        boolean result = PdfDocument.saveToPdf(mockDataTwo);
+        ConvertObjectToFile convertObjectToFile = new ConvertObjectToFile(PDF);
+        boolean result = convertObjectToFile.convert(mockDataTwo);
         //then
         Assertions.assertTrue(result);
 

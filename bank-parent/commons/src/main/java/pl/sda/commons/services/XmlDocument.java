@@ -20,6 +20,11 @@ import java.util.List;
 
 public class XmlDocument implements ConvertToFile {
 
+    @Override
+    public boolean convert(Object object) {
+        return false;
+    }
+
 
     public void mockToXml(MockData mockData) {
         try {
@@ -71,10 +76,6 @@ public class XmlDocument implements ConvertToFile {
         }
     }
 
-    @Override
-    public void convert(Object object) {
-
-    }
 }
 
 

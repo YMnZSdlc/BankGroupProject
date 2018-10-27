@@ -5,27 +5,25 @@ import pl.sda.commons.services.ExcelDocument;
 import pl.sda.commons.services.PdfDocument;
 import pl.sda.commons.services.XmlDocument;
 
+import static pl.sda.commons.DocumentType.*;
+
 public class ConvertObjectToFile {
 
-    private DocumentType typ;
     private ConvertToFile convertToFile;
 
     public ConvertObjectToFile(DocumentType typ) {
-
-        if (typ.equals(DocumentType.EXCEL)) {
-
+        if (EXCEL.equals(typ)) {
             convertToFile = new ExcelDocument();
-        } else if (typ.equals(DocumentType.CSV)) {
+        } else if (CSV.equals(typ)) {
             convertToFile = new CsvDocument();
-        } else if (typ.equals(DocumentType.PDF)) {
+        } else if (PDF.equals(typ)) {
             convertToFile = new PdfDocument();
-        } else if (typ.equals(DocumentType.XML)) {
+        } else if (XML.equals(typ)) {
             convertToFile = new XmlDocument();
         }
     }
 
-    public void convert(Object object) {
-
-        convertToFile.convert(object);
+    public boolean convert(Object object) {
+       return convertToFile.convert(object);
     }
 }

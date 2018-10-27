@@ -2,7 +2,9 @@ package pl.sda.commons.services;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
-import pl.sda.commons.ConvertToFile;
+import pl.sda.commons.strategy.ConvertToFile;
+import pl.sda.commons.tools.PathToFile;
+import pl.sda.commons.tools.ValidParameters;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -11,16 +13,17 @@ import java.util.Date;
 
 public class PdfDocument implements ConvertToFile {
 
-    private static final String FILE = "/Users/jakubdobrogowski/Desktop/pdfFile";
+    private static final String PATH = PathToFile.setPath();
     private static final Font FONT = FontFactory.getFont(FontFactory.COURIER, 11, BaseColor.BLACK);
 
     @Override
     public boolean convert(Object data) {
 
+        ValidParameters.check(data, PATH);
         boolean result = false;
         Document document = new Document();
         try {
-            PdfWriter.getInstance(document, new FileOutputStream(FILE));
+            PdfWriter.getInstance(document, new FileOutputStream(PATH));
         } catch (DocumentException | FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -2,14 +2,14 @@ package pl.sda.commons.services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pl.sda.commons.ConvertObjectToFile;
+import pl.sda.commons.strategy.ConvertObjectToFile;
 import pl.sda.commons.MockData;
 import pl.sda.commons.MockDataTwo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static pl.sda.commons.DocumentType.PDF;
+import static pl.sda.commons.strategy.DocumentType.PDF;
 
 class PdfDocumentTest {
 

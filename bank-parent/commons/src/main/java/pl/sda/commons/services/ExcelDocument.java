@@ -3,7 +3,11 @@ package pl.sda.commons.services;
 import jxl.Workbook;
 import jxl.format.Colour;
 import jxl.write.*;
-import pl.sda.commons.ConvertToFile;
+import pl.sda.commons.strategy.ConvertToFile;
+import pl.sda.commons.tools.PathToFile;
+import pl.sda.commons.exceptions.ObjectToSaveInvalid;
+import pl.sda.commons.exceptions.PathNotFoundException;
+import pl.sda.commons.tools.ValidParameters;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,12 +16,12 @@ import java.util.Collection;
 
 public class ExcelDocument implements ConvertToFile {
 
-    private static final String EXCEL_FILE_EXTENSION = "Example.xls";
+    private static final String PATH = PathToFile.setPath();
 
     @Override
     public boolean convert(Object data) {
 
-        assert data != null : "To jest NULL";
+        ValidParameters.check(data, PATH);
 
         if (Collection.class.isAssignableFrom(data.getClass())) {
             return saveListToXLS((Collection) data);
@@ -31,7 +35,7 @@ public class ExcelDocument implements ConvertToFile {
         String prefix = data.getClass().getSimpleName();
 
         try {
-            exampleXls = Workbook.createWorkbook(new File(prefix + EXCEL_FILE_EXTENSION));
+            exampleXls = Workbook.createWorkbook(new File(prefix + PATH));
 
             // create Excel sheet name from class name
             WritableSheet excelSheet = exampleXls.createSheet(prefix, 0);
@@ -79,7 +83,7 @@ public class ExcelDocument implements ConvertToFile {
         String prefix = data.getClass().getSimpleName();
 
         try {
-            exampleXls = Workbook.createWorkbook(new File(prefix + EXCEL_FILE_EXTENSION));
+            exampleXls = Workbook.createWorkbook(new File(prefix + PATH));
 
             // create Excel sheet name from class name
             WritableSheet excelSheet = exampleXls.createSheet(prefix, 0);

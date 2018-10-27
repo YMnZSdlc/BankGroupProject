@@ -2,7 +2,9 @@ package pl.sda.commons.services;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
-import pl.sda.commons.ConvertToFile;
+import pl.sda.commons.strategy.ConvertToFile;
+import pl.sda.commons.tools.PathToFile;
+import pl.sda.commons.tools.ValidParameters;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -15,16 +17,14 @@ import static java.util.stream.Collectors.toList;
 
 public class CsvDocument implements ConvertToFile {
 
-    private static final String SAMPLE_CSV_FILE = "./sample.csv";
+    private static final String PATH = PathToFile.setPath();
 
     @Override
     public boolean convert(Object data) {
 
-        if (data == null) {
-            throw new RuntimeException("Null Object");
-        }
+        ValidParameters.check(data, PATH);
         String[] headers = chooseWhichTypeOfHeaders(data);
-        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(SAMPLE_CSV_FILE));
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(PATH));
              CSVPrinter printer = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader(headers))) {
 
             Collection collectionObjects = fillCollection(data);

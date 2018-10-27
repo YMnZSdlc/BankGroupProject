@@ -2,7 +2,7 @@ package pl.sda.commons.services;
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
-import pl.sda.commons.ConvertToFile;
+import pl.sda.commons.strategy.ConvertToFile;
 import pl.sda.commons.MockData;
 
 import javax.xml.parsers.DocumentBuilder;

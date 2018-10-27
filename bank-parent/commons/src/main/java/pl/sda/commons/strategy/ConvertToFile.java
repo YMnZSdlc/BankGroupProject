@@ -1,4 +1,4 @@
-package pl.sda.commons;
+package pl.sda.commons.strategy;
 
 @FunctionalInterface
 public interface ConvertToFile {

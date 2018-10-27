@@ -13,7 +13,6 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "accounts")
 @Validated
 public class Account {
     @Id
@@ -34,7 +33,7 @@ public class Account {
     private BigDecimal balance;
     
     @OneToMany(mappedBy = "account")
-    private List<Services> services;
+    private List<Service> services;
     
     @OneToMany(mappedBy = "account")
     private List<Card> cards;

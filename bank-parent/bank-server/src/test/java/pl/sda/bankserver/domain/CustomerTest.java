@@ -17,7 +17,7 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 
 public class CustomerTest {
-    
+
     private Validator validator;
     
     @Before
@@ -45,7 +45,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifCustomerIsValid() {
+    public void ifCustomerIsValid() {
         //given
         Customer customer = createValidCustomer();
         //when
@@ -55,7 +55,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifPasswordIsNullValidationFails() {
+    public void ifPasswordIsNullValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setPassword(null);
@@ -66,7 +66,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifFirstNameIsNullValidationFails() {
+    public void ifFirstNameIsNullValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setFirstName(null);
@@ -77,7 +77,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifFirstNameIsTooShortValidationFails() {
+    public void ifFirstNameIsTooShortValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setFirstName("Aa");
@@ -88,7 +88,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifFirstNameIsTooLongValidationFails() {
+    public void ifFirstNameIsTooLongValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setFirstName("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
@@ -99,7 +99,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifLastNameIsNullValidationFails() {
+    public void ifLastNameIsNullValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setLastName(null);
@@ -110,7 +110,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifPeselIsTooShortValidationFails() {
+    public void ifPeselIsTooShortValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setPesel("123");
@@ -121,7 +121,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifPeselIsTooLongtValidationFails() {
+    public void ifPeselIsTooLongtValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setPesel("123456789123456789");
@@ -132,7 +132,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifPeselIsNullValidationFails() {
+    public void ifPeselIsNullValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setPesel(null);
@@ -143,7 +143,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifCreateDateIsNullValidationFails() {
+    public void ifCreateDateIsNullValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setCreateDate(null);
@@ -154,7 +154,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifCreateDateIsFutureValidationFails() {
+    public void ifCreateDateIsFutureValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setCreateDate(LocalDateTime.of(2070, 12, 12, 20, 20));
@@ -165,7 +165,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifEmailIsNullValidationFails() {
+    public void ifEmailIsNullValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setEmail(null);
@@ -176,7 +176,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifPhoneNumberIsNullValidationFails() {
+    public void ifPhoneNumberIsNullValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setPhoneNumber(null);
@@ -187,7 +187,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void ifDateOfBirthIsFutureValidationFails() {
+    public void ifDateOfBirthIsFutureValidationFails() {
         //given
         Customer customer = createValidCustomer();
         customer.setDateOfBirth(LocalDate.of(2070, 12, 12));
@@ -203,7 +203,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void testInvalidPassword() throws NoSuchFieldException {
+    public void testInvalidPassword() throws NoSuchFieldException {
         //when
         Pattern[] annotations = getPatterns("password");
         //then
@@ -211,7 +211,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void testValidPassword() throws NoSuchFieldException {
+    public void testValidPassword() throws NoSuchFieldException {
         //when
         Pattern[] annotations = getPatterns("password");
         //then
@@ -219,7 +219,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void testInvalidEmail() throws NoSuchFieldException {
+    public void testInvalidEmail() throws NoSuchFieldException {
         //when
         Pattern[] annotations = getPatterns("email");
         //then
@@ -227,7 +227,7 @@ public class CustomerTest {
     }
 
     @Test
-    private void testValidEmail() throws NoSuchFieldException {
+    public void testValidEmail() throws NoSuchFieldException {
         //when
         Pattern[] annotations = getPatterns("email");
         //then
@@ -235,7 +235,7 @@ public class CustomerTest {
     }
     
     @Test
-    private void testInvalidPhoneNumber() throws NoSuchFieldException {
+    public void testInvalidPhoneNumber() throws NoSuchFieldException {
         //when
         Pattern[] annotations = getPatterns("phoneNumber");
         //then
@@ -244,7 +244,7 @@ public class CustomerTest {
     }
 
     @Test
-    private void testValidPhoneNumber() throws NoSuchFieldException {
+    public void testValidPhoneNumber() throws NoSuchFieldException {
         //when
         Pattern[] annotations = getPatterns("phoneNumber");
         //then

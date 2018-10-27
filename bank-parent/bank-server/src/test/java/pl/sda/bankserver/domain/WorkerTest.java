@@ -16,7 +16,7 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 
 public class WorkerTest {
-    
+
     private Validator validator;
     
     @Before
@@ -44,7 +44,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifWorkerIsValid() {
+    public void ifWorkerIsValid() {
         //given
         Worker worker = createValidWorker();
         //when
@@ -54,7 +54,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifPasswordIsNullValidationFails() {
+    public void ifPasswordIsNullValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setPassword(null);
@@ -65,7 +65,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifFirstNameIsNullValidationFails() {
+    public void ifFirstNameIsNullValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setFirstName(null);
@@ -76,7 +76,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifFirstNameIsTooShortValidationFails() {
+    public void ifFirstNameIsTooShortValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setFirstName("Aa");
@@ -87,7 +87,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifFirstNameIsTooLongValidationFails() {
+    public void ifFirstNameIsTooLongValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setFirstName("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
@@ -98,7 +98,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifLastNameIsNullValidationFails() {
+    public void ifLastNameIsNullValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setLastName(null);
@@ -109,7 +109,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifSalaryIsNullValidationFails() {
+    public void ifSalaryIsNullValidationFails() {
         Worker worker = createValidWorker();
         worker.setSalary(null);
         //when
@@ -119,7 +119,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifPeselIsTooShortValidationFails() {
+    public void ifPeselIsTooShortValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setPesel("123");
@@ -130,7 +130,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifPeselIsTooLongtValidationFails() {
+    public void ifPeselIsTooLongtValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setPesel("123456789123456789");
@@ -141,7 +141,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifPeselIsNullValidationFails() {
+    public void ifPeselIsNullValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setPesel(null);
@@ -152,7 +152,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifEmploymentDateIsFutureValidationFails() {
+    public void ifEmploymentDateIsFutureValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setEmploymentDate(LocalDate.of(2070, 12, 12));
@@ -163,7 +163,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifEmailIsNullValidationFails() {
+    public void ifEmailIsNullValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setEmail(null);
@@ -174,7 +174,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifPhoneNumberIsNullValidationFails() {
+    public void ifPhoneNumberIsNullValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setPhoneNumber(null);
@@ -185,7 +185,7 @@ public class WorkerTest {
     }
     
     @Test
-    private void ifDateOfBirthIsFutureValidationFails() {
+    public void ifDateOfBirthIsFutureValidationFails() {
         //given
         Worker worker = createValidWorker();
         worker.setDateOfBirth(LocalDate.of(2070, 12, 12));

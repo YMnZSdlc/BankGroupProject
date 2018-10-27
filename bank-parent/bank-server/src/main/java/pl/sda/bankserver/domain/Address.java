@@ -13,7 +13,6 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "addresses")
 @Validated
 public class Address {
     

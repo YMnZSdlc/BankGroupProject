@@ -42,7 +42,6 @@ public class Worker {
     @NotNull
     private BigDecimal salary;
     
-    @Column(name = "pesel")
     @NotNull
     @Size(min = 11, max = 11)
     private String pesel;

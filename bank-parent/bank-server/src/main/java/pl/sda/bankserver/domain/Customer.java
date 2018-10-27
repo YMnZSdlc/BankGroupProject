@@ -17,7 +17,6 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "Customers")
 @Validated
 public class Customer {
     @Id

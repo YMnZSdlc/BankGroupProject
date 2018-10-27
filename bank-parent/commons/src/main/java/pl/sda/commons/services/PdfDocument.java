@@ -2,13 +2,14 @@ package pl.sda.commons.services;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
+import pl.sda.commons.ConvertToFile;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
 import java.util.Date;
 
-public class PdfDocument {
+public class PdfDocument implements ConvertToFile {
 
     private static final String FILE = "/Users/jakubdobrogowski/Desktop/pdfFile";
     private static final Font FONT = FontFactory.getFont(FontFactory.COURIER, 11, BaseColor.BLACK);
@@ -118,4 +119,8 @@ public class PdfDocument {
         }
     }
 
+    @Override
+    public void convert(Object object) {
+
+    }
 }

@@ -2,6 +2,7 @@ package pl.sda.commons.services;
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
+import pl.sda.commons.ConvertToFile;
 import pl.sda.commons.MockData;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -17,7 +18,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XmlDocument {
+public class XmlDocument implements ConvertToFile {
 
 
     public void mockToXml(MockData mockData) {
@@ -68,6 +69,11 @@ public class XmlDocument {
             tfe.printStackTrace();
         } catch (IllegalAccessException iae) {
         }
+    }
+
+    @Override
+    public void convert(Object object) {
+
     }
 }
 

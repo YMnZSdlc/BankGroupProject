@@ -3,9 +3,7 @@ package pl.sda.commons.services;
 import jxl.Workbook;
 import jxl.format.Colour;
 import jxl.write.*;
-import jxl.write.biff.RowsExceededException;
-import pl.sda.DocumentType;
-import pl.sda.commons.MockData;
+import pl.sda.commons.ConvertToFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +11,7 @@ import java.lang.reflect.Field;
 import java.util.Collection;
 
 //EXCEL -> *.xls
-public class ExcelDocument {
+public class ExcelDocument implements ConvertToFile {
 
     public static final String EXCEL_FILE_EXTENSION = "Example.xls";
 
@@ -157,5 +155,10 @@ public class ExcelDocument {
         contentFont.setColour(Colour.BLACK);
         contentFormat.setFont(contentFont);
         return contentFormat;
+    }
+
+    @Override
+    public void convert(Object object) {
+
     }
 }

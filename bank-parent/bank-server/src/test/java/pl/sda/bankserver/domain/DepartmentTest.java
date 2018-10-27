@@ -34,7 +34,7 @@ public class DepartmentTest {
     }
     
     @Test
-    private void ifDepartamentisValid() {
+    public void ifDepartamentisValid() {
         //given
         Department department = createValidDepartment();
         //when
@@ -44,7 +44,7 @@ public class DepartmentTest {
     }
     
     @Test
-    private void ifDepartamenttNameIsNullValidationFails() {
+    public void ifDepartamenttNameIsNullValidationFails() {
         //given
         Department department = createValidDepartment();
         department.setDeptName(null);
@@ -55,7 +55,7 @@ public class DepartmentTest {
     }
     
     @Test
-    private void ifDepartamenttNameIsTooLongValidationFails() {
+    public void ifDepartamenttNameIsTooLongValidationFails() {
         //given
         Department department = createValidDepartment();
         department.setDeptName("Oddzial ktorego nazwa jest stanoczo za dluga");
@@ -66,7 +66,7 @@ public class DepartmentTest {
     }
     
     @Test
-    private void ifDepartamenttNumberIsNullValidationFails() {
+    public void ifDepartamenttNumberIsNullValidationFails() {
         //given
         Department department = createValidDepartment();
         department.setDeptNo(null);
@@ -77,7 +77,7 @@ public class DepartmentTest {
     }
     
     @Test
-    private void ifPhoneNumberIsNullValidationFails() {
+    public void ifPhoneNumberIsNullValidationFails() {
         //given
         Department department = createValidDepartment();
         department.setPhoneNumber(null);
@@ -88,7 +88,7 @@ public class DepartmentTest {
     }
     
     @Test
-    private void ifPhoneNumberIsTooLongValidationFails() {
+    public void ifPhoneNumberIsTooLongValidationFails() {
         //given
         Department department = createValidDepartment();
         department.setPhoneNumber("666 666 666 666 666");

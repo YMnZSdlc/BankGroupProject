@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @Validated
-public class Services {
+public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

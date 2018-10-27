@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @Validated
+@Table(name = "account_history")
 public class AccountHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -21,7 +21,7 @@ public class AddressTest {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
     }
-    
+
     private Address createValidAddress() {
         Address address = new Address();
         address.setId(1);
@@ -38,7 +38,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifAddressisValid() {
+    public void ifAddressisValid() {
         //given
         Address address = createValidAddress();
         //when
@@ -48,7 +48,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifStreetNameIsNullValidationFails() {
+    public void ifStreetNameIsNullValidationFails() {
         //given
         Address address = createValidAddress();
         address.setStreetName(null);
@@ -59,7 +59,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifStreetNameIsTooLongValidationFails() {
+    public void ifStreetNameIsTooLongValidationFails() {
         //given
         Address address = createValidAddress();
         address.setStreetName("Ulica ktorej nazwa jest stanowczo za dluga");
@@ -70,7 +70,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifStreetNumberIsNullValidationFails() {
+    public void ifStreetNumberIsNullValidationFails() {
         //given
         Address address = createValidAddress();
         address.setStreetNo(null);
@@ -81,7 +81,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifStreetNumberIsTooLongValidationFails() {
+    public void ifStreetNumberIsTooLongValidationFails() {
         //given
         Address address = createValidAddress();
         address.setStreetNo("1 Stanowczo za dlugi numer");
@@ -92,7 +92,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifHometNumberIsTooLongValidationFails() {
+    public void ifHometNumberIsTooLongValidationFails() {
         //given
         Address address = createValidAddress();
         address.setHomeNo("123456789123");
@@ -103,7 +103,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifCityIsTooLongValidationFails() {
+    public void ifCityIsTooLongValidationFails() {
         //given
         Address address = createValidAddress();
         address.setCity("Miasto ktorego nazwa jest stanowczo za dluga");
@@ -114,7 +114,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifCityIsNullValidationFails() {
+    public void ifCityIsNullValidationFails() {
         //given
         Address address = createValidAddress();
         address.setCity(null);
@@ -125,7 +125,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifZipCodeIsTooLongValidationFails() {
+    public void ifZipCodeIsTooLongValidationFails() {
         //given
         Address address = createValidAddress();
         address.setZipCode("92-1234");
@@ -136,7 +136,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifZipCodeIsTooShortValidationFails() {
+    public void ifZipCodeIsTooShortValidationFails() {
         //given
         Address address = createValidAddress();
         address.setZipCode("12");
@@ -147,7 +147,7 @@ public class AddressTest {
     }
     
     @Test
-    private void ifZipCodeIsNullValidationFails() {
+    public void ifZipCodeIsNullValidationFails() {
         //given
         Address address = createValidAddress();
         address.setZipCode(null);
@@ -163,7 +163,7 @@ public class AddressTest {
     }
 
     @Test
-    private void testInvalidStreetNumber() throws NoSuchFieldException {
+    public void testInvalidStreetNumber() throws NoSuchFieldException {
         //when
         Pattern[] annotations = getPatterns("streetNo");
         //then
@@ -171,7 +171,7 @@ public class AddressTest {
     }
     
     @Test
-    private void testValidStreetNumber() throws NoSuchFieldException {
+    public void testValidStreetNumber() throws NoSuchFieldException {
         //when
         Pattern[] annotations = getPatterns("streetNo");
         //then
@@ -180,7 +180,7 @@ public class AddressTest {
     }
     
     @Test
-    private void testInvalidZipCode() throws NoSuchFieldException {
+    public void testInvalidZipCode() throws NoSuchFieldException {
         //when
         Pattern[] annotations = getPatterns("zipCode");
         //then
@@ -188,7 +188,7 @@ public class AddressTest {
     }
     
     @Test
-    private void testValidZipCode() throws NoSuchFieldException {
+    public void testValidZipCode() throws NoSuchFieldException {
         //when
         Pattern[] annotations = getPatterns("zipCode");
         //then

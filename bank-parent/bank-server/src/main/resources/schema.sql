@@ -1,6 +1,6 @@
 create schema `bank_database`;
 
-create table customer (
+create table bank_database.customer (
 id INT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (id),
  password varchar(20) not null,
@@ -14,7 +14,7 @@ PRIMARY KEY (id),
  date_of_birth date
 );
 
-create table department (
+create table bank_database.department (
 id INT NOT NULL auto_increment,
 primary key (id),
 dept_name varchar(30) not null,
@@ -22,11 +22,11 @@ dept_no int not null,
 dept_phone_no varchar(10) not null
 );
 
-alter table customer add department_id int;
-alter table customer add constraint fk_customer_dep FOREIGN KEY (department_id) REFERENCES department(id);
+alter table bank_database.customer add department_id int;
+alter table bank_database.customer add constraint fk_customer_dep FOREIGN KEY (department_id) REFERENCES bank_database.department(id);
 
 
-create table worker (
+create table bank_database.worker (
 id INT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (id),
  password varchar(20) not null,
@@ -41,10 +41,10 @@ PRIMARY KEY (id),
  date_of_birth date
  );
  
- alter table worker add department_id int;
- alter table worker add constraint fk_worker_dep FOREIGN KEY (department_id) REFERENCES department(id);
+ alter table bank_database.worker add department_id int;
+ alter table bank_database.worker add constraint fk_worker_dep FOREIGN KEY (department_id) REFERENCES bank_database.department(id);
  
-create table address (
+create table bank_database.address (
 id INT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (id),
 street_name varchar(30) NOT NULL ,
@@ -54,14 +54,14 @@ city varchar(30) NOT NULL,
 zip_code varchar(6) NOT NULL
 );
 
-alter table worker add address_id int;
-alter table customer add address_id int;
-alter table department add address_id int;
-alter table worker add constraint fk_workers_address FOREIGN KEY (address_id) REFERENCES address(id);
-alter table customer add constraint fk_customers_address FOREIGN KEY (address_id) REFERENCES address(id);
-alter table department add constraint fk_departments_address FOREIGN KEY (address_id) REFERENCES address(id);
+alter table bank_database.worker add address_id int;
+alter table bank_database.customer add address_id int;
+alter table bank_database.department add address_id int;
+alter table bank_database.worker add constraint fk_workers_address FOREIGN KEY (address_id) REFERENCES bank_database.address(id);
+alter table bank_database.customer add constraint fk_customers_address FOREIGN KEY (address_id) REFERENCES bank_database.address(id);
+alter table bank_database.department add constraint fk_departments_address FOREIGN KEY (address_id) REFERENCES bank_database.address(id);
 
- create table account (
+ create table bank_database.account (
  id int not null auto_increment,
  primary key (id),
  acc_no varchar(26) not null unique,
@@ -69,26 +69,26 @@ alter table department add constraint fk_departments_address FOREIGN KEY (addres
  acc_balance decimal(13,2) not null
  );
 
- create table account_category (
+ create table bank_database.account_category (
  id INT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (id),
 category_name varchar(40) not null
 );
 
-alter table account add category_id int;
-alter table account add constraint fk_account_category foreign key (category_id) references account_category(id);
+alter table bank_database.account add category_id int;
+alter table bank_database.account add constraint fk_account_category foreign key (category_id) references bank_database.account_category(id);
 
-create table customer_account (
+create table bank_database.customer_account (
 id INT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (id)
 );
 
-alter table customer_account add customer_id int;
-alter table customer_account add constraint fk_customer foreign key (customer_id) references customer(id);
-alter table customer_account add account_id int;
-alter table customer_account add constraint fk_account foreign key (account_id) references account(id);
+alter table bank_database.customer_account add customer_id int;
+alter table bank_database.customer_account add constraint fk_customer foreign key (customer_id) references bank_database.customer(id);
+alter table bank_database.customer_account add account_id int;
+alter table bank_database.customer_account add constraint fk_account foreign key (account_id) references bank_database.account(id);
 
-create table card (
+create table bank_database.card (
 id INT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (id),
 card_type ENUM('maestro', 'visa', 'mastercard'),
@@ -98,10 +98,10 @@ activation_date date not null,
 expire_date date not null
 );
 
-alter table card add account_id int;
-alter table card add constraint fk_account_card foreign key (account_id) references account(id);
+alter table bank_database.card add account_id int;
+alter table bank_database.card add constraint fk_account_card foreign key (account_id) references bank_database.account(id);
 
-create table account_history (
+create table bank_database.account_history (
 id INT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (id),
 balance_bef decimal(13,2) not null,
@@ -109,11 +109,11 @@ balance_after decimal(13,2) not null,
 service_type enum('deposit', 'loan', 'credit', 'investment', 'payment', 'withdrawal', 'transfer')
 );
 
-alter table account_history add account_id int;
-alter table account_history add constraint fk_account_history foreign key (account_id) references account(id);
+alter table bank_database.account_history add account_id int;
+alter table bank_database.account_history add constraint fk_account_history foreign key (account_id) references bank_database.account(id);
 
 
-create table service (
+create table bank_database.service (
 id INT NOT NULL AUTO_INCREMENT,
 PRIMARY KEY (id),
 service ENUM('deposit', 'loan', 'credit', 'investment', 'payment', 'withdrawal', 'transfer'),
@@ -128,5 +128,5 @@ service_sender_account varchar(26),
 service_recipient_account varchar(26)
 );
 
-alter table service add account_id int;
-alter table service add constraint fk_accounts_service foreign key (account_id) references account(id);
+alter table bank_database.service add account_id int;
+alter table bank_database.service add constraint fk_accounts_service foreign key (account_id) references bank_database.account(id);

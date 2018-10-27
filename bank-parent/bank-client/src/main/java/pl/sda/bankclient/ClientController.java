@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ClientController {
 
     @GetMapping("/start")
-    public String showIndex(Model model){
-        model.addAttribute("startPage","Sztos");
+    public String showIndex(){
         return "index";
     }
 }

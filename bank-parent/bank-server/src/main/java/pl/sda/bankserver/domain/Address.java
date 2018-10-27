@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "addresses")
 public class Address {
     
     @Id

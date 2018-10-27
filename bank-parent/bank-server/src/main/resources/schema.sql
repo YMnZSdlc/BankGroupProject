@@ -1,3 +1,14 @@
+drop TABLE customers;
+drop TABLE departments;
+drop TABLE workers;
+drop TABLE addresses;
+drop TABLE accounts;
+drop TABLE accounts_category;
+drop TABLE customer_accounts;
+drop TABLE cards;
+drop TABLE account_history;
+drop TABLE services;
+
 create database `bank_database` default charset utf8 collate utf8_polish_ci;
 use bank_database;
 

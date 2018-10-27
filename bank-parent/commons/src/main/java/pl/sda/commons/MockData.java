@@ -9,10 +9,6 @@ public class MockData {
     private String exampleSecond;
     private List<String> exampleList;
 
-    public MockData() {
-
-    }
-
     public MockData(Integer exammpleId, String exampleFirst, String exampleSecond, List<String> exampleList) {
         this.exammpleId = exammpleId;
         this.exampleFirst = exampleFirst;

@@ -1,3 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Java template
 # Compiled class file
 *.class
 
@@ -19,21 +21,8 @@
 *.tar.gz
 *.rar
 
-
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
 /.idea/
-
-/commons/commons.iml
-/bank-parent.iml
-
-/commons/*.xls
-/commons/*.csv
-/commons/.~lock.ExampleExcel.xls#
-commons/.~lock.ArrayListExample.xls#
-
-commons/src/main/java/pl/sda/commons/factory/
-commons/target/generated-sources/
-commons/target/generated-test-sources/
-
+/.idea/libraries/

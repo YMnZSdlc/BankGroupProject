@@ -1,4 +1,4 @@
-package pl.sda.bankserver.domain.enums;
+package pl.sda.bankcommons.domain.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,11 +8,10 @@ import lombok.Getter;
 public enum CardTypeEnum {
     MAESTRO("maestro"),
 
-    VISTA("vista"),
+    VISA("visa"),
 
-    MASTERCARD("mastercard"),
+    MASTERCARD("mastercard");
 
-    POKER("poker");
     private String cardTypeName;
 
 }

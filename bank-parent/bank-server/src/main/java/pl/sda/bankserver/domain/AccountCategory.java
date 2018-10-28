@@ -1,19 +1,17 @@
 package pl.sda.bankserver.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Setter
-@Getter
+@Data
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "acount_category")
+@Table(name = "account_category")
+@Validated
 public class AccountCategory {
     
     @Id

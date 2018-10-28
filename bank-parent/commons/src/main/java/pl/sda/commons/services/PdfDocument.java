@@ -3,7 +3,7 @@ package pl.sda.commons.services;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.apache.log4j.Logger;
-import pl.sda.commons.strategy.ConvertToFile;
+import pl.sda.commons.strategy.Converatble;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -13,12 +13,12 @@ import java.util.Date;
 import static com.itextpdf.text.BaseColor.BLACK;
 import static com.itextpdf.text.FontFactory.COURIER;
 import static com.itextpdf.text.FontFactory.getFont;
-import static org.apache.log4j.Logger.*;
+import static org.apache.log4j.Logger.getLogger;
 import static pl.sda.commons.tools.PathToFile.setPath;
 import static pl.sda.commons.tools.ValidParameters.check;
 
 
-public class PdfDocument implements ConvertToFile {
+public class PdfDocument implements Converatble {
 
     private static final String PATH = setPath();
     private static final Font FONT = getFont(COURIER, 11, BLACK);
@@ -55,6 +55,7 @@ public class PdfDocument implements ConvertToFile {
         } catch (DocumentException e) {
             LOGGER.error(e.toString());
         }
+        document.close();
         return result;
     }
 
@@ -85,6 +86,7 @@ public class PdfDocument implements ConvertToFile {
     private void createList(Chapter catPart, Object data) {
 
         List list = new List(true, false, 10);
+
         Field[] fields = data.getClass().getDeclaredFields();
         for (Field field : fields) {
             field.setAccessible(true);
@@ -108,6 +110,7 @@ public class PdfDocument implements ConvertToFile {
 
             list.add(new ListItem(field.get(data).toString()));
         }
+      //  catPart.add(list);
     }
 
     private void writeListOfObject(List list, java.util.List listOfObjects) throws IllegalAccessException {

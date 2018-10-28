@@ -1,7 +1,7 @@
 package pl.sda.commons.strategy;
 
 @FunctionalInterface
-public interface ConvertToFile {
+public interface Converatble {
 
      boolean convert( Object object);
 }

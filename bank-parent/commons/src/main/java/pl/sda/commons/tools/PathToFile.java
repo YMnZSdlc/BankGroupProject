@@ -9,8 +9,8 @@ public class PathToFile {
         String osName = (String) properties.get("os.name");
         if (osName.equals("Mac OS X")) {
             return properties.get("user.home") + "/desktop/Pdf";
-        } else if (osName.equals("Windows")) {
-            return properties.get("user.home") + "/Pdf";
+        } else if (osName.equals("Windows 10")) {
+            return properties.get("user.home") + "\\Pdf";
         }
         return null;
     }

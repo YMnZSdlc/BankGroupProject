@@ -3,10 +3,8 @@ package pl.sda.commons.services;
 import jxl.Workbook;
 import jxl.format.Colour;
 import jxl.write.*;
-import pl.sda.commons.strategy.ConvertToFile;
+import pl.sda.commons.strategy.Converatble;
 import pl.sda.commons.tools.PathToFile;
-import pl.sda.commons.exceptions.ObjectToSaveInvalid;
-import pl.sda.commons.exceptions.PathNotFoundException;
 import pl.sda.commons.tools.ValidParameters;
 
 import java.io.File;
@@ -14,7 +12,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Collection;
 
-public class ExcelDocument implements ConvertToFile {
+public class ExcelDocument implements Converatble {
 
     private static final String PATH = PathToFile.setPath();
 

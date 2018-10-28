@@ -15,7 +15,7 @@ import static pl.sda.commons.strategy.DocumentType.CSV;
 class CsvGeneratorTest {
 
     @Test
-    void shouldSaveMockDataToCsvFile() throws IOException {
+    void shouldSaveMockDataToCsvFile() {
         //given
         List<String> exampleList = new ArrayList<>();
         exampleList.add("Sample 1");
@@ -48,14 +48,5 @@ class CsvGeneratorTest {
         File file = new File("C:\\Users\\mateu\\IdeaProjects\\sda_ldz_9\\sample.csv");
         long size = file.length();
         assertTrue(size > 0);
-    }
-
-    @Test
-    public void logDupa(){
-        System.out.println("Dupaaa");
-    }
-    @Test
-    public void logDupa1(){
-        System.out.println("123");
     }
 }

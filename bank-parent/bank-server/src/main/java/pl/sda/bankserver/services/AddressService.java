@@ -19,7 +19,7 @@ public class AddressService {
 
     // ---------- CREATE
     public void createAddress(Address address) {
-        addressRepository.save(address);
+        addressRepository.saveAndFlush(address);
     }
 
     // ----------  READ

@@ -1,1 +1,4 @@
-pl\sda\commons\services\ExcelDocumentTest.class
+pl/sda/commons/ConvertObjectToFileTest.class
+pl/sda/commons/services/CsvDocumentTest.class
+pl/sda/commons/services/ExcelDocumentTest.class
+pl/sda/commons/services/PdfDocumentTest.class

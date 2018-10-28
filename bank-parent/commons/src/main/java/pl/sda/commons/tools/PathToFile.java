@@ -5,6 +5,7 @@ import java.util.Properties;
 public class PathToFile {
 
     public static String setPath() {
+
         Properties properties = System.getProperties();
         String osName = (String) properties.get("os.name");
         if (osName.equals("Mac OS X")) {

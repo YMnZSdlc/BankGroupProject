@@ -10,7 +10,7 @@ public class PathToFile {
         if (osName.equals("Mac OS X")) {
             return properties.get("user.home") + "/desktop/Pdf";
         } else if (osName.equals("Windows 10")) {
-            return properties.get("user.home") + "\\Pdf";
+            return properties.get("user.home") + "\\";
         }
         return null;
     }

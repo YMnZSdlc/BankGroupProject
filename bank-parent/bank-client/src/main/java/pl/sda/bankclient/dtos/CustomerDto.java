@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.sda.bankserver.domain.enums.Sex;
+import pl.sda.bankcommons.domain.dtos.Sex;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

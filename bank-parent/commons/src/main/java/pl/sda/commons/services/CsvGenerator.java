@@ -2,6 +2,7 @@ package pl.sda.commons.services;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
+import org.apache.log4j.Logger;
 import pl.sda.commons.strategy.Converatble;
 import pl.sda.commons.tools.PathToFile;
 
@@ -13,18 +14,21 @@ import java.nio.file.Paths;
 import java.util.*;
 
 import static java.util.stream.Collectors.toList;
+import static org.apache.log4j.Logger.getLogger;
 import static pl.sda.commons.tools.ValidParameters.check;
 
 public class CsvGenerator implements Converatble {
-
     private static final String PATH = PathToFile.setPath();
+    private static Logger LOGGER = getLogger(PdfDocument.class);
 
     @Override
     public boolean convert(Object data) {
 
+        String simpleName = data.getClass().getSimpleName();
+
         check(data, PATH);
         String[] headers = prepareHeaders(data);
-        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(PATH));
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(PATH + simpleName + ".csv"));
              CSVPrinter printer = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader(headers))) {
 
             Collection collectionObjects = fillCollection(data);
@@ -39,7 +43,7 @@ public class CsvGenerator implements Converatble {
             }
             return true;
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error(e.toString());
             return false;
         }
     }
@@ -60,7 +64,7 @@ public class CsvGenerator implements Converatble {
             field.setAccessible(true);
             return field.get(data);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            LOGGER.error(e.toString());
         }
         return null;
     }
@@ -90,5 +94,4 @@ public class CsvGenerator implements Converatble {
     private static String[] extractHeadersFromList(List data) {
         return extractHeaders(data.get(0));
     }
-
 }

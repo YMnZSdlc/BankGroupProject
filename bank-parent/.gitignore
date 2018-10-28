@@ -33,7 +33,6 @@ hs_err_pid*
 /commons/.~lock.ExampleExcel.xls#
 commons/.~lock.ArrayListExample.xls#
 
-commons/src/main/java/pl/sda/commons/factory/
 commons/target/generated-sources/
 commons/target/generated-test-sources/
 

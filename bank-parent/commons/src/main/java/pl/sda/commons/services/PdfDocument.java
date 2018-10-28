@@ -2,32 +2,46 @@ package pl.sda.commons.services;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
+import org.apache.log4j.Logger;
 import pl.sda.commons.strategy.Converatble;
-import pl.sda.commons.tools.PathToFile;
-import pl.sda.commons.tools.ValidParameters;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
 import java.util.Date;
 
+import static com.itextpdf.text.BaseColor.BLACK;
+import static com.itextpdf.text.FontFactory.COURIER;
+import static com.itextpdf.text.FontFactory.getFont;
+import static org.apache.log4j.Logger.getLogger;
+import static pl.sda.commons.tools.PathToFile.setPath;
+import static pl.sda.commons.tools.ValidParameters.check;
+
+
 public class PdfDocument implements Converatble {
 
-    private static final String PATH = PathToFile.setPath();
-    private static final Font FONT = FontFactory.getFont(FontFactory.COURIER, 11, BaseColor.BLACK);
+    private static final String PATH = setPath();
+    private static final Font FONT = getFont(COURIER, 11, BLACK);
+    private static Logger LOGGER = getLogger(PdfDocument.class);
 
     @Override
     public boolean convert(Object data) {
 
-        ValidParameters.check(data, PATH);
+        check(data, PATH);
         boolean result = false;
         Document document = new Document();
         try {
             PdfWriter.getInstance(document, new FileOutputStream(PATH));
         } catch (DocumentException | FileNotFoundException e) {
-            e.printStackTrace();
+            LOGGER.error(e.toString());
         }
         document.open();
+        result = operationOnPdf(data, result, document);
+        document.close();
+        return result;
+    }
+
+    private boolean operationOnPdf(Object data, boolean result, Document document) {
         try {
             addTitlePage(document);
             if (java.util.List.class.isAssignableFrom(data.getClass())) {
@@ -39,7 +53,7 @@ public class PdfDocument implements Converatble {
                 result = addContent(document, data);
             }
         } catch (DocumentException e) {
-            e.printStackTrace();
+            LOGGER.error(e.toString());
         }
         document.close();
         return result;
@@ -77,22 +91,26 @@ public class PdfDocument implements Converatble {
         for (Field field : fields) {
             field.setAccessible(true);
             try {
-                if (java.util.List.class.isAssignableFrom(field.getType())) {
-
-                    Object objectWhereFieldsAreDaclared = field.get(data);
-                    java.util.List listOfObjects = (java.util.List) objectWhereFieldsAreDaclared;
-                    writeListOfObject(list, listOfObjects);
-
-                } else {
-
-                    list.add(new ListItem(field.get(data).toString()));
-                }
-
+                addNewItemToPdf(data, list, field);
             } catch (IllegalAccessException e) {
-                e.printStackTrace();
+                LOGGER.error(e.toString());
             }
         }
         catPart.add(list);
+    }
+
+    private void addNewItemToPdf(Object data, List list, Field field) throws IllegalAccessException {
+        if (java.util.List.class.isAssignableFrom(field.getType())) {
+
+            Object objectWhereFieldsAreDaclared = field.get(data);
+            java.util.List listOfObjects = (java.util.List) objectWhereFieldsAreDaclared;
+            writeListOfObject(list, listOfObjects);
+
+        } else {
+
+            list.add(new ListItem(field.get(data).toString()));
+        }
+      //  catPart.add(list);
     }
 
     private void writeListOfObject(List list, java.util.List listOfObjects) throws IllegalAccessException {

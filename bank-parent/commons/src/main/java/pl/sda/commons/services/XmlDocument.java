@@ -4,6 +4,7 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import pl.sda.commons.strategy.Converatble;
+import pl.sda.commons.tools.PathToFile;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -22,6 +23,7 @@ import static jxl.biff.BaseCellFeatures.logger;
 
 public class XmlDocument implements Converatble {
 
+    private static final String PATH = PathToFile.setPath();
     @Override
     public boolean convert(Object object) {
         boolean resultBoolean = false;
@@ -57,7 +59,7 @@ public class XmlDocument implements Converatble {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(new File(""));
+        StreamResult result = new StreamResult(new File(PATH));
         transformer.transform(source, result);
     }
 }

@@ -27,3 +27,9 @@ hs_err_pid*
 /.idea/
 /.idea/libraries/
 /bank-parent/commons/target/
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.idea
+*.iws
+*.iml
+*.ipr

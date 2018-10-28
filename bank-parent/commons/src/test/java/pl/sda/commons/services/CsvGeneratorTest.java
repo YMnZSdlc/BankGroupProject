@@ -3,9 +3,9 @@ package pl.sda.commons.services;
 import org.junit.jupiter.api.Test;
 import pl.sda.commons.MockData;
 import pl.sda.commons.strategy.ConvertObjectToFile;
+import pl.sda.commons.tools.PathToFile;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static pl.sda.commons.strategy.DocumentType.CSV;
 
 class CsvGeneratorTest {
+
+    private static final String PATH = PathToFile.setPath();
 
     @Test
     void shouldSaveMockDataToCsvFile() {
@@ -39,7 +41,7 @@ class CsvGeneratorTest {
 
     @Test
     void isFileExist() {
-        File file = new File("C:\\Users\\mateu\\IdeaProjects\\sda_ldz_9\\sample.csv");
+        File file = new File(PATH);
         assertTrue(file.exists());
     }
 

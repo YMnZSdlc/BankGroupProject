@@ -31,7 +31,6 @@ class ExcelDocumentTest {
         Assertions.assertTrue(actualResult);
     }
 
-
     @Test
     void shouldGenerateListMockDataToXlsFile() {
         //given
@@ -47,9 +46,7 @@ class ExcelDocumentTest {
         exampleListToWrite.add(new MockData(3, "CCC", "ccc", exampleList));
         exampleListToWrite.add(new MockData(4, "DDD", "ddd", exampleList));
 
-
         //when
-
         ConvertObjectToFile convertObjectToFile = new ConvertObjectToFile(EXCEL);
         Boolean actualResult = convertObjectToFile.convert(exampleListToWrite);
 
@@ -57,7 +54,7 @@ class ExcelDocumentTest {
         Assertions.assertTrue(actualResult);
     }
 
-    @Test
+    /*@Test
     void shouldReturnFalseToNull() {
         //given
         MockData exampleToWrite = null;
@@ -66,6 +63,8 @@ class ExcelDocumentTest {
         ConvertObjectToFile convertObjectToFile = new ConvertObjectToFile(EXCEL);
         Boolean actualResult = convertObjectToFile.convert(exampleToWrite);
 
-    }
+
+    }*/
+
 
 }

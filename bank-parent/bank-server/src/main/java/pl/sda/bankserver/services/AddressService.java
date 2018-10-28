@@ -17,7 +17,13 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
-    public List<Address> findAllBy() {
+    // ---------- CREATE
+    public void createAddress(Address address) {
+        addressRepository.save(address);
+    }
+
+    // ----------  READ
+    public List<Address> findAll() {
         return addressRepository.findAll();
     }
 
@@ -27,5 +33,15 @@ public class AddressService {
 
     public List<Address> findAllByStreetName(String streetName) {
         return addressRepository.findAllByStreetName(streetName);
+    }
+
+    // ----------  UPDATE
+    public void updateAddress(Address address){
+        addressRepository.saveAndFlush(address);
+    }
+
+    // ---------- DELETE
+    public void removeAddress(Integer id) {
+        addressRepository.deleteById(id);
     }
 }

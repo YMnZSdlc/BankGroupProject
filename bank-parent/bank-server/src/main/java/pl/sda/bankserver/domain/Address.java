@@ -1,5 +1,6 @@
 package pl.sda.bankserver.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -51,5 +52,5 @@ public class Address {
     private List<Worker> workerAddresses;
     
     @OneToMany(mappedBy = "address")
-    private List<Worker> departamentsAddresses;
+    private List<Department> departamentsAddresses;
 }

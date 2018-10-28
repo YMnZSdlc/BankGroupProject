@@ -11,7 +11,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-bank-parent/bank-server/bank-server.iml
+/bank-parent/bank-server/bank-server.iml
 .idea
 *.iws
 *.iml

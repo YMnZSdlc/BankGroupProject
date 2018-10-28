@@ -53,4 +53,38 @@ public class AddressRepositoryTest {
         //then
 //        assertEquals(result.get(0).getId(), 5);
     }
+
+
+    @Test
+    public void save() {
+
+        // ---------- CREATE
+        // given
+        Address address = new Address();
+        address.setId(1);
+        address.setStreetName("Abcdefghij");
+        address.setStreetNo("77");
+        address.setHomeNo("4");
+        address.setCity("Warszawa");
+        address.setZipCode("00-117");
+
+        addressRepository.saveAndFlush(address);
+        // when
+        List<Address> result = addressRepository.findAllByStreetName("Abcdefghij");
+        // then
+        assertEquals(result.get(0).getStreetName(), address.getStreetName());
+
+        // ---------- UPDATE
+        // given
+        address = addressRepository.findAllById(1).get(0);
+        String city = address.getCity();
+        Integer id = address.getId();
+        address.setCity("ABCDEFG");
+        addressRepository.saveAndFlush(address);
+        // when
+        address = addressRepository.findAllById(id).get(0);
+        // then
+        assertEquals(address.getCity(), city);
+
+    }
 }

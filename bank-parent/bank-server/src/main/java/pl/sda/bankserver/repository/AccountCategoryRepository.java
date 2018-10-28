@@ -1,8 +1,9 @@
 package pl.sda.bankserver.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.Repository;
 import pl.sda.bankserver.domain.AccountCategory;
 
-public interface AccountCategoryRepository extends Repository<AccountCategory, Integer> {
+public interface AccountCategoryRepository extends JpaRepository<AccountCategory, Integer> {
 
 }

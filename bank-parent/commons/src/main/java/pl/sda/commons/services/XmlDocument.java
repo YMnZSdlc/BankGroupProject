@@ -1,9 +1,9 @@
 package pl.sda.commons.services;
 
 import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import pl.sda.commons.strategy.Converatble;
-import pl.sda.commons.MockData;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,65 +18,46 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jxl.biff.BaseCellFeatures.logger;
+
 public class XmlDocument implements Converatble {
 
     @Override
     public boolean convert(Object object) {
-        return false;
-    }
-
-
-    public void mockToXml(MockData mockData) {
+        boolean resultBoolean = false;
         try {
-
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-
-            Class<?> aClass = mockData.getClass();
-
+            Class<?> aClass = object.getClass();
             Field[] fields = aClass.getDeclaredFields();
-
-            org.w3c.dom.Document doc = docBuilder.newDocument();
-
+            Document doc = docBuilder.newDocument();
             Element mockElement = doc.createElement("mockElement");
             int i = 0;
-            List<Attr> attr = new ArrayList<Attr>();
+            List<Attr> attr = new ArrayList<>();
             for (Field field : fields) {
                 field.setAccessible(true);
                 Element element = doc.createElement(field.getName());
                 mockElement.appendChild(element);
-                System.out.println(field.getName() + ": " + field.get(mockData));
-                attr.add(i,doc.createAttribute(field.getName()));
-                String s = field.get(mockData).toString();
+                logger.info(field.getName() + ": " + field.get(object));
+                attr.add(i, doc.createAttribute(field.getName()));
+                String s = field.get(object).toString();
                 attr.get(i).setValue(s);
                 element.setAttributeNode(attr.get(i));
                 i++;
             }
-
-
-            doc.appendChild(mockElement);
-            // write the content into xml file
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File("C:\\Users\\Longan\\Documents\\sda_ldz_9\\file.xml"));
-
-            // Output to console for testing
-            // StreamResult result = new StreamResult(System.out);
-
-            transformer.transform(source, result);
-
-            System.out.println("File saved!");
-
-        } catch (ParserConfigurationException pce) {
-            pce.printStackTrace();
-        } catch (TransformerException tfe) {
-            tfe.printStackTrace();
-        } catch (IllegalAccessException iae) {
+            writeIntoXmlFile(doc, mockElement);
+            resultBoolean = true;
+        } catch (ParserConfigurationException | TransformerException | IllegalAccessException ex) {
+            logger.error("Ops!", ex);
         }
+        return resultBoolean;
     }
-
+    private void writeIntoXmlFile(Document doc, Element mockElement) throws TransformerException {
+        doc.appendChild(mockElement);
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        DOMSource source = new DOMSource(doc);
+        StreamResult result = new StreamResult(new File(""));
+        transformer.transform(source, result);
+    }
 }
-
-
-

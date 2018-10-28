@@ -1,9 +1,11 @@
 package pl.sda.bankclient.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.bankcommons.domain.dtos.CardRegistrationDto;
 
+@Controller
 public class CardsController {
 
     @GetMapping("/cards")

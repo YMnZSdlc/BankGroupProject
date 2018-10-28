@@ -2,7 +2,7 @@ package pl.sda.commons.services;
 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
-import pl.sda.commons.strategy.ConvertToFile;
+import pl.sda.commons.strategy.Converatble;
 import pl.sda.commons.MockData;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -18,7 +18,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XmlDocument implements ConvertToFile {
+public class XmlDocument implements Converatble {
 
     @Override
     public boolean convert(Object object) {

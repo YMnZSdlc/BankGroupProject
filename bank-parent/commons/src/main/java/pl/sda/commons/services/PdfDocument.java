@@ -2,7 +2,7 @@ package pl.sda.commons.services;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
-import pl.sda.commons.strategy.ConvertToFile;
+import pl.sda.commons.strategy.Converatble;
 import pl.sda.commons.tools.PathToFile;
 import pl.sda.commons.tools.ValidParameters;
 
@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.lang.reflect.Field;
 import java.util.Date;
 
-public class PdfDocument implements ConvertToFile {
+public class PdfDocument implements Converatble {
 
     private static final String PATH = PathToFile.setPath();
     private static final Font FONT = FontFactory.getFont(FontFactory.COURIER, 11, BaseColor.BLACK);

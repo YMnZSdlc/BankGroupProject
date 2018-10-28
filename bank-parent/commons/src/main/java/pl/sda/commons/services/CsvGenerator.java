@@ -2,9 +2,8 @@ package pl.sda.commons.services;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
-import pl.sda.commons.strategy.ConvertToFile;
+import pl.sda.commons.strategy.Converatble;
 import pl.sda.commons.tools.PathToFile;
-import pl.sda.commons.tools.ValidParameters;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -14,16 +13,17 @@ import java.nio.file.Paths;
 import java.util.*;
 
 import static java.util.stream.Collectors.toList;
+import static pl.sda.commons.tools.ValidParameters.check;
 
-public class CsvDocument implements ConvertToFile {
+public class CsvGenerator implements Converatble {
 
     private static final String PATH = PathToFile.setPath();
 
     @Override
     public boolean convert(Object data) {
 
-        ValidParameters.check(data, PATH);
-        String[] headers = chooseWhichTypeOfHeaders(data);
+        check(data, PATH);
+        String[] headers = prepareHeaders(data);
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(PATH));
              CSVPrinter printer = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader(headers))) {
 
@@ -35,22 +35,24 @@ public class CsvDocument implements ConvertToFile {
                         .collect(toList());
 
                 printer.printRecord(collect);
+
             }
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
-        return true;
     }
 
     private Collection fillCollection(Object data) {
         Collection collectionObjects;
-        if (!Collection.class.isAssignableFrom(data.getClass())) {
+        if (Collection.class.isAssignableFrom(data.getClass())) {
+            return (List<?>) data;
+        } else {
             collectionObjects = new ArrayList();
             collectionObjects.add(data);
-        } else {
-            collectionObjects = (List<?>) data;
+            return collectionObjects;
         }
-        return collectionObjects;
     }
 
     private static Object setPermissionToFieldAccess(Object data, Field field) {
@@ -63,9 +65,9 @@ public class CsvDocument implements ConvertToFile {
         return null;
     }
 
-    private static String[] chooseWhichTypeOfHeaders(Object data) {
+    private static String[] prepareHeaders(Object data) {
         if (Collection.class.isAssignableFrom(data.getClass())) {
-            return extractHeadersFromList(data);
+            return extractHeadersFromList((List) data);
         } else if (Map.class.isAssignableFrom(data.getClass())) {
             return extractHeadersFromMapKeys(data);
         }
@@ -82,12 +84,11 @@ public class CsvDocument implements ConvertToFile {
 
     private static String[] extractHeadersFromMapKeys(Object data) {
         data = (((Map) data).keySet().stream()).collect(toList());
-        return extractHeadersFromList(data);
+        return extractHeadersFromList((List) data);
     }
 
-    private static String[] extractHeadersFromList(Object data) {
-        data = ((List) data).get(0);
-        return extractHeaders(data);
+    private static String[] extractHeadersFromList(List data) {
+        return extractHeaders(data.get(0));
     }
 
 }

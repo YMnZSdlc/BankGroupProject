@@ -1,4 +1,4 @@
-package pl.sda.bankclient;
+package pl.sda.bankclient.controllers;
 
 
 import org.springframework.stereotype.Controller;
@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ClientController {
+public class HomeController {
 
     @GetMapping("/start")
     public String showIndex(){

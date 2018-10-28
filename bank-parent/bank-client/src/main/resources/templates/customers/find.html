@@ -2,7 +2,7 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Save Customer</title>
+    <title>Find Customer</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,7 +21,7 @@
             <a class="navbar-brand" href="#">YourBank</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
+            <li><a href="/start">Home</a></li>
             <li class="active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customers
                     <span class="caret"></span></a>
@@ -109,6 +109,10 @@
         <table class="table table-hover" style="width:350px">
             <thead>
             <tr>
+                <th>Password</th>
+                <td><input type="text" th:field="*{password}"></td>
+            </tr>
+            <tr>
                 <th>Firstname</th>
                 <td><input type="text" th:field="*{firstName}"></td>
             </tr>
@@ -135,6 +139,10 @@
                 <th>Date of birth</th>
                 <td><input type="text" th:field="*{dateOfBirth}"></td>
 
+            </tr>
+            <tr>
+                <th>Sex</th>
+                <td><input type="text" th:field="*{sex}"></td>
             </tr>
             </thead>
         </table>

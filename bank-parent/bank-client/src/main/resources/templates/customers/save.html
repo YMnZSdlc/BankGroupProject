@@ -21,7 +21,7 @@
             <a class="navbar-brand" href="#">YourBank</a>
         </div>
         <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
+            <li><a href="/start">Home</a></li>
             <li class="active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customers
                     <span class="caret"></span></a>
@@ -109,6 +109,10 @@
         <table class="table table-hover" style="width:350px">
             <thead>
             <tr>
+                <th>Password</th>
+                <td><input type="text" th:field="*{password}"></td>
+            </tr>
+            <tr>
                 <th>Firstname</th>
                 <td><input type="text" th:field="*{firstName}"></td>
             </tr>
@@ -136,10 +140,14 @@
                 <td><input type="text" th:field="*{dateOfBirth}"></td>
 
             </tr>
+            <tr>
+                <th>Sex</th>
+                <td><input type="text" th:field="*{sex}"></td>
+            </tr>
             </thead>
         </table>
         <div>
-            <button type="submit">Submit</button>
+            <button th:href="customers" type="submit">Submit</button>
         </div>
     </form>
 </div>

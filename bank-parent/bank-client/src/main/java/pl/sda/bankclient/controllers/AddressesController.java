@@ -14,24 +14,24 @@ public class AddressesController {
     }
 
     @GetMapping("/addresses/save")
-    public String viewFormToCreateAddresses(Model model) {
+    public String viewFormToCreateAddress(Model model) {
         model.addAttribute("save", new AddressRegistrationDto());
         return "/addresses/save";
     }
 
     @PostMapping("/addresses/save")
-    public String saveAddresses(@ModelAttribute AddressRegistrationDto addressRegistrationDto) {
+    public String saveAddress(@ModelAttribute AddressRegistrationDto addressRegistrationDto) {
         return "addresses/save";
     }
 
     @GetMapping("/addresses/find")
-    public String viewFormToFindAddresses(Model model) {
+    public String viewFormToFindAddress(Model model) {
         model.addAttribute("find", new AddressRegistrationDto());
         return "addresses/find";
     }
 
     @PostMapping("/addresses/find")
-    public String findAddresses(@ModelAttribute AddressRegistrationDto addressRegistrationDto) {
+    public String findAddress(@ModelAttribute AddressRegistrationDto addressRegistrationDto) {
         return "addresses/find";
     }
 
@@ -47,13 +47,13 @@ public class AddressesController {
     }
 
     @GetMapping("/addresses/update")
-    public String chooseAddressesForUpdate(Model model) {
+    public String chooseAddressForUpdate(Model model) {
         model.addAttribute("update", new AddressRegistrationDto());
         return "addresses/update";
     }
 
     @PutMapping("/addresses/update")
-    public String updateAddresses(@ModelAttribute AddressRegistrationDto addressRegistrationDto) {
+    public String updateAddress(@ModelAttribute AddressRegistrationDto addressRegistrationDto) {
         return "addresses/update";
     }
 
@@ -64,7 +64,7 @@ public class AddressesController {
     }
 
     @DeleteMapping("/addresses/delete")
-    public String deleteAddresses(@ModelAttribute AddressRegistrationDto addressRegistrationDto) {
+    public String deleteAddress(@ModelAttribute AddressRegistrationDto addressRegistrationDto) {
         return "addresses/delete";
     }
 }

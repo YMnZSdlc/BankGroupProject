@@ -1,4 +1,4 @@
-package pl.sda.bankserver.domain.enums;
+package pl.sda.bankcommons.domain.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

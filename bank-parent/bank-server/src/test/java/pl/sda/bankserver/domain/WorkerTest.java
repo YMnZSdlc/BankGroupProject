@@ -2,13 +2,12 @@ package pl.sda.bankserver.domain;
 
 import org.junit.Before;
 import org.junit.Test;
-import pl.sda.bankserver.domain.enums.Sex;
+import pl.sda.bankcommons.domain.dtos.Sex;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
@@ -18,7 +17,7 @@ import static org.junit.Assert.assertEquals;
 public class WorkerTest {
 
     private Validator validator;
-    
+
     @Before
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -42,7 +41,7 @@ public class WorkerTest {
         worker.setAddress(null);
         return worker;
     }
-    
+
     @Test
     public void ifWorkerIsValid() {
         //given
@@ -52,7 +51,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), true);
     }
-    
+
     @Test
     public void ifPasswordIsNullValidationFails() {
         //given
@@ -63,7 +62,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifFirstNameIsNullValidationFails() {
         //given
@@ -74,7 +73,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifFirstNameIsTooShortValidationFails() {
         //given
@@ -85,7 +84,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifFirstNameIsTooLongValidationFails() {
         //given
@@ -96,7 +95,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifLastNameIsNullValidationFails() {
         //given
@@ -107,7 +106,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifSalaryIsNullValidationFails() {
         Worker worker = createValidWorker();
@@ -117,7 +116,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifPeselIsTooShortValidationFails() {
         //given
@@ -128,7 +127,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifPeselIsTooLongtValidationFails() {
         //given
@@ -139,7 +138,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifPeselIsNullValidationFails() {
         //given
@@ -150,7 +149,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifEmploymentDateIsFutureValidationFails() {
         //given
@@ -161,7 +160,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifEmailIsNullValidationFails() {
         //given
@@ -172,7 +171,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifPhoneNumberIsNullValidationFails() {
         //given
@@ -183,7 +182,7 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifDateOfBirthIsFutureValidationFails() {
         //given
@@ -194,5 +193,5 @@ public class WorkerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
 }

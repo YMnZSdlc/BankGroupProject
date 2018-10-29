@@ -14,24 +14,24 @@ public class CardsController {
     }
 
     @GetMapping("/cards/save")
-    public String viewFormToCreateCards(Model model) {
+    public String viewFormToCreateCard(Model model) {
         model.addAttribute("save", new CardRegistrationDto());
         return "/cards/save";
     }
 
     @PostMapping("/cards/save")
-    public String saveCards(@ModelAttribute CardRegistrationDto cardRegistrationDto) {
+    public String saveCard(@ModelAttribute CardRegistrationDto cardRegistrationDto) {
         return "cards/save";
     }
 
     @GetMapping("/cards/find")
-    public String viewFormToFindCards(Model model) {
+    public String viewFormToFindCard(Model model) {
         model.addAttribute("find", new CardRegistrationDto());
         return "cards/find";
     }
 
     @PostMapping("/cards/find")
-    public String findCards(@ModelAttribute CardRegistrationDto cardRegistrationDto) {
+    public String findCard(@ModelAttribute CardRegistrationDto cardRegistrationDto) {
         return "cards/find";
     }
 
@@ -47,24 +47,24 @@ public class CardsController {
     }
 
     @GetMapping("/cards/update")
-    public String chooseCardsForUpdate(Model model) {
+    public String chooseCardForUpdate(Model model) {
         model.addAttribute("update", new CardRegistrationDto());
         return "cards/update";
     }
 
     @PutMapping("/cards/update")
-    public String updateCards(@ModelAttribute CardRegistrationDto cardRegistrationDto) {
+    public String updateCard(@ModelAttribute CardRegistrationDto cardRegistrationDto) {
         return "cards/update";
     }
 
     @GetMapping("/cards/delete")
-    public String findCardsToDelete(Model model) {
+    public String findCardToDelete(Model model) {
         model.addAttribute("delete", new CardRegistrationDto());
         return "cards/delete";
     }
 
     @DeleteMapping("/cards/delete")
-    public String deleteCards(@ModelAttribute CardRegistrationDto cardRegistrationDto) {
+    public String deleteCard(@ModelAttribute CardRegistrationDto cardRegistrationDto) {
         return "cards/delete";
     }
 }

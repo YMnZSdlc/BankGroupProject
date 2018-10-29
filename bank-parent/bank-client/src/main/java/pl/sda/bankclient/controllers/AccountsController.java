@@ -38,7 +38,7 @@ public class AccountsController {
     @GetMapping("/accounts/findall")
     public String findAllAccountsByParam(Model model) {
         model.addAttribute("findall", new AccountRegistrationDto());
-        return "accounts/find";
+        return "accounts/findall";
     }
 
     @PostMapping("/accounts/findall")

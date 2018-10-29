@@ -1,10 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Save Service</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
+<div class="jumbotron text-center">
+    <h1>Nice to see You</h1>
+    <p>Welcome to Your Bank!</p>
+</div>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">YourBank</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/start">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customers
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/customers/save">Save</a></li>
+                    <li><a href="/customers/update">Update</a></li>
+                    <li><a href="/customers/delete/">Delete</a></li>
+                    <li><a href="/customers/find">Find</a></li>
+                    <li><a href="/customers/findall">Find all</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Departments
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/departments/save">Save</a></li>
+                    <li><a href="/departments/update">Update</a></li>
+                    <li><a href="/departments/delete">Delete</a></li>
+                    <li><a href="/departments/find">Find</a></li>
+                    <li><a href="/departments/findall">Find all</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Workers
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/workers/save">Save</a></li>
+                    <li><a href="/workers/update">Update</a></li>
+                    <li><a href="/workers/delete">Delete</a></li>
+                    <li><a href="/workers/find">Find</a></li>
+                    <li><a href="/workers/findall">Find all</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Addresses
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/addresses/save">Save</a></li>
+                    <li><a href="/addresses/update">Update</a></li>
+                    <li><a href="/addresses/delete">Delete</a></li>
+                    <li><a href="/addresses/find">Find</a></li>
+                    <li><a href="/addresses/findall">Find all</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Accounts
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/accounts/save">Save</a></li>
+                    <li><a href="/accounts/update">Update</a></li>
+                    <li><a href="/accounts/delete">Delete</a></li>
+                    <li><a href="/accounts/find">Find</a></li>
+                    <li><a href="/accounts/findall">Find all</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cards
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/cards/save">Save</a></li>
+                    <li><a href="/cards/update">Update</a></li>
+                    <li><a href="/cards/delete">Delete</a></li>
+                    <li><a href="/cards/find">Find</a></li>
+                    <li><a href="/cards/findall">Find all</a></li>
+                </ul>
+            </li>
+            <li class="active">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Services
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/services/save">Save</a></li>
+                    <li><a href="/services/update">Update</a></li>
+                    <li><a href="/services/delete">Delete</a></li>
+                    <li><a href="/services/find">Find</a></li>
+                    <li><a href="/services/findall">Find all</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h2>Welcome to Service Creator!</h2>
+    <p>Create a new Service</p>
+    <form th:object="${save}" th:action="@{/services}" method="post">
+        <table class="table table-hover" style="width:350px">
+            <thead>
+            <tr>
+                <th>Type of Service</th>
+                <td><input type="text" th:field="*{service}"></td>
+            </tr>
+            <tr>
+                <th>Service Number</th>
+                <td><input type="text" th:field="*{number}"></td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td><input type="text" th:field="*{title}"></td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td><input type="text" th:field="*{amount}"></td>
+
+            </tr>
+            <tr>
+                <th>Currency</th>
+                <td><input type="text" th:field="*{currency}"></td>
+
+            </tr>
+            <tr>
+                <th>Start Time</th>
+                <td><input type="text" th:field="*{startTime}"></td>
+
+            </tr>
+            <tr>
+                <th>End Time</th>
+                <td><input type="text" th:field="*{endTime}"></td>
+
+            </tr>
+            <tr>
+                <th>Sender Account</th>
+                <td><input type="text" th:field="*{senderAccount}"></td>
+            </tr>
+            <tr>
+                <th>Recipient Account</th>
+                <td><input type="text" th:field="*{recipientAccount}"></td>
+            </tr>
+            </thead>
+        </table>
+        <div>
+            <button th:href="services" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
 </body>
-</html>

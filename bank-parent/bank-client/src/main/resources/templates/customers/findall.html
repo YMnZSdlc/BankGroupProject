@@ -22,10 +22,10 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="/start">Home</a></li>
-            <li class="dropdown">
+            <li class="active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customers
                     <span class="caret"></span></a>
-                <ul class="active">
+                <ul class="dropdown-menu">
                     <li><a href="/customers/save">Save</a></li>
                     <li><a href="/customers/update">Update</a></li>
                     <li><a href="/customers/delete/">Delete</a></li>
@@ -33,7 +33,7 @@
                     <li><a href="/customers/findall">Find all</a></li>
                 </ul>
             </li>
-            <li class="dropdown-menu">
+            <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Departments
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -112,40 +112,40 @@
                 <th>Firstname</th>
                 <td><input type="text" th:field="*{firstName}"></td>
                 <td>
-                    <button type="findall">Find by first name</button></td>
+                    <button type="submit">Find by first name</button></td>
             </tr>
             <tr>
                 <th>Lastname</th>
                 <td><input type="text" th:field="*{lastName}"></td>
                 <td>
-                    <button type="findall">Find by last name</button></td>
+                    <button type="submit">Find by last name</button></td>
             </tr>
             <tr>
                 <th>Email</th>
                 <td><input type="text" th:field="*{email}"></td>
 
                 <td>
-                    <button type="findall">Find by E-mail</button></td>
+                    <button type="submit">Find by E-mail</button></td>
             </tr>
             <tr>
                 <th>Phone number</th>
                 <td><input type="text" th:field="*{phoneNumber}"></td>
                 <td>
-                    <button type="findall">Find by phone number</button></td>
+                    <button type="submit">Find by phone number</button></td>
 
             </tr>
             <tr>
                 <th>Date of birth</th>
                 <td><input type="text" th:field="*{dateOfBirth}"></td>
                 <td>
-                    <button type="findall">Find by date of birth</button></td>
+                    <button type="submit">Find by date of birth</button></td>
 
             </tr>
             <tr>
                 <th>Sex</th>
                 <td><input type="text" th:field="*{sex}"></td>
                 <td>
-                    <button type="findall">Find by sex</button></td>
+                    <button type="submit">Find by sex</button></td>
             </tr>
             </thead>
         </table>

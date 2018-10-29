@@ -39,12 +39,12 @@ public class CardsController {
     @GetMapping("/cards/findall")
     public String findAllCardsByParam(Model model) {
         model.addAttribute("findall", new CardRegistrationDto());
-        return "cards/find";
+        return "cards/findall";
     }
 
     @PostMapping("/cards/findall")
     public String findAllCards(@ModelAttribute CardRegistrationDto cardRegistrationDto) {
-        return "accounts/findall";
+        return "cards/findall";
     }
 
     @GetMapping("/cards/update")

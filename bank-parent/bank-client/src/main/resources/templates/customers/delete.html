@@ -22,10 +22,10 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="/start">Home</a></li>
-            <li class="dropdown">
+            <li class="active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customers
                     <span class="caret"></span></a>
-                <ul class="active">
+                <ul class="dropdown-menu">
                     <li><a href="/customers/save">Save</a></li>
                     <li><a href="/customers/update">Update</a></li>
                     <li><a href="/customers/delete/">Delete</a></li>
@@ -33,7 +33,7 @@
                     <li><a href="/customers/findall">Find all</a></li>
                 </ul>
             </li>
-            <li class="dropdown-menu">
+            <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Departments
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -142,7 +142,7 @@
             </thead>
         </table>
         <div>
-            <button th:href="customers" type="delete">Find customer to delete</button>
+            <button th:href="customers" type="submit">Find customer to delete</button>
         </div>
     </form>
 </div>

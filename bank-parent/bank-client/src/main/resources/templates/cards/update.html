@@ -33,7 +33,7 @@
                     <li><a href="/customers/findall">Find all</a></li>
                 </ul>
             </li>
-            <li class="dropdown-menu">
+            <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Departments
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -77,10 +77,10 @@
                     <li><a href="/accounts/findall">Find all</a></li>
                 </ul>
             </li>
-            <li class="dropdown">
+            <li class="active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cards
                     <span class="caret"></span></a>
-                <ul class="active">
+                <ul class="dropdown-menu">
                     <li><a href="/cards/save">Save</a></li>
                     <li><a href="/cards/update">Update</a></li>
                     <li><a href="/cards/delete">Delete</a></li>
@@ -104,8 +104,8 @@
 </nav>
 <div class="container">
     <h2>Welcome to Card Update!</h2>
-    <p>Find a card to update</p>
-    <form th:object="${save}" th:action="@{/cards}" method="post">
+    <p>Find a Card to update</p>
+    <form th:object="${update}" th:action="@{/cards}" method="post">
         <table class="table table-hover" style="width:350px">
             <thead>
             <tr>
@@ -137,7 +137,7 @@
             </thead>
         </table>
         <div>
-            <button th:href="cards" type="update">Search</button>
+            <button th:href="cards" type="submit">Search</button>
         </div>
     </form>
 </div>

@@ -22,10 +22,10 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="/start">Home</a></li>
-            <li class="dropdown">
+            <li class="active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customers
                     <span class="caret"></span></a>
-                <ul class="active">
+                <ul class="dropdown-menu">
                     <li><a href="/customers/save">Save</a></li>
                     <li><a href="/customers/update">Update</a></li>
                     <li><a href="/customers/delete/">Delete</a></li>
@@ -33,7 +33,7 @@
                     <li><a href="/customers/findall">Find all</a></li>
                 </ul>
             </li>
-            <li class="dropdown-menu">
+            <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Departments
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -104,7 +104,7 @@
 </nav>
 <div class="container">
     <h2>Welcome to Customer Update!</h2>
-    <p>Find a Customer for update</p>
+    <p>Find a Customer to update</p>
     <form th:object="${update}" th:action="@{/customers}" th:method="put">
         <table class="table table-hover" style="width:350px">
             <thead>
@@ -142,7 +142,7 @@
             </thead>
         </table>
         <div>
-            <button th:href="customers" type="update">Search</button>
+            <button th:href="customers" type="submit">Search</button>
         </div>
     </form>
 </div>

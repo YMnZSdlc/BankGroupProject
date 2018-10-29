@@ -111,18 +111,20 @@
             <tr>
                 <th>Departments Name</th>
                 <td><input type="text" th:field="*{deptName}"></td>
-                    <button th:href="departments" type="findall">Find all Departments by name</button>
+                    <td><button th:href="departments" type="submit">Find by name</button>
+                    </td>
             </tr>
             <tr>
                 <th>Departments Number</th>
                 <td><input type="text" th:field="*{deptNo}"></td>
-                <button th:href="departments" type="findall">Find all Departments by number</button>
-
+                <td><button th:href="departments" type="submit">Find by number</button>
+                </td>
             </tr>
             <tr>
                 <th>Phone Number</th>
                 <td><input type="text" th:field="*{phoneNumber}"></td>
-                <button th:href="departments" type="findall">Find all Departments by phone number</button>
+                <td><button th:href="departments" type="submit">Find by phone number</button>
+                </td>
             </tr>
             </thead>
         </table>

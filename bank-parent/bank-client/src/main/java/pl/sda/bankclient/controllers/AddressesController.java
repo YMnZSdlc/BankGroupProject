@@ -10,7 +10,7 @@ public class AddressesController {
 
     @GetMapping("/addresses")
     public String showAddresses(){
-        return "accounts";
+        return "addresses";
     }
 
     @GetMapping("/addresses/save")
@@ -43,7 +43,7 @@ public class AddressesController {
 
     @PostMapping("/addresses/findall")
     public String findAllAddresses(@ModelAttribute AddressRegistrationDto addressRegistrationDto) {
-        return "accounts/findall";
+        return "addresses/findall";
     }
 
     @GetMapping("/addresses/update")

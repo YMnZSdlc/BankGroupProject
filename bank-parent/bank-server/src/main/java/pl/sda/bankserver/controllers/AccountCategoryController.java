@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 public class AccountCategoryController {
-    
+
 //    private AccountCategoryService accountCategoryService;
 //
 //    @Autowired
@@ -22,7 +22,7 @@ public class AccountCategoryController {
     @PostMapping("/server/accountcategory/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void createAccountCategory(@RequestBody AccountCategoryCreationDto creationDto) {
-//        accountCategoryService.createAccountCategory();
+//        accountCategoryService.createAccountCategory(creationDto);
     }
     
     @GetMapping("/server/accountcategory/all")
@@ -36,12 +36,13 @@ public class AccountCategoryController {
     }
     
     @PutMapping("/server/accountcategory/update")
-    public void updateAccountCategory(@RequestBody AccountCategoryCreationDto creationDto) {
-//        accountCategoryService.updateAccountCategory();
+    public void updateAccountCategory(@RequestParam Map<String, String> customQuery, @RequestBody
+            AccountCategoryCreationDto creationDto) {
+//        accountCategoryService.updateAccountCategory(customQuery, creationDto);
     }
     
     @DeleteMapping("/server/accountcategory/delete")
     public void deleteAccountCategory(@RequestParam Map<String, String> customQuery) {
-//        accountCategoryService.deleteAccountCategory();
+//        accountCategoryService.deleteAccountCategory(customQuery);
     }
 }

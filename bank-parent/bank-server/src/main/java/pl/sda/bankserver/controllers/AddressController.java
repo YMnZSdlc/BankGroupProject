@@ -1,13 +1,14 @@
 package pl.sda.bankserver.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import pl.sda.bankcommons.domain.dtos.AddressRegistrationDto;
 import pl.sda.bankserver.domain.Address;
 import pl.sda.bankserver.services.AddressService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class AddressController {
@@ -19,20 +20,30 @@ public class AddressController {
         this.addressService = addressService;
     }
 
-    @GetMapping("/getAllAddresses")
-    public List<Address> findAllAddresses() {
+    @PostMapping("/server/address/create")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createAddress(@RequestBody AddressRegistrationDto registrationDto) {
+        addressService.createAddress(registrationDto);
+    }
+    
+    @GetMapping("/server/address/all")
+    public List<Address> findAll() {
         return addressService.findAll();
     }
 
-    @GetMapping("/getAddress")
-    public List<Address> findAllBy(@RequestParam(name = "id", required = false) Integer id,
-                                   @RequestParam(name = "streetName", required = false) String streetName) throws Exception {
-        if (id != null) {
-            return addressService.findAllById(id);
-        } else if (streetName != null) {
-            return addressService.findAllByStreetName(streetName);
-        } else {
-            throw new Exception("Missing request param.");
-        }
+    @GetMapping("/server/address/find")
+    public List<Address> findAddress(@RequestParam Map<String, String> customQuery){
+        return addressService.findAddress(customQuery);
+    }
+    
+    @PutMapping("/server/address/update")
+    public void updateAddress(@RequestParam Map<String, String> customQuery, @RequestBody AddressRegistrationDto
+            registrationDto) {
+        addressService.updateAddress(customQuery, registrationDto);
+    }
+    
+    @DeleteMapping("/server/address/delete")
+    public void deleteAddress(@RequestParam Map<String, String> customQuery){
+        addressService.deleteAddress(customQuery);
     }
 }

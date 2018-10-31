@@ -9,8 +9,8 @@ public interface AddressRepository extends JpaRepository<Address, Integer> {
 
     List<Address> findAll();
 
-    List<Address> findAllById(Integer id);
-
-    List<Address> findAllByStreetName(String streetName);
-
+    List<Address> findAllByStreetNameOrAndStreetNoOrAndHomeNoOrAndCityOrAndZipCode(String streetName, String streetNo,
+                                                                             String homeNo, String city, String
+                                                                                  zipCode);
+    
 }

@@ -22,7 +22,7 @@ public class AccountController {
     @PostMapping("/server/account/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void createAccount(@RequestBody AccountRegistrationDto registrationDto) {
-//        AccountService.createAccount();
+//        AccountService.createAccount(registrationDto);
     }
     
     @GetMapping("/server/account/all")
@@ -36,12 +36,12 @@ public class AccountController {
     }
     
     @PutMapping("/server/account/update")
-    public void updateAccount(@RequestBody AccountRegistrationDto registrationDto) {
-//        AccountService.updateAccount();
+    public void updateAccount(@RequestParam Map<String, String> customQuery, @RequestBody AccountRegistrationDto registrationDto) {
+//        AccountService.updateAccount(customQuery, registrationDto);
     }
     
     @DeleteMapping("/server/account/delete")
     public void deleteAccount(@RequestParam Map<String, String> customQuery) {
-//        AccountService.deleteAccount();
+//        AccountService.deleteAccount(customQuery);
     }
 }

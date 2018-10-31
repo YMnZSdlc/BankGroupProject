@@ -22,7 +22,7 @@ public class CardController {
     @PostMapping("/server/card/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void createCard(@RequestBody CardRegistrationDto registrationDto) {
-//        cardService.createCard();
+//        cardService.createCard(registrationDto);
     }
     
     @GetMapping("/server/card/all")
@@ -36,12 +36,12 @@ public class CardController {
     }
     
     @PutMapping("/server/card/update")
-    public void updateCard(@RequestBody CardRegistrationDto registrationDto) {
-//        cardService.updateCard();
+    public void updateCard(@RequestParam Map<String, String> customQuery, @RequestBody CardRegistrationDto registrationDto) {
+//        cardService.updateCard(customQuery, registrationDto);
     }
     
     @DeleteMapping("/server/card/delete")
     public void deleteCard(@RequestParam Map<String, String> customQuery) {
-//        cardService.deleteCard();
+//        cardService.deleteCard(customQuery);
     }
 }

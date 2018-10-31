@@ -2,7 +2,7 @@ package pl.sda.bankserver.domain;
 
 import org.junit.Before;
 import org.junit.Test;
-import pl.sda.bankserver.domain.enums.Sex;
+import pl.sda.bankcommons.domain.dtos.Sex;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -19,7 +19,7 @@ import static org.junit.Assert.assertEquals;
 public class CustomerTest {
 
     private Validator validator;
-    
+
     @Before
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -43,7 +43,7 @@ public class CustomerTest {
         customer.setAddress(null);
         return customer;
     }
-    
+
     @Test
     public void ifCustomerIsValid() {
         //given
@@ -53,7 +53,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), true);
     }
-    
+
     @Test
     public void ifPasswordIsNullValidationFails() {
         //given
@@ -64,7 +64,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifFirstNameIsNullValidationFails() {
         //given
@@ -75,7 +75,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifFirstNameIsTooShortValidationFails() {
         //given
@@ -86,7 +86,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifFirstNameIsTooLongValidationFails() {
         //given
@@ -97,7 +97,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifLastNameIsNullValidationFails() {
         //given
@@ -108,7 +108,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifPeselIsTooShortValidationFails() {
         //given
@@ -119,7 +119,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifPeselIsTooLongtValidationFails() {
         //given
@@ -130,7 +130,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifPeselIsNullValidationFails() {
         //given
@@ -141,7 +141,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifCreateDateIsNullValidationFails() {
         //given
@@ -152,7 +152,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifCreateDateIsFutureValidationFails() {
         //given
@@ -163,7 +163,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifEmailIsNullValidationFails() {
         //given
@@ -174,7 +174,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifPhoneNumberIsNullValidationFails() {
         //given
@@ -185,7 +185,7 @@ public class CustomerTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifDateOfBirthIsFutureValidationFails() {
         //given
@@ -201,7 +201,7 @@ public class CustomerTest {
         Field field = Customer.class.getDeclaredField(model);
         return field.getAnnotationsByType(Pattern.class);
     }
-    
+
     @Test
     public void testInvalidPassword() throws NoSuchFieldException {
         //when
@@ -209,7 +209,7 @@ public class CustomerTest {
         //then
         assertEquals("aaaaaaaaa".matches(annotations[0].regexp()), false);
     }
-    
+
     @Test
     public void testValidPassword() throws NoSuchFieldException {
         //when
@@ -217,7 +217,7 @@ public class CustomerTest {
         //then
         assertEquals("aaaaAAAA1111".matches(annotations[0].regexp()), true);
     }
-    
+
     @Test
     public void testInvalidEmail() throws NoSuchFieldException {
         //when
@@ -233,7 +233,7 @@ public class CustomerTest {
         //then
         assertEquals("aaa@aaa.com".matches(annotations[0].regexp()), true);
     }
-    
+
     @Test
     public void testInvalidPhoneNumber() throws NoSuchFieldException {
         //when

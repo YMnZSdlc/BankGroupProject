@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 public class AddressTest {
     private Validator validator;
-    
+
     @Before
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -33,10 +33,10 @@ public class AddressTest {
         address.setCustomersAddresses(null);
         address.setDepartamentsAddresses(null);
         address.setWorkerAddresses(null);
-        
+
         return address;
     }
-    
+
     @Test
     public void ifAddressisValid() {
         //given
@@ -46,7 +46,7 @@ public class AddressTest {
         //then
         assertEquals(violations.isEmpty(), true);
     }
-    
+
     @Test
     public void ifStreetNameIsNullValidationFails() {
         //given
@@ -57,7 +57,7 @@ public class AddressTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifStreetNameIsTooLongValidationFails() {
         //given
@@ -68,7 +68,7 @@ public class AddressTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifStreetNumberIsNullValidationFails() {
         //given
@@ -79,7 +79,7 @@ public class AddressTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifStreetNumberIsTooLongValidationFails() {
         //given
@@ -90,7 +90,7 @@ public class AddressTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifHometNumberIsTooLongValidationFails() {
         //given
@@ -101,7 +101,7 @@ public class AddressTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifCityIsTooLongValidationFails() {
         //given
@@ -112,7 +112,7 @@ public class AddressTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifCityIsNullValidationFails() {
         //given
@@ -123,7 +123,7 @@ public class AddressTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifZipCodeIsTooLongValidationFails() {
         //given
@@ -134,7 +134,7 @@ public class AddressTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifZipCodeIsTooShortValidationFails() {
         //given
@@ -145,7 +145,7 @@ public class AddressTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifZipCodeIsNullValidationFails() {
         //given
@@ -169,7 +169,7 @@ public class AddressTest {
         //then
         assertEquals("aaaaaaaa".matches(annotations[0].regexp()), false);
     }
-    
+
     @Test
     public void testValidStreetNumber() throws NoSuchFieldException {
         //when
@@ -178,7 +178,7 @@ public class AddressTest {
         assertEquals("666".matches(annotations[0].regexp()), true);
         assertEquals("666A".matches(annotations[0].regexp()), true);
     }
-    
+
     @Test
     public void testInvalidZipCode() throws NoSuchFieldException {
         //when
@@ -186,7 +186,7 @@ public class AddressTest {
         //then
         assertEquals("123456".matches(annotations[0].regexp()), false);
     }
-    
+
     @Test
     public void testValidZipCode() throws NoSuchFieldException {
         //when

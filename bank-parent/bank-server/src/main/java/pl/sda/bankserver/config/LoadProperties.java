@@ -12,8 +12,4 @@ import org.springframework.core.env.Environment;
         @PropertySource(value = "file:${user.home}/application.properties", ignoreResourceNotFound = true)
 })
 public class LoadProperties {
-
-    @Autowired
-    Environment env;
-
 }

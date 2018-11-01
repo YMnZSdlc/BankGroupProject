@@ -19,32 +19,32 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
-    
+
     @Column(name = "acc_no")
     @NotNull
     private String number;
-    
+
     @Column(name = "create_date")
     @NotNull
     private LocalDateTime createDate;
-    
+
     @Column(name = "acc_balance")
     @NotNull
     private BigDecimal balance;
-    
+
     @OneToMany(mappedBy = "account")
     private List<Service> services;
-    
+
     @OneToMany(mappedBy = "account")
     private List<Card> cards;
-    
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private AccountCategory accountCategory;
-    
+
     @OneToMany(mappedBy = "account")
     private List<AccountHistory> accountHistories;
-    
+
     @ManyToMany
     @JoinTable(
             name = "customer_accounts",
@@ -52,5 +52,5 @@ public class Account {
             inverseJoinColumns = @JoinColumn(name = "account_id", referencedColumnName = "id")
     )
     private List<Customer> customers;
-    
+
 }

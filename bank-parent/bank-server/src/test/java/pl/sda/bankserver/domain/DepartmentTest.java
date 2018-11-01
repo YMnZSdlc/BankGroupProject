@@ -7,14 +7,13 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-
 import java.util.Set;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class DepartmentTest {
     private Validator validator;
-    
+
     @Before
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -32,7 +31,7 @@ public class DepartmentTest {
         department.setAddress(null);
         return department;
     }
-    
+
     @Test
     public void ifDepartamentisValid() {
         //given
@@ -42,7 +41,7 @@ public class DepartmentTest {
         //then
         assertEquals(violations.isEmpty(), true);
     }
-    
+
     @Test
     public void ifDepartamenttNameIsNullValidationFails() {
         //given
@@ -53,7 +52,7 @@ public class DepartmentTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifDepartamenttNameIsTooLongValidationFails() {
         //given
@@ -64,7 +63,7 @@ public class DepartmentTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifDepartamenttNumberIsNullValidationFails() {
         //given
@@ -75,7 +74,7 @@ public class DepartmentTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifPhoneNumberIsNullValidationFails() {
         //given
@@ -86,7 +85,7 @@ public class DepartmentTest {
         //then
         assertEquals(violations.isEmpty(), false);
     }
-    
+
     @Test
     public void ifPhoneNumberIsTooLongValidationFails() {
         //given

@@ -18,15 +18,15 @@ public class AccountHistory {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id")
     private Integer id;
-    
+
     @Column(name = "balance_before")
     @NotNull
     private BigDecimal balanceBefore;
-    
+
     @Column(name = "balance_after")
     @NotNull
     private BigDecimal balanceAfter;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id")
     private Account account;

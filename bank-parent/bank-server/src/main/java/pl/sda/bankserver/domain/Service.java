@@ -1,9 +1,6 @@
 package pl.sda.bankserver.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.validation.annotation.Validated;
 import pl.sda.bankcommons.domain.dtos.ServiceEnum;
 
@@ -15,6 +12,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

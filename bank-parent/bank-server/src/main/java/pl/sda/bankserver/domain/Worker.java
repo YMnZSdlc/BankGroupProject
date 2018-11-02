@@ -2,6 +2,7 @@ package pl.sda.bankserver.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.validation.annotation.Validated;
 import pl.sda.bankcommons.domain.dtos.Sex;
 
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
+@Setter
 @NoArgsConstructor
 @Validated
 public class Worker {

@@ -2,12 +2,14 @@ package pl.sda.bankserver.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Data
+@Setter
 @Entity
 @NoArgsConstructor
 @Table(name = "account_category")

@@ -3,7 +3,7 @@ package pl.sda.commons.services;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.apache.log4j.Logger;
-import pl.sda.commons.strategy.Converatble;
+import pl.sda.commons.strategy.Convertable;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -14,13 +14,13 @@ import static com.itextpdf.text.BaseColor.BLACK;
 import static com.itextpdf.text.FontFactory.COURIER;
 import static com.itextpdf.text.FontFactory.getFont;
 import static org.apache.log4j.Logger.getLogger;
-import static pl.sda.commons.tools.PathToFile.setPath;
+import static pl.sda.commons.tools.PathToFile.getPath;
 import static pl.sda.commons.tools.ValidParameters.check;
 
 
-public class PdfDocument implements Converatble {
+public class PdfDocument implements Convertable {
 
-    private static final String PATH = setPath();
+    private static final String PATH = getPath();
     private static final Font FONT = getFont(COURIER, 11, BLACK);
     private static Logger LOGGER = getLogger(PdfDocument.class);
 

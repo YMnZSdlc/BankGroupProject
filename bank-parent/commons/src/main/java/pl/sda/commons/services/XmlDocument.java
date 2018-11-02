@@ -3,7 +3,7 @@ package pl.sda.commons.services;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import pl.sda.commons.strategy.Converatble;
+import pl.sda.commons.strategy.Convertable;
 import pl.sda.commons.tools.PathToFile;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -21,9 +21,9 @@ import java.util.List;
 
 import static jxl.biff.BaseCellFeatures.logger;
 
-public class XmlDocument implements Converatble {
+public class XmlDocument implements Convertable {
 
-    private static final String PATH = PathToFile.setPath();
+    private static final String PATH = PathToFile.getPath();
     @Override
     public boolean convert(Object object) {
         boolean resultBoolean = false;

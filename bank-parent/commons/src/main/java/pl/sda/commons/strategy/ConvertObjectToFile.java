@@ -9,21 +9,21 @@ import static pl.sda.commons.strategy.DocumentType.*;
 
 public class ConvertObjectToFile {
 
-    private Converatble converatble;
+    private Convertable convertable;
 
     public ConvertObjectToFile(DocumentType typ) {
         if (EXCEL.equals(typ)) {
-            converatble = new ExcelDocument();
+            convertable = new ExcelDocument();
         } else if (CSV.equals(typ)) {
-            converatble = new CsvGenerator();
+            convertable = new CsvGenerator();
         } else if (PDF.equals(typ)) {
-            converatble = new PdfDocument();
+            convertable = new PdfDocument();
         } else if (XML.equals(typ)) {
-            converatble = new XmlDocument();
+            convertable = new XmlDocument();
         }
     }
 
     public boolean convert(Object object) {
-       return converatble.convert(object);
+       return convertable.convert(object);
     }
 }

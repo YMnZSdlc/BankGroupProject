@@ -4,7 +4,7 @@ import java.util.Properties;
 
 public class PathToFile {
 
-    public static String setPath() {
+    public static String getPath() {
 
         Properties properties = System.getProperties();
         String osName = (String) properties.get("os.name");

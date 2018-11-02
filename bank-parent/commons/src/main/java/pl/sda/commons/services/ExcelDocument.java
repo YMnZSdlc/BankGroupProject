@@ -6,7 +6,7 @@ import jxl.write.*;
 
 import org.apache.log4j.Logger;
 
-import pl.sda.commons.strategy.Converatble;
+import pl.sda.commons.strategy.Convertable;
 import pl.sda.commons.tools.PathToFile;
 import pl.sda.commons.tools.ValidParameters;
 
@@ -15,10 +15,10 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Collection;
 
-public class ExcelDocument implements Converatble {
+public class ExcelDocument implements Convertable {
 
     private static Logger LOGGER = Logger.getLogger(ExcelDocument.class);
-    private static final String PATH = PathToFile.setPath();
+    private static final String PATH = PathToFile.getPath();
 
     @Override
     public boolean convert(Object data) {

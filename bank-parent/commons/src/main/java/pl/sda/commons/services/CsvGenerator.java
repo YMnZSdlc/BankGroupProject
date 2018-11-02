@@ -3,7 +3,7 @@ package pl.sda.commons.services;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.log4j.Logger;
-import pl.sda.commons.strategy.Converatble;
+import pl.sda.commons.strategy.Convertable;
 import pl.sda.commons.tools.PathToFile;
 
 import java.io.BufferedWriter;
@@ -17,8 +17,8 @@ import static java.util.stream.Collectors.toList;
 import static org.apache.log4j.Logger.getLogger;
 import static pl.sda.commons.tools.ValidParameters.check;
 
-public class CsvGenerator implements Converatble {
-    private static final String PATH = PathToFile.setPath();
+public class CsvGenerator implements Convertable {
+    private static final String PATH = PathToFile.getPath();
     private static Logger LOGGER = getLogger(PdfDocument.class);
 
     @Override

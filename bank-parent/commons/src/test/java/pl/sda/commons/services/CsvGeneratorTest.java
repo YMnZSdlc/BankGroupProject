@@ -14,7 +14,7 @@ import static pl.sda.commons.strategy.DocumentType.CSV;
 
 class CsvGeneratorTest {
 
-    private static final String PATH = PathToFile.setPath();
+    private static final String PATH = PathToFile.getPath();
 
     @Test
     void shouldSaveMockDataToCsvFile() {

@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.bankcommons.domain.dtos.AccountHistoryCreationDto;
 import pl.sda.bankserver.domain.AccountHistory;
+import pl.sda.bankserver.services.AccountHistoryService;
 
 import java.util.List;
 import java.util.Map;
@@ -12,12 +13,12 @@ import java.util.Map;
 @RestController
 public class AccountHistoryController {
     
-//    private AccountHistoryService accountHistoryService;
-//
-//    @Autowired
-//    public AccountHistoryController(AccountHistoryService accountHistoryService) {
-//        this.accountHistoryService = accountHistoryService;
-//    }
+    private AccountHistoryService accountHistoryService;
+
+    @Autowired
+    public AccountHistoryController(AccountHistoryService accountHistoryService) {
+        this.accountHistoryService = accountHistoryService;
+    }
     
     @PostMapping("/server/accounthistory/create")
     @ResponseStatus(HttpStatus.CREATED)

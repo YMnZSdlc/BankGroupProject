@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.bankcommons.domain.dtos.AccountCategoryCreationDto;
 import pl.sda.bankserver.domain.AccountCategory;
+import pl.sda.bankserver.services.AccountCategoryService;
 
 import java.util.List;
 import java.util.Map;
@@ -12,12 +13,12 @@ import java.util.Map;
 @RestController
 public class AccountCategoryController {
 
-//    private AccountCategoryService accountCategoryService;
-//
-//    @Autowired
-//    public AccountCategoryController(AccountCategoryService accountCategoryService) {
-//        this.accountCategoryService = accountCategoryService;
-//    }
+    private AccountCategoryService accountCategoryService;
+
+    @Autowired
+    public AccountCategoryController(AccountCategoryService accountCategoryService) {
+        this.accountCategoryService = accountCategoryService;
+    }
     
     @PostMapping("/server/accountcategory/create")
     @ResponseStatus(HttpStatus.CREATED)

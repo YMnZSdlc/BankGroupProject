@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.bankcommons.domain.dtos.DepartmentRegistrationDto;
 import pl.sda.bankserver.domain.Department;
+import pl.sda.bankserver.services.DepartmentService;
 
 import java.util.List;
 import java.util.Map;
@@ -12,12 +13,12 @@ import java.util.Map;
 @RestController
 public class DepartmentController {
     
-//    private DepartmentService departmentService;
-//
-//    @Autowired
-//    public DepartmentController(DepartmentService departmentService) {
-//        this.departmentService = departmentService;
-//    }
+    private DepartmentService departmentService;
+
+    @Autowired
+    public DepartmentController(DepartmentService departmentService) {
+        this.departmentService = departmentService;
+    }
     
     @PostMapping("/server/department/create")
     @ResponseStatus(HttpStatus.CREATED)

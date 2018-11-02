@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
 import pl.sda.bankserver.domain.Customer;
+import pl.sda.bankserver.services.CustomerService;
 
 import java.util.List;
 import java.util.Map;
@@ -12,12 +13,12 @@ import java.util.Map;
 @RestController
 public class CustomerController {
     
-//    private CustomerService customerService;
-//
-//    @Autowired
-//    public CustomerController(CustomerService customerService) {
-//        this.customerService = customerService;
-//    }
+    private CustomerService customerService;
+
+    @Autowired
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+    }
     
     @PostMapping("/server/customer/create")
     @ResponseStatus(HttpStatus.CREATED)

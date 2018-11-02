@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.bankcommons.domain.dtos.AccountRegistrationDto;
 import pl.sda.bankserver.domain.Account;
+import pl.sda.bankserver.services.AccountService;
 
 import java.util.List;
 import java.util.Map;
@@ -12,12 +13,12 @@ import java.util.Map;
 @RestController
 public class AccountController {
     
-//    private AccountService accountService;
-//
-//    @Autowired
-//    public AccountController(AccountService accountService) {
-//        this.accountService = accountService;
-//    }
+    private AccountService accountService;
+
+    @Autowired
+    public AccountController(AccountService accountService) {
+        this.accountService = accountService;
+    }
     
     @PostMapping("/server/account/create")
     @ResponseStatus(HttpStatus.CREATED)

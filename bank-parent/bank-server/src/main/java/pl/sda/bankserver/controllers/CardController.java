@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.bankcommons.domain.dtos.CardRegistrationDto;
 import pl.sda.bankserver.domain.Card;
+import pl.sda.bankserver.services.CardService;
 
 import java.util.List;
 import java.util.Map;
@@ -12,12 +13,12 @@ import java.util.Map;
 @RestController
 public class CardController {
     
-//    private CardService cardService;
-//
-//    @Autowired
-//    public CardController(CardService cardService) {
-//        this.cardService = cardService;
-//    }
+    private CardService cardService;
+
+    @Autowired
+    public CardController(CardService cardService) {
+        this.cardService = cardService;
+    }
     
     @PostMapping("/server/card/create")
     @ResponseStatus(HttpStatus.CREATED)

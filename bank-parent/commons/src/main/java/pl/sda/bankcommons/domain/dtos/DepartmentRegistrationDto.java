@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class DepartamentRegistrationDto {
+public class DepartmentRegistrationDto {
 
     private Integer id;
     private String deptName;

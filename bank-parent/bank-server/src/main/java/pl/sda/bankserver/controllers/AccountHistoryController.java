@@ -22,7 +22,7 @@ public class AccountHistoryController {
     @PostMapping("/server/accounthistory/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void createAccountHistory(@RequestBody AccountHistoryCreationDto creationDto) {
-//        AccountHistoryService.createAccountHistory(creationDto);
+//        accountHistoryService.createAccountHistory(creationDto);
     }
     
     @GetMapping("/server/accounthistory/all")
@@ -37,11 +37,11 @@ public class AccountHistoryController {
     
     @PutMapping("/server/accounthistory/update")
     public void updateAccountHistory(@RequestParam Map<String, String> customQuery, @RequestBody AccountHistoryCreationDto creationDto) {
-//        AccountHistoryService.updateAccountHistory(customQuery, creationDto);
+//        accountHistoryService.updateAccountHistory(customQuery, creationDto);
     }
     
     @DeleteMapping("/server/accounthistory/delete")
     public void deleteAccountHistory(@RequestParam Map<String, String> customQuery) {
-//        AccountHistoryService.deleteAccountHistory(customQuery);
+//        accountHistoryService.deleteAccountHistory(customQuery);
     }
 }

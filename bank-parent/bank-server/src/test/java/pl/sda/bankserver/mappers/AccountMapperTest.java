@@ -24,7 +24,7 @@ public class AccountMapperTest {
         AccountRegistrationDto dto = AccountMapper.INSTANCE.accountToAccountRegistrationDto(entity);
 
         //then
-        assertEquals(dto.getId(), entity.getId());
+        assertEquals(dto.getId(), entity.getNumber());
     }
 
     @Test

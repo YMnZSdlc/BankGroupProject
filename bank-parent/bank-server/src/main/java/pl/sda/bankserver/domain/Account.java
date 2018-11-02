@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,19 +16,15 @@ import java.util.List;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "acc_no")
-    @NotNull
+    @Column(name = "acc_no", unique = true)
     private String number;
 
     @Column(name = "create_date")
-    @NotNull
     private LocalDateTime createDate;
 
     @Column(name = "acc_balance")
-    @NotNull
     private BigDecimal balance;
 
     @OneToMany(mappedBy = "account")

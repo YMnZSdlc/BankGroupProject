@@ -73,7 +73,7 @@
         </dependency>
         <dependency>
             <groupId>pl.sda</groupId>
-            <artifactId>bank-server</artifactId>
+            <artifactId>commons</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

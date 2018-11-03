@@ -15,7 +15,6 @@ public class CustomersController {
         return "customers";
     }
 
-
     @GetMapping("/customers/save")
     public String viewFormToCreateCustomer(Model model){
 
@@ -45,8 +44,6 @@ public class CustomersController {
         return "customers/find";
     }
 
-
-
     @GetMapping("/customers/findall")
     public String findAllCustomersByParam(Model model){
 
@@ -62,7 +59,6 @@ public class CustomersController {
         return "customers/findall";
     }
 
-
     @GetMapping("/customers/update")
     public String chooseCustomerForUpdate(Model model){
 
@@ -75,7 +71,6 @@ public class CustomersController {
     public String updateCustomer(@ModelAttribute CustomerRegistrationDto customerDto){
         return "customers/update";
     }
-
 
     @GetMapping("customers/delete")
     public String findCustomerToDelete(Model model){

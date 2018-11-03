@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -19,7 +18,6 @@ public class AccountCategory {
     private Integer id;
     
     @Column(name = "category_name")
-    @NotNull
     private String categoryName;
     
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "accountCategory")

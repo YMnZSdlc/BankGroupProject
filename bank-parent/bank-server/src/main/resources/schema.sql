@@ -101,6 +101,14 @@ alter table bank_database.account_history add constraint fk_account_history fore
 create table bank_database.service (
 id INT PRIMARY KEY AUTO_INCREMENT,
 service ENUM('deposit', 'loan', 'credit', 'investment', 'payment', 'withdrawal', 'transfer'),
+service_no int not null,
+service_title varchar(30),
+service_date datetime not null,
+service_amount decimal(13,2) not null,
+service_currency varchar(3) not null,
+service_start_time date,
+service_end_time date,
+service_sender_account varchar(26),
 service_recipient_account varchar(26)
 );
 

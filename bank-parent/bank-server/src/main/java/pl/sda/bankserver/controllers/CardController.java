@@ -39,11 +39,11 @@ public class CardController {
     
     @PutMapping("/server/card/update")
     public void updateCard(@RequestParam Map<String, String> customQuery, @RequestBody @Valid CardRegistrationDto registrationDto) {
-//        cardService.updateCard(customQuery, registrationDto);
+        cardService.updateCard(customQuery, registrationDto);
     }
     
     @DeleteMapping("/server/card/delete")
     public void deleteCard(@RequestParam Map<String, String> customQuery) {
-//        cardService.deleteCard(customQuery);
+        cardService.deleteCard(customQuery);
     }
 }

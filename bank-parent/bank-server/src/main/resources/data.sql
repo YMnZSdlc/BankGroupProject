@@ -1,16 +1,16 @@
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Corben', 29, 61, 'Sonquil', '92210');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Farmco', 81, 57, 'Shazi', '65925');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Larry', 23, 50, 'Mataloko', '20001');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Veith', 86, 8, 'Voskehask', '41863');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Arizona', 53, 58, 'Manzanares', '61022');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Longview', 4, null, 'Baixi', '25105');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Petterle', 25, null, 'Mao', '11111');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Pond', 84, null, 'Kure', '78301');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Shoshone', 94, null, 'Tuanjie', '25252');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Ridgeview', 4, 25, 'Randegan', '12212');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Gerald', 73, 1, 'Viengxay', '66666');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Mcbride', 3128, 990, 'Michałowice', '05816');
-insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Weeping Birch', 60, 49470, 'Bañga', '01000');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Corben', 29, 61, 'Sonquil', '92-210');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Farmco', 81, 57, 'Shazi', '65-925');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Larry', 23, 50, 'Mataloko', '20-001');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Veith', 86, 8, 'Voskehask', '41-863');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Arizona', 53, 58, 'Manzanares', '61-022');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Longview', 4, null, 'Baixi', '25-105');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Petterle', 25, null, 'Mao', '11-111');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Pond', 84, null, 'Kure', '78-301');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Shoshone', 94, null, 'Tuanjie', '25-252');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Ridgeview', 4, 25, 'Randegan', '12-212');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Gerald', 73, 1, 'Viengxay', '66-666');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Mcbride', 3128, 990, 'Michałowice', '05-816');
+insert into bank_database.address (street_name, street_no, home_no, city, zip_code) values ('Weeping Birch', 60, 49470, 'Bañga', '01-000');
  
 insert into bank_database.department (dept_name, dept_no, dept_phone_no, address_id) values ('Pierwszy Oddział', 97, '281609613', 9);
 insert into bank_database.department (dept_name, dept_no, dept_phone_no, address_id) values ('Oddział Zamknięty', 65, '767263718', 10);
@@ -41,7 +41,7 @@ insert into bank_database.worker (password, first_name, last_name, salary, pesel
 values ('bbbbBBBB2222', 'Ava', 'Littrell', 4000, '99120105519','alittrell4@cafepress.com', 'F', '2014-12-07', '111444777', '1965-11-13', 5, 8);
  
 insert into bank_database.account_category (category_name) values ('Individual');
-insert into bank_database.account_category (category_name) values ('Buisness');
+insert into bank_database.account_category (category_name) values ('Business');
 insert into bank_database.account_category (category_name) values ('Premium');
  
 insert into bank_database.account (acc_no, create_date, acc_balance, category_id) values ('82111122223333444455556666', sysdate(), 34764.17, 1);

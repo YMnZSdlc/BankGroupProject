@@ -24,7 +24,7 @@ public class CustomerController {
     @PostMapping("/server/customer/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void createCustomer(@RequestBody @Valid CustomerRegistrationDto registrationDto) {
-//        customerService.createCustomer(registrationDto);
+        customerService.createCustomer(registrationDto);
     }
     
     @GetMapping("/server/customer/all")
@@ -39,11 +39,11 @@ public class CustomerController {
     
     @PutMapping("/server/customer/update")
     public void updateCustomer(@RequestParam Map<String, String> customQuery, @RequestBody @Valid CustomerRegistrationDto registrationDto) {
-//        customerService.updateCustomer(customQuery, registrationDto);
+        customerService.updateCustomer(customQuery, registrationDto);
     }
     
     @DeleteMapping("/server/customer/delete")
     public void deleteCustomer(@RequestParam Map<String, String> customQuery) {
-//        customerService.deleteCustomer(customQuery);
+        customerService.deleteCustomer(customQuery);
     }
 }

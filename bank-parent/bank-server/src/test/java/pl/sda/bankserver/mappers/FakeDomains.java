@@ -31,7 +31,6 @@ public class FakeDomains {
 
     public AccountHistory createAccountHistory() {
         AccountHistory accountHistory = new AccountHistory();
-
         return accountHistory;
     }
 
@@ -40,9 +39,5 @@ public class FakeDomains {
 
         return address;
     }
-
-    public Card
-
-
 
 }

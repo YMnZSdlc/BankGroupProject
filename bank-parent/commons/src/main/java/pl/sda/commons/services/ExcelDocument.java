@@ -1,13 +1,9 @@
 package pl.sda.commons.services;
 
 import jxl.Workbook;
-import jxl.format.Colour;
 import jxl.write.*;
-
 import org.apache.log4j.Logger;
-
 import pl.sda.commons.strategy.Convertable;
-import pl.sda.commons.tools.PathToFile;
 import pl.sda.commons.tools.ValidParameters;
 
 import java.io.File;
@@ -15,10 +11,17 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Collection;
 
+import static jxl.format.Colour.BLACK;
+import static jxl.format.Colour.BLUE;
+import static jxl.write.WritableFont.BOLD;
+import static jxl.write.WritableFont.TAHOMA;
+import static org.apache.log4j.Logger.getLogger;
+import static pl.sda.commons.tools.PathToFile.getPath;
+
 public class ExcelDocument implements Convertable {
 
-    private static Logger LOGGER = Logger.getLogger(ExcelDocument.class);
-    private static final String PATH = PathToFile.getPath();
+    private static Logger LOGGER = getLogger(ExcelDocument.class);
+    private static final String PATH = getPath();
 
     @Override
     public boolean convert(Object data) {
@@ -57,7 +60,6 @@ public class ExcelDocument implements Convertable {
                 saveContentLoop(excelSheet, row, sData, fieldsInside);
                 row++;
             }
-
             exampleXls.write();
             return true;
 
@@ -118,10 +120,9 @@ public class ExcelDocument implements Convertable {
     private void saveLabelLoop(WritableSheet excelSheet, Field[] fields) throws WriteException {
         // create Excel format for label
         WritableCellFormat labelFormat = getLabelFormat();
-        Label label;
         int col = 0;
         for (Field field : fields) {
-            label = new Label(col, 0, field.getName(), labelFormat);
+            Label label = new Label(col, 0, field.getName(), labelFormat);
             excelSheet.addCell(label);
             col++;
         }
@@ -130,11 +131,10 @@ public class ExcelDocument implements Convertable {
     private void saveContentLoop(WritableSheet excelSheet, int row, Object sData, Field[] fields1) throws IllegalAccessException, WriteException {
         // create Excel format for content
         WritableCellFormat contentFormat = getContentFormat();
-        Label label;
         int col = 0;
         for (Field field : fields1) {
             field.setAccessible(true);
-            label = new Label(col, row, "" + field.get(sData), contentFormat);
+            Label label = new Label(col, row, "" + field.get(sData), contentFormat);
             excelSheet.addCell(label);
             col++;
         }
@@ -143,8 +143,8 @@ public class ExcelDocument implements Convertable {
     private WritableCellFormat getLabelFormat() throws WriteException {
         // create Excel format for label
         WritableCellFormat labelFormat = new WritableCellFormat();
-        WritableFont labelFont = new WritableFont(WritableFont.TAHOMA, 10, WritableFont.BOLD);
-        labelFont.setColour(Colour.BLUE);
+        WritableFont labelFont = new WritableFont(TAHOMA, 10, BOLD);
+        labelFont.setColour(BLUE);
         labelFormat.setFont(labelFont);
         return labelFormat;
     }
@@ -152,8 +152,8 @@ public class ExcelDocument implements Convertable {
     private WritableCellFormat getContentFormat() throws WriteException {
         // create Excel format for content
         WritableCellFormat contentFormat = new WritableCellFormat();
-        WritableFont contentFont = new WritableFont(WritableFont.TAHOMA, 10);
-        contentFont.setColour(Colour.BLACK);
+        WritableFont contentFont = new WritableFont(TAHOMA, 10);
+        contentFont.setColour(BLACK);
         contentFormat.setFont(contentFont);
         return contentFormat;
     }

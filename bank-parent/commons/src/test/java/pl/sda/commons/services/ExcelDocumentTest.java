@@ -3,7 +3,7 @@ package pl.sda.commons.services;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pl.sda.commons.strategy.ConvertObjectToFile;
-import pl.sda.commons.MockData;
+import pl.sda.commons.services.mockClass.MockData;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,6 @@
 package pl.sda.commons.strategy;
 
+import pl.sda.commons.exceptions.ObjectToSaveInvalid;
 import pl.sda.commons.services.CsvGenerator;
 import pl.sda.commons.services.ExcelDocument;
 import pl.sda.commons.services.PdfDocument;
@@ -20,10 +21,12 @@ public class ConvertObjectToFile {
             convertable = new PdfDocument();
         } else if (XML.equals(typ)) {
             convertable = new XmlDocument();
+        } else {
+            throw new ObjectToSaveInvalid("Invalid Type");
         }
     }
 
     public boolean convert(Object object) {
-       return convertable.convert(object);
+        return convertable.convert(object);
     }
 }

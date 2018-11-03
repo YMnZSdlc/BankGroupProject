@@ -1,7 +1,7 @@
 package pl.sda.commons.services;
 
 import org.junit.jupiter.api.Test;
-import pl.sda.commons.MockData;
+import pl.sda.commons.services.mockClass.MockData;
 import pl.sda.commons.strategy.ConvertObjectToFile;
 import pl.sda.commons.tools.PathToFile;
 

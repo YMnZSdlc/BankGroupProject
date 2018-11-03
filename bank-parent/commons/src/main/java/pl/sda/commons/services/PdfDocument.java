@@ -13,6 +13,7 @@ import java.util.Date;
 import static com.itextpdf.text.BaseColor.BLACK;
 import static com.itextpdf.text.FontFactory.COURIER;
 import static com.itextpdf.text.FontFactory.getFont;
+import static com.itextpdf.text.pdf.PdfWriter.getInstance;
 import static org.apache.log4j.Logger.getLogger;
 import static pl.sda.commons.tools.PathToFile.getPath;
 import static pl.sda.commons.tools.ValidParameters.check;
@@ -31,7 +32,7 @@ public class PdfDocument implements Convertable {
         boolean result = false;
         Document document = new Document();
         try {
-            PdfWriter.getInstance(document, new FileOutputStream(PATH));
+            getInstance(document, new FileOutputStream(PATH));
         } catch (DocumentException | FileNotFoundException e) {
             LOGGER.error(e.toString());
         }
@@ -101,25 +102,32 @@ public class PdfDocument implements Convertable {
 
     private void addNewItemToPdf(Object data, List list, Field field) throws IllegalAccessException {
         if (java.util.List.class.isAssignableFrom(field.getType())) {
+            if (field.get(data) != null) {
+                Object objectWhereFieldsAreDaclared = field.get(data);
+                java.util.List listOfObjects = (java.util.List) objectWhereFieldsAreDaclared;
+                writeListOfObject(list, listOfObjects);
 
-            Object objectWhereFieldsAreDaclared = field.get(data);
-            java.util.List listOfObjects = (java.util.List) objectWhereFieldsAreDaclared;
-            writeListOfObject(list, listOfObjects);
+            } else {
 
-        } else {
-
-            list.add(new ListItem(field.get(data).toString()));
+                list.add(new ListItem(field.get(data).toString()));
+            }
         }
-      //  catPart.add(list);
     }
 
     private void writeListOfObject(List list, java.util.List listOfObjects) throws IllegalAccessException {
         for (Object objectFromList : listOfObjects) {
-
+            if (objectFromList == null) {
+                continue;
+            }
             Field[] fields1 = objectFromList.getClass().getDeclaredFields();
-
             for (Field field1 : fields1) {
+                if (field1 == null) {
+                    continue;
+                }
                 field1.setAccessible(true);
+                if (field1.get(objectFromList) == null) {
+                    continue;
+                }
                 list.add(new ListItem(field1.get(objectFromList).toString()));
             }
         }
@@ -132,5 +140,4 @@ public class PdfDocument implements Convertable {
             paragraph.add(new Paragraph(" "));
         }
     }
-
 }

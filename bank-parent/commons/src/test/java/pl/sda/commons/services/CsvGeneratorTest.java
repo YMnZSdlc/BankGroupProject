@@ -8,6 +8,7 @@ import pl.sda.commons.tools.PathToFile;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static pl.sda.commons.strategy.DocumentType.CSV;
@@ -47,7 +48,9 @@ class CsvGeneratorTest {
 
     @Test
     void sizeShouldBeGreaterThan0() {
-        File file = new File("C:\\Users\\mateu\\IdeaProjects\\sda_ldz_9\\sample.csv");
+        Properties properties = System.getProperties();
+        String path = properties.get("user.home").toString();
+        File file = new File(path);
         long size = file.length();
         assertTrue(size > 0);
     }

@@ -28,7 +28,6 @@ public class PdfDocument implements Convertable {
     public boolean convert(Object data) {
 
         check(data, PATH);
-        boolean result = false;
         Document document = new Document();
         try {
             getInstance(document, new FileOutputStream(PATH));
@@ -36,12 +35,13 @@ public class PdfDocument implements Convertable {
             LOGGER.error(e.toString());
         }
         document.open();
-        result = operationOnPdf(data, result, document);
+        boolean result = operationOnPdf(data, document);
         document.close();
         return result;
     }
 
-    private boolean operationOnPdf(Object data, boolean result, Document document) {
+    private boolean operationOnPdf(Object data, Document document) {
+        boolean result = false;
         try {
             addTitlePage(document);
             if (java.util.List.class.isAssignableFrom(data.getClass())) {

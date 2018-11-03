@@ -4,27 +4,30 @@ import org.junit.Test;
 import pl.sda.bankcommons.domain.dtos.AccountDto;
 import pl.sda.bankserver.domain.Account;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
 import static org.junit.Assert.*;
 
 public class AccountMapperTest {
 
+    FakeDomains fakeDomains = new FakeDomains();
+
     @Test
     public void accountToAccountRegistrationDto() {
         //given
-        Account entity = new Account();
-        entity.setId(1234);
-        entity.setNumber("1234");
-        entity.setCreateDate(LocalDateTime.of(2018,10,20,12,22));
-        entity.setBalance(new BigDecimal("12345.6"));
+        Account entityIn = fakeDomains.createAccount();
 
         //when
-        AccountDto dto = AccountMapper.INSTANCE.accountToAccountRegistrationDto(entity);
+        AccountDto dtoOut = AccountMapper.INSTANCE.accountToAccountRegistrationDto(entityIn);
 
         //then
-        assertEquals(dto.getId(), entity.getNumber());
+        assertEquals(dtoOut.getId(), entityIn.getId());
+        assertEquals(dtoOut.getNumber(), entityIn.getNumber());
+        assertEquals(dtoOut.getCreateDate(), entityIn.getCreateDate());
+        assertEquals(dtoOut.getBalance(), entityIn.getId());
+        assertEquals(dtoOut.getServices(), entityIn.getId());
+        assertEquals(dtoOut.getCards(), entityIn.getId());
+        assertEquals(dtoOut.get, entityIn.getId());
+        assertEquals(dtoOut.getService(), entityIn.getId());
+        assertEquals(dtoOut.getService(), entityIn.getId());
     }
 
     @Test

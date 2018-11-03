@@ -23,13 +23,13 @@ public class AccountDto {
     @NotNull(message = "Pole nie może być puste")
     private BigDecimal balance;
 
-    private List<ServiceDto> service;
+    private List<ServiceDto> services;
 
-    private List<CardDto> card;
+    private List<CardDto> cards;
 
     private Integer accountCategoryId;
 
-    private List<AccountHistoryDto> accountHistoryIds;
+    private List<AccountHistoryDto> accountHistories;
 
-    private List<CustomerDto> customerIds;
+    private List<CustomerDto> customers;
 }

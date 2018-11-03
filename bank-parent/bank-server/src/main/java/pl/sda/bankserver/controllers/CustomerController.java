@@ -7,6 +7,7 @@ import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
 import pl.sda.bankserver.domain.Customer;
 import pl.sda.bankserver.services.CustomerService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +23,7 @@ public class CustomerController {
     
     @PostMapping("/server/customer/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCustomer(@RequestBody CustomerRegistrationDto registrationDto) {
+    public void createCustomer(@RequestBody @Valid CustomerRegistrationDto registrationDto) {
 //        customerService.createCustomer(registrationDto);
     }
     
@@ -32,16 +33,16 @@ public class CustomerController {
     
     @GetMapping("/server/customer/find")
     public Customer findCustomer(@RequestParam Map<String, String> customQuery) {
-        return null;
+        return customerService.findCustomer(customQuery);
     }
     
     @PutMapping("/server/customer/update")
-    public void updateCustomer(@RequestParam Map<String, String> customQuery, @RequestBody CustomerRegistrationDto registrationDto) {
-//        customerService.updateCustomer(customQuery, registrationDto);
+    public void updateCustomer(@RequestParam Map<String, String> customQuery, @RequestBody @Valid CustomerRegistrationDto registrationDto) {
+        customerService.updateCustomer(customQuery, registrationDto);
     }
     
     @DeleteMapping("/server/customer/delete")
     public void deleteCustomer(@RequestParam Map<String, String> customQuery) {
-//        customerService.deleteCustomer(customQuery);
+        customerService.deleteCustomer(customQuery);
     }
 }

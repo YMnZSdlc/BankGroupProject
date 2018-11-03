@@ -33,17 +33,17 @@ public class CardController {
     }
     
     @GetMapping("/server/card/find")
-    public Card findCard(@RequestParam Map<String, String> customQuery) {
+    public List<Card> findCard(@RequestParam Map<String, String> customQuery) {
         return cardService.findCard(customQuery);
     }
     
     @PutMapping("/server/card/update")
     public void updateCard(@RequestParam Map<String, String> customQuery, @RequestBody @Valid CardRegistrationDto registrationDto) {
-//        cardService.updateCard(customQuery, registrationDto);
+        cardService.updateCard(customQuery, registrationDto);
     }
     
     @DeleteMapping("/server/card/delete")
     public void deleteCard(@RequestParam Map<String, String> customQuery) {
-//        cardService.deleteCard(customQuery);
+        cardService.deleteCard(customQuery);
     }
 }

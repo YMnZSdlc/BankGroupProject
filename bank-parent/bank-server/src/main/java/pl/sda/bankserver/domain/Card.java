@@ -1,6 +1,7 @@
 package pl.sda.bankserver.domain;
 
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 @Entity
 @NoArgsConstructor
 @Validated
+@Builder
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

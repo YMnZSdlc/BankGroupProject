@@ -24,7 +24,7 @@ public class DepartmentController {
     @PostMapping("/server/department/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void createDepartment(@RequestBody @Valid DepartmentRegistrationDto registrationDto) {
-//        departmentService.createDepartment(registrationDto);
+        departmentService.createDepartment(registrationDto);
     }
     
     @GetMapping("/server/department/all")
@@ -33,17 +33,17 @@ public class DepartmentController {
     }
     
     @GetMapping("/server/department/find")
-    public Department findDepartment(@RequestParam Map<String, String> customQuery) {
+    public List<Department> findDepartment(@RequestParam Map<String, String> customQuery) {
         return departmentService.findDepartment(customQuery);
     }
     
     @PutMapping("/server/department/update")
     public void updateDepartment(@RequestParam Map<String, String> customQuery, @RequestBody @Valid DepartmentRegistrationDto registrationDto) {
-//        departmentService.updateDepartment(customQuery, registrationDto);
+        departmentService.updateDepartment(customQuery, registrationDto);
     }
     
     @DeleteMapping("/server/department/delete")
     public void deleteDepartment(@RequestParam Map<String, String> customQuery) {
-//        DepartmentService.deleteDepartment(customQuery);
+        departmentService.deleteDepartment(customQuery);
     }
 }

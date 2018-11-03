@@ -44,7 +44,12 @@ public class XmlDocument implements Convertable {
                 mockElement.appendChild(element);
                 logger.info(field.getName() + ": " + field.get(object));
                 attr.add(i, doc.createAttribute(field.getName()));
-                String s = field.get(object).toString();
+                String s = "";
+                if(field.get(object)==null){
+                    s="null";
+                } else {
+                    s = field.get(object).toString();
+                }
                 attr.get(i).setValue(s);
                 element.setAttributeNode(attr.get(i));
                 i++;

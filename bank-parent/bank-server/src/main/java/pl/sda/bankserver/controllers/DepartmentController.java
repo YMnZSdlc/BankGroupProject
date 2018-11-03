@@ -33,7 +33,7 @@ public class DepartmentController {
     }
     
     @GetMapping("/server/department/find")
-    public Department findDepartment(@RequestParam Map<String, String> customQuery) {
+    public List<Department> findDepartment(@RequestParam Map<String, String> customQuery) {
         return departmentService.findDepartment(customQuery);
     }
     

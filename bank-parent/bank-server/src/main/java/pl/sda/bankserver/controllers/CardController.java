@@ -33,7 +33,7 @@ public class CardController {
     }
     
     @GetMapping("/server/card/find")
-    public Card findCard(@RequestParam Map<String, String> customQuery) {
+    public List<Card> findCard(@RequestParam Map<String, String> customQuery) {
         return cardService.findCard(customQuery);
     }
     

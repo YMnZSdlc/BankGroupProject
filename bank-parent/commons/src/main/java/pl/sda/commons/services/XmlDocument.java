@@ -19,11 +19,13 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.xml.transform.TransformerFactory.newInstance;
 import static jxl.biff.BaseCellFeatures.logger;
 
 public class XmlDocument implements Convertable {
 
     private static final String PATH = PathToFile.getPath();
+
     @Override
     public boolean convert(Object object) {
         boolean resultBoolean = false;
@@ -54,9 +56,10 @@ public class XmlDocument implements Convertable {
         }
         return resultBoolean;
     }
+
     private void writeIntoXmlFile(Document doc, Element mockElement) throws TransformerException {
         doc.appendChild(mockElement);
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        TransformerFactory transformerFactory = newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
         StreamResult result = new StreamResult(new File(PATH));

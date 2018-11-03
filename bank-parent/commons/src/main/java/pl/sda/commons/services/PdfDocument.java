@@ -1,7 +1,6 @@
 package pl.sda.commons.services;
 
 import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfWriter;
 import org.apache.log4j.Logger;
 import pl.sda.commons.strategy.Convertable;
 
@@ -101,8 +100,8 @@ public class PdfDocument implements Convertable {
     }
 
     private void addNewItemToPdf(Object data, List list, Field field) throws IllegalAccessException {
-        if (java.util.List.class.isAssignableFrom(field.getType())) {
-            if (field.get(data) != null) {
+        if (field.get(data) != null) {
+            if (java.util.List.class.isAssignableFrom(field.getType())) {
                 Object objectWhereFieldsAreDaclared = field.get(data);
                 java.util.List listOfObjects = (java.util.List) objectWhereFieldsAreDaclared;
                 writeListOfObject(list, listOfObjects);

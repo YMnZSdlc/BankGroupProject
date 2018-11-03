@@ -1,6 +1,5 @@
 package pl.sda.commons.services;
 
-import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.log4j.Logger;
 import pl.sda.commons.strategy.Convertable;
@@ -9,17 +8,22 @@ import pl.sda.commons.tools.PathToFile;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
+import static java.nio.file.Files.newBufferedWriter;
+import static java.nio.file.Paths.get;
+import static java.util.Arrays.stream;
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.csv.CSVFormat.DEFAULT;
 import static org.apache.log4j.Logger.getLogger;
 import static pl.sda.commons.tools.ValidParameters.check;
 
 public class CsvGenerator implements Convertable {
     private static final String PATH = PathToFile.getPath();
-    private static Logger LOGGER = getLogger(PdfDocument.class);
+    private static Logger LOGGER = getLogger(CsvGenerator.class);
 
     @Override
     public boolean convert(Object data) {
@@ -28,13 +32,13 @@ public class CsvGenerator implements Convertable {
 
         check(data, PATH);
         String[] headers = prepareHeaders(data);
-        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(PATH + simpleName + ".csv"));
-             CSVPrinter printer = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader(headers))) {
+        try (BufferedWriter writer = newBufferedWriter(get(PATH + simpleName + ".csv"));
+             CSVPrinter printer = new CSVPrinter(writer, DEFAULT.withHeader(headers))) {
 
             Collection collectionObjects = fillCollection(data);
 
             for (Object object : collectionObjects) {
-                List<Object> collect = Arrays.stream(object.getClass().getDeclaredFields())
+                List<Object> collect = stream(object.getClass().getDeclaredFields())
                         .map(field -> setPermissionToFieldAccess(object, field))
                         .collect(toList());
 
@@ -80,7 +84,7 @@ public class CsvGenerator implements Convertable {
 
     private static String[] extractHeaders(Object data) {
         Field[] fields = data.getClass().getDeclaredFields();
-        List<String> fieldNames = Arrays.stream(fields).map(Field::getName).collect(toList());
+        List<String> fieldNames = stream(fields).map(Field::getName).collect(toList());
         String[] headers = new String[fieldNames.size()];
         headers = fieldNames.toArray(headers);
         return headers;

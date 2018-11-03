@@ -7,6 +7,7 @@ import pl.sda.bankcommons.domain.dtos.AddressRegistrationDto;
 import pl.sda.bankserver.domain.Address;
 import pl.sda.bankserver.services.AddressService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +23,7 @@ public class AddressController {
 
     @PostMapping("/server/address/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAddress(@RequestBody AddressRegistrationDto registrationDto) {
+    public void createAddress(@RequestBody @Valid AddressRegistrationDto registrationDto) {
         addressService.createAddress(registrationDto);
     }
     
@@ -37,7 +38,7 @@ public class AddressController {
     }
     
     @PutMapping("/server/address/update")
-    public void updateAddress(@RequestParam Map<String, String> customQuery, @RequestBody AddressRegistrationDto
+    public void updateAddress(@RequestParam Map<String, String> customQuery, @RequestBody @Valid AddressRegistrationDto
             registrationDto) {
         addressService.updateAddress(customQuery, registrationDto);
     }

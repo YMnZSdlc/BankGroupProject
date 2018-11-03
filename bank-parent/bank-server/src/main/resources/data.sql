@@ -19,26 +19,26 @@ insert into bank_database.department (dept_name, dept_no, dept_phone_no, address
 insert into bank_database.department (dept_name, dept_no, dept_phone_no, address_id) values ('Oddział Psychiatryczny', 26, '862181927', 13);
  
 insert into bank_database.customer (password, first_name, last_name, pesel, create_date, email, sex, phone_no, date_of_birth, department_id, address_id)
-values('aaaaAAAA1111', 'Kamil','Marciniak', '93010105519', sysdate(),'rusek@wp.pl', 'M', '111222333', '19910303', 1, 1);
+values('aaaaAAAA1111', 'Kamil','Marciniak', '93010105519', sysdate(),'rusek@wp.pl', 'M', '111222333', '1991-03-03', 1, 1);
 insert into bank_database.customer (password, first_name, last_name, pesel, create_date, email, sex, phone_no, date_of_birth, department_id, address_id)
-values('aaaaAAAA1111', 'Anastazja','Braterska', '91030303313', sysdate(), 'anaxd@gmail.com', 'F', '578965412', '19921113', 2, 2);
+values('aaaaAAAA1111', 'Anastazja','Braterska', '91030303313', sysdate(), 'anaxd@gmail.com', 'F', '578965412', '1992-11-13', 2, 2);
 insert into bank_database.customer (password, first_name, last_name, pesel, create_date, email, sex, phone_no, date_of_birth, department_id, address_id)
-values('aaaaAAAA1111', 'Łukasz','Szczybrych', '90050555971', sysdate(), 'lukaszek@wp.pl', 'M', '235698741', '19970303', 3, 2);
+values('aaaaAAAA1111', 'Łukasz','Szczybrych', '90050555971', sysdate(), 'lukaszek@wp.pl', 'M', '235698741', '1997-03-03', 3, 2);
 insert into bank_database.customer (password, first_name, last_name, pesel, create_date, email, sex, phone_no, date_of_birth, department_id, address_id)
-values('aaaaAAAA1111', 'Karolina','Kamiński', '20355698745', sysdate(), 'kaminski@onet.pl', 'F', '852147963', '19971113', 4, 3);
+values('aaaaAAAA1111', 'Karolina','Kamiński', '20355698745', sysdate(), 'kaminski@onet.pl', 'F', '852147963', '1997-11-13', 4, 3);
 insert into bank_database.customer (password, first_name, last_name, pesel, create_date, email, sex, phone_no, date_of_birth, department_id, address_id)
-values('aaaaAAAA1111', 'Robert','Lewandowski', '91300110551', sysdate(), 'robert@wp.pl', 'M', '512348963', '19950101', 5, 4);
+values('aaaaAAAA1111', 'Robert','Lewandowski', '91300110551', sysdate(), 'robert@wp.pl', 'M', '512348963', '1995-01-01', 5, 4);
  
 insert into bank_database.worker (password, first_name, last_name, salary, pesel, email, sex, employment_date, phone_no, date_of_birth, department_id, address_id)
-values ('bbbbBBBB2222', 'Alidia', 'Mallall', 3000, '93010487519','amallall0@nsw.gov.au', 'F', '20171209', '111333666', '19971104', 1, 4);
+values ('bbbbBBBB2222', 'Alidia', 'Mallall', 3000, '93010487519','amallall0@nsw.gov.au', 'F', '2017-12-09', '111333666', '1997-11-04', 1, 4);
 insert into bank_database.worker (password, first_name, last_name, salary, pesel, email, sex, employment_date, phone_no, date_of_birth, department_id, address_id)
-values ('bbbbBBBB2222', 'Bail', 'Leyborne', 10000, '93010987519','bleyborne1@usatoday.com', 'M', '20160929', '666333999', '19650715', 2, 5);
+values ('bbbbBBBB2222', 'Bail', 'Leyborne', 10000, '93010987519','bleyborne1@usatoday.com', 'M', '2016-09-29', '666333999', '1965-07-15', 2, 5);
 insert into bank_database.worker (password, first_name, last_name, salary, pesel, email, sex, employment_date, phone_no, date_of_birth, department_id, address_id)
-values ('bbbbBBBB2222', 'Jedediah', 'Bridgen', 6000, '93011585519','jbridgen2@miibeian.gov.cn', 'M', '20171119', '777666555', '19520105', 3, 6);
+values ('bbbbBBBB2222', 'Jedediah', 'Bridgen', 6000, '93011585519','jbridgen2@miibeian.gov.cn', 'M', '2017-11-19', '777666555', '1952-01-05', 3, 6);
 insert into bank_database.worker (password, first_name, last_name, salary, pesel, email, sex, employment_date, phone_no, date_of_birth, department_id, address_id)
-values ('bbbbBBBB2222', 'Stephi', 'Hastwell', 5000, '93071105519','shastwell3@ask.com', 'F', '20150621', '444555666', '19780104', 4, 7);
+values ('bbbbBBBB2222', 'Stephi', 'Hastwell', 5000, '93071105519','shastwell3@ask.com', 'F', '2015-06-21', '444555666', '1978-01-04', 4, 7);
 insert into bank_database.worker (password, first_name, last_name, salary, pesel, email, sex, employment_date, phone_no, date_of_birth, department_id, address_id)
-values ('bbbbBBBB2222', 'Ava', 'Littrell', 4000, '99120105519','alittrell4@cafepress.com', 'F', '20141207', '111444777', '19651113', 5, 8);
+values ('bbbbBBBB2222', 'Ava', 'Littrell', 4000, '99120105519','alittrell4@cafepress.com', 'F', '2014-12-07', '111444777', '1965-11-13', 5, 8);
  
 insert into bank_database.account_category (category_name) values ('Individual');
 insert into bank_database.account_category (category_name) values ('Buisness');
@@ -58,18 +58,18 @@ insert into bank_database.customer_account (customer_id, account_id) values ( 3,
 insert into bank_database.customer_account (customer_id, account_id) values ( 4, 5);
 insert into bank_database.customer_account (customer_id, account_id) values ( 5, 6);
  
-insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('mastercard', '5100141104320403', 222, CURDATE(), '20200119', 1);
-insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('maestro', '5893001922497681301', 435, CURDATE(), '20200413', 2);
-insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('visa', '4917943114427722', 138, CURDATE(), '20200908', 1);
-insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('visa', '4041370300592', 955, CURDATE(), '20191129', 2);
-insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('maestro', '67614156101756044', 624, CURDATE(), '20200925', 3);
-insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('visa', '4041370300592', 955, CURDATE(), '20191129', 3);
-insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('maestro', '6762637612534044', 846, CURDATE(), '20200923', 5);
-insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('visa', '4017958898727419', 739, CURDATE(), '20200824', 4);
-insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('visa', '666666666666666', 739, CURDATE(), '20200626', 5);
+insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('mastercard', '5100141104320403', 222, CURDATE(), '2020-01-19', 1);
+insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('maestro', '5893001922497681301', 435, CURDATE(), '2020-04-13', 2);
+insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('visa', '4917943114427722', 138, CURDATE(), '2020-09-08', 1);
+insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('visa', '4041370300592', 955, CURDATE(), '2019-11-29', 2);
+insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('maestro', '67614156101756044', 624, CURDATE(), '2020-09-25', 3);
+insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('visa', '4041370300592', 955, CURDATE(), '2019-11-29', 3);
+insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('maestro', '6762637612534044', 846, CURDATE(), '2020-09-23', 5);
+insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('visa', '4017958898727419', 739, CURDATE(), '2020-08-24', 4);
+insert into bank_database.card (card_type, card_no, cvc_cvv_code, activation_date, expire_date, account_id) values ('visa', '666666666666666', 739, CURDATE(), '2020-06-26', 5);
 
 insert into bank_database.service (service, service_no, service_title, service_date, service_amount, service_currency, service_start_time, service_end_time, service_sender_account, service_recipient_account, account_id)
- values ('loan', 1, 'Na pizze', sysdate(), 10000, 'PLN', curdate(), '20500101', null, null, 1);
+ values ('loan', 1, 'Na pizze', sysdate(), 10000, 'PLN', curdate(), '2050-01-01', null, null, 1);
 insert into bank_database.service (service, service_no, service_title, service_date, service_amount, service_currency, service_start_time, service_end_time, service_sender_account, service_recipient_account, account_id)
  values ('payment', 4, 'Za zabawe w doktora', sysdate(), 666, 'PLN', null, null, '47328467777772269322468095', '08439675156448725212846682', 2);
 insert into bank_database.service (service, service_no, service_title, service_date, service_amount, service_currency, service_start_time, service_end_time, service_sender_account, service_recipient_account, account_id)

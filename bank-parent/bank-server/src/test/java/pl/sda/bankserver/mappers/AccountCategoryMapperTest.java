@@ -31,11 +31,24 @@ public class AccountCategoryMapperTest {
 
         //then
         assertEquals(dto.getId(), entity.getId());
-
-
+        assertEquals(dto.getCategoryName(), entity.getCategoryName());
+        assertEquals(dto.getAccountId(), entity.getAccount().getId());
     }
 
     @Test
     public void accountCategoryCreationDtoToAccountCategory() {
+        //given
+        AccountCategoryCreationDto dto = new AccountCategoryCreationDto();
+        dto.setId(5678);
+        dto.setCategoryName("EFGH");
+        dto.setAccountId(1234);
+
+        //when
+        AccountCategory entity = AccountCategoryMapper.INSTANCE.accountCategoryCreationDtoToAccountCategory(dto);
+
+        //then
+        assertEquals(entity.getId(),dto.getId());
+        assertEquals(entity.getCategoryName(),dto.getCategoryName());
+        assertEquals(entity.getAccount().getId(),dto.getAccountId());
     }
 }

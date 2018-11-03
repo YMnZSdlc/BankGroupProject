@@ -11,8 +11,8 @@ public interface ServiceMapper {
     ServiceMapper INSTANCE = Mappers.getMapper(ServiceMapper.class);
 
     @Mapping(target = "accountId", source = "entity.account.id")
-    ServiceDto serviceToServiceCreationDto(Service entity);
+    ServiceDto serviceToServiceDto(Service entity);
 
     @Mapping(target = "account.id", source = "dto.accountId")
-    Service serviceCreationDtoToService(ServiceDto dto);
+    Service serviceDtoToService(ServiceDto dto);
 }

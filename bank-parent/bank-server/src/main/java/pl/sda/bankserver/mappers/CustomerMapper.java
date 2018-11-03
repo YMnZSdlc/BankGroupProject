@@ -17,5 +17,5 @@ public interface CustomerMapper {
 
     @Mappings({@Mapping(target = "department.id", source = "dto.departmentId"),
             @Mapping(target = "address.id", source = "dto.addressId")})
-    Customer customerDtoToDepartment(CustomerDto dto);
+    Customer customerDtoToCustomer(CustomerDto dto);
 }

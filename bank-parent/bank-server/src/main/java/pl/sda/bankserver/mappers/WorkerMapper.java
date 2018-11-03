@@ -14,9 +14,9 @@ public interface WorkerMapper {
 
     @Mappings({@Mapping(target = "departmentId", source = "entity.department.id"),
             @Mapping(target = "addressId", source = "entity.address.id")})
-    WorkerDto workerToWorkerRegistrationDto(Worker entity);
+    WorkerDto workerToWorkerDto(Worker entity);
 
     @Mappings({@Mapping(target = "department.id", source = "dto.departmentId"),
             @Mapping(target = "address.id", source = "dto.addressId")})
-    Worker workerRegistrationDtoToWorker(WorkerDto dto);
+    Worker WorkerDtoToWorker(WorkerDto dto);
 }

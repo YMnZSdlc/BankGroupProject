@@ -27,7 +27,7 @@ public class AccountCategoryMapperTest {
         entity.setAccount(account);
 
         //when
-        AccountCategoryDto dto = AccountCategoryMapper.INSTANCE.accountCategoryToAccountCategoryCreationDto(entity);
+        AccountCategoryDto dto = AccountCategoryMapper.INSTANCE.accountCategoryToAccountCategoryDto(entity);
 
         //then
         assertEquals(dto.getId(), entity.getId());
@@ -44,7 +44,7 @@ public class AccountCategoryMapperTest {
         dto.setAccountId(1234);
 
         //when
-        AccountCategory entity = AccountCategoryMapper.INSTANCE.accountCategoryCreationDtoToAccountCategory(dto);
+        AccountCategory entity = AccountCategoryMapper.INSTANCE.accountCategoryDtoToAccountCategory(dto);
 
         //then
         assertEquals(entity.getId(),dto.getId());

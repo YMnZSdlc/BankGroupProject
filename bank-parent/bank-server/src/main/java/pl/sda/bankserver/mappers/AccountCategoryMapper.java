@@ -12,9 +12,9 @@ public interface AccountCategoryMapper {
     AccountCategoryMapper INSTANCE = Mappers.getMapper(AccountCategoryMapper.class);
 
     @Mapping(target = "accountId", source = "entity.account.id")
-    AccountCategoryDto accountCategoryToAccountCategoryCreationDto(AccountCategory entity);
+    AccountCategoryDto accountCategoryToAccountCategoryDto(AccountCategory entity);
 
     @Mapping(target = "account.id", source = "dto.accountId")
-    AccountCategory accountCategoryCreationDtoToAccountCategory(AccountCategoryDto dto);
+    AccountCategory accountCategoryDtoToAccountCategory(AccountCategoryDto dto);
 
 }

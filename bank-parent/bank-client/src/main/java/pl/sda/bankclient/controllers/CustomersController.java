@@ -1,13 +1,22 @@
 package pl.sda.bankclient.controllers;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import pl.sda.bankclient.service.CustomerService;
 import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
 
 @Controller
 public class CustomersController {
+
+    @Autowired
+    CustomerService customerService;
 
     @GetMapping("/customers")
     public String showCustomers() {
@@ -22,6 +31,7 @@ public class CustomersController {
 
     @PostMapping("/customers/save")
     public String saveCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
+        //TODO
         return "customers/save";
     }
 

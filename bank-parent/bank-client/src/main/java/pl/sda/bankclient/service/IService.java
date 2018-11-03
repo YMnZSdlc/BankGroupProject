@@ -2,6 +2,6 @@ package pl.sda.bankclient.service;
 
 public interface IService<T> {
 
-    T save(T entity);
+    T save(T dto);
 
 }

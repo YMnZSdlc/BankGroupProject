@@ -31,7 +31,7 @@ public class CustomersController {
 
     @PostMapping("/customers/save")
     public String saveCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
-        //TODO
+        customerService.save(customerDto);
         return "customers/save";
     }
 
@@ -43,6 +43,7 @@ public class CustomersController {
 
     @PostMapping("/customers/find")
     public String findCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
+        customerService.find(customerDto);
         return "customers/find";
     }
 

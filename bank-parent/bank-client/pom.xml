@@ -35,6 +35,7 @@
         <commons-lang3>3.7</commons-lang3>
         <gson>2.8.0</gson>
         <log4j>1.2.17</log4j>
+        <bank-server>1.0-SNAPSHOT</bank-server>
     </properties>
 
     <dependencies>
@@ -74,7 +75,7 @@
         <dependency>
             <groupId>pl.sda</groupId>
             <artifactId>bank-server</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${bank-server}</version>
         </dependency>
     </dependencies>
 

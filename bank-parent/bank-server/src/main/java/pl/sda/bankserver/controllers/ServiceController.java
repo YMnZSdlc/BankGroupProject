@@ -7,6 +7,7 @@ import pl.sda.bankcommons.domain.dtos.ServiceCreationDto;
 import pl.sda.bankserver.domain.Service;
 import pl.sda.bankserver.services.ServiceService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -22,27 +23,27 @@ public class ServiceController {
     
     @PostMapping("/server/service/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createService(@RequestBody ServiceCreationDto creationDto) {
+    public void createService(@RequestBody @Valid ServiceCreationDto creationDto) {
 //        serviceService.createService(creationDto);
     }
     
     @GetMapping("/server/service/all")
     public List<Service> findAll() {
-        return null;
+        return serviceService.findAll();
     }
     
     @GetMapping("/server/service/find")
     public Service findService(@RequestParam Map<String, String> customQuery) {
-        return null;
+        return serviceService.findService(customQuery);
     }
     
     @PutMapping("/server/service/update")
-    public void updateService(@RequestParam Map<String, String> customQuery, @RequestBody ServiceCreationDto creationDto) {
-//        serviceService.updateService(customQuery, creationDto);
+    public void updateService(@RequestParam Map<String, String> customQuery, @RequestBody @Valid ServiceCreationDto creationDto) {
+        serviceService.updateService(customQuery, creationDto);
     }
     
     @DeleteMapping("/server/service/delete")
     public void deleteService(@RequestParam Map<String, String> customQuery) {
-//        serviceService.deleteService(customQuery);
+        serviceService.deleteService(customQuery);
     }
 }

@@ -7,6 +7,7 @@ import pl.sda.bankcommons.domain.dtos.AccountHistoryCreationDto;
 import pl.sda.bankserver.domain.AccountHistory;
 import pl.sda.bankserver.services.AccountHistoryService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -22,8 +23,8 @@ public class AccountHistoryController {
     
     @PostMapping("/server/accounthistory/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAccountHistory(@RequestBody AccountHistoryCreationDto creationDto) {
-//        accountHistoryService.createAccountHistory(creationDto);
+    public void createAccountHistory(@RequestBody @Valid AccountHistoryCreationDto creationDto) {
+        accountHistoryService.createAccountHistory(creationDto);
     }
     
     @GetMapping("/server/accounthistory/all")
@@ -33,16 +34,16 @@ public class AccountHistoryController {
     
     @GetMapping("/server/accounthistory/find")
     public AccountHistory findAccountHistory(@RequestParam Map<String, String> customQuery) {
-        return null;
+        return accountHistoryService.findAccountHistory(customQuery);
     }
     
     @PutMapping("/server/accounthistory/update")
-    public void updateAccountHistory(@RequestParam Map<String, String> customQuery, @RequestBody AccountHistoryCreationDto creationDto) {
-//        accountHistoryService.updateAccountHistory(customQuery, creationDto);
+    public void updateAccountHistory(@RequestParam Map<String, String> customQuery, @RequestBody @Valid AccountHistoryCreationDto creationDto) {
+        accountHistoryService.updateAccountHistory(customQuery, creationDto);
     }
     
     @DeleteMapping("/server/accounthistory/delete")
     public void deleteAccountHistory(@RequestParam Map<String, String> customQuery) {
-//        accountHistoryService.deleteAccountHistory(customQuery);
+        accountHistoryService.deleteAccountHistory(customQuery);
     }
 }

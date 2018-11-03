@@ -39,28 +39,13 @@ public class AddressServiceImpl implements AddressService {
     
     @Override
     public List<Address> findAddress(Map<String, String> customQuery) {
-        String streetName = "";
-        String steetNo = "";
-        String homeNo = "";
-        String city = "";
-        String zipCode = "";
-        if (customQuery.get("streetName") != null) {
-            streetName = customQuery.get("streetName");
-        }
-        if (customQuery.get("streetNo") != null) {
-            steetNo = customQuery.get("streetNo");
-        }
-        if (customQuery.get("homeNo") != null) {
-            steetNo = customQuery.get("homeNo");
-        }
-        if (customQuery.get("city") != null) {
-            steetNo = customQuery.get("city");
-        }
-        if (customQuery.get("zipCode") != null) {
-            steetNo = customQuery.get("zipCode");
-        }
+        String streetName = customQuery.get("streetName");
+        String streetNo = customQuery.get("streetNo");
+        String homeNo = customQuery.get("homeNo");
+        String city = customQuery.get("city");
+        String zipCode = customQuery.get("zipCode");
         return addressRepository.findAllByStreetNameOrAndStreetNoOrAndHomeNoOrAndCityOrAndZipCode(streetName,
-                steetNo, homeNo, city, zipCode);
+                streetNo, homeNo, city, zipCode);
     }
     
     @Override

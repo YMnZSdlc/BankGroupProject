@@ -7,6 +7,7 @@ import pl.sda.bankcommons.domain.dtos.AccountCategoryCreationDto;
 import pl.sda.bankserver.domain.AccountCategory;
 import pl.sda.bankserver.services.AccountCategoryService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -22,28 +23,28 @@ public class AccountCategoryController {
     
     @PostMapping("/server/accountcategory/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAccountCategory(@RequestBody AccountCategoryCreationDto creationDto) {
+    public void createAccountCategory(@RequestBody @Valid AccountCategoryCreationDto creationDto) {
 //        accountCategoryService.createAccountCategory(creationDto);
     }
     
     @GetMapping("/server/accountcategory/all")
     public List<AccountCategory> findAll() {
-        return null;
+        return accountCategoryService.findAll();
     }
     
     @GetMapping("/server/accountcategory/find")
     public AccountCategory findAccountCategory(@RequestParam Map<String, String> customQuery) {
-        return null;
+        return accountCategoryService.findAccountCategory(customQuery);
     }
     
     @PutMapping("/server/accountcategory/update")
-    public void updateAccountCategory(@RequestParam Map<String, String> customQuery, @RequestBody
+    public void updateAccountCategory(@RequestParam Map<String, String> customQuery, @RequestBody @Valid
             AccountCategoryCreationDto creationDto) {
-//        accountCategoryService.updateAccountCategory(customQuery, creationDto);
+        accountCategoryService.updateAccountCategory(customQuery, creationDto);
     }
     
     @DeleteMapping("/server/accountcategory/delete")
     public void deleteAccountCategory(@RequestParam Map<String, String> customQuery) {
-//        accountCategoryService.deleteAccountCategory(customQuery);
+        accountCategoryService.deleteAccountCategory(customQuery);
     }
 }

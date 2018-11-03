@@ -7,6 +7,7 @@ import pl.sda.bankcommons.domain.dtos.WorkerRegistrationDto;
 import pl.sda.bankserver.domain.Worker;
 import pl.sda.bankserver.services.WorkerService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -22,27 +23,27 @@ public class WorkerController {
     
     @PostMapping("/server/worker/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createWorker(@RequestBody WorkerRegistrationDto registrationDto) {
-//        workerService.createWorker(registrationDto);
+    public void createWorker(@RequestBody @Valid WorkerRegistrationDto registrationDto) {
+        workerService.createWorker(registrationDto);
     }
     
     @GetMapping("/server/worker/all")
     public List<Worker> findAll() {
-        return null;
+        return workerService.findAll();
     }
     
     @GetMapping("/server/worker/find")
     public Worker findWorker(@RequestParam Map<String, String> customQuery) {
-        return null;
+        return workerService.findWorker(customQuery);
     }
     
     @PutMapping("/server/worker/update")
-    public void updateWorker(@RequestParam Map<String, String> customQuery, @RequestBody WorkerRegistrationDto registrationDto) {
-//        workerService.updateWorker(customQuery, registrationDto);
+    public void updateWorker(@RequestParam Map<String, String> customQuery, @RequestBody @Valid WorkerRegistrationDto registrationDto) {
+        workerService.updateWorker(customQuery, registrationDto);
     }
     
     @DeleteMapping("/server/worker/delete")
     public void deleteWorker(@RequestParam Map<String, String> customQuery) {
-//        workerService.deleteWorker(customQuery);
+        workerService.deleteWorker(customQuery);
     }
 }

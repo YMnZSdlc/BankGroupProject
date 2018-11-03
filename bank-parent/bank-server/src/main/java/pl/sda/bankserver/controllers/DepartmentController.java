@@ -7,6 +7,7 @@ import pl.sda.bankcommons.domain.dtos.DepartmentRegistrationDto;
 import pl.sda.bankserver.domain.Department;
 import pl.sda.bankserver.services.DepartmentService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -22,22 +23,22 @@ public class DepartmentController {
     
     @PostMapping("/server/department/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createDepartment(@RequestBody DepartmentRegistrationDto registrationDto) {
+    public void createDepartment(@RequestBody @Valid DepartmentRegistrationDto registrationDto) {
 //        departmentService.createDepartment(registrationDto);
     }
     
     @GetMapping("/server/department/all")
     public List<Department> findAll() {
-        return null;
+        return departmentService.findAll();
     }
     
     @GetMapping("/server/department/find")
     public Department findDepartment(@RequestParam Map<String, String> customQuery) {
-        return null;
+        return departmentService.findDepartment(customQuery);
     }
     
     @PutMapping("/server/department/update")
-    public void updateDepartment(@RequestParam Map<String, String> customQuery, @RequestBody DepartmentRegistrationDto registrationDto) {
+    public void updateDepartment(@RequestParam Map<String, String> customQuery, @RequestBody @Valid DepartmentRegistrationDto registrationDto) {
 //        departmentService.updateDepartment(customQuery, registrationDto);
     }
     

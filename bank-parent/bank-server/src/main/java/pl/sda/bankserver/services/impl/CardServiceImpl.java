@@ -30,6 +30,7 @@ public class CardServiceImpl implements CardService {
                 .activationDate(registrationDto.getActivationDate())
                 .expireDate(registrationDto.getExpireDate())
                 .build();
+        cardRepository.saveAndFlush(card);
     }
     
     @Override

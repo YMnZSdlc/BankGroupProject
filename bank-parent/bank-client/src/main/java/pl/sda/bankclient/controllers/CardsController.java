@@ -10,7 +10,7 @@ public class CardsController {
 
     @GetMapping("/cards")
     public String showCards(){
-        return "accounts";
+        return "cards";
     }
 
     @GetMapping("/cards/save")
@@ -22,7 +22,6 @@ public class CardsController {
     @PostMapping("/cards/save")
     public String saveCard(@ModelAttribute CardRegistrationDto cardRegistrationDto) {
         return "cards/save";
-  
     }
 
     @GetMapping("/cards/find")

@@ -14,7 +14,7 @@ import java.time.LocalDate;
 
 @Data
 @Valid
-public class WorkerRegistrationDto {
+public class WorkerDto {
 
     private Integer id;
 

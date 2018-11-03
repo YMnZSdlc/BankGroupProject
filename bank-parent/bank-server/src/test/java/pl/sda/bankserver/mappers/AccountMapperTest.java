@@ -1,7 +1,7 @@
 package pl.sda.bankserver.mappers;
 
 import org.junit.Test;
-import pl.sda.bankcommons.domain.dtos.AccountRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.AccountDto;
 import pl.sda.bankserver.domain.Account;
 
 import java.math.BigDecimal;
@@ -21,7 +21,7 @@ public class AccountMapperTest {
         entity.setBalance(new BigDecimal("12345.6"));
 
         //when
-        AccountRegistrationDto dto = AccountMapper.INSTANCE.accountToAccountRegistrationDto(entity);
+        AccountDto dto = AccountMapper.INSTANCE.accountToAccountRegistrationDto(entity);
 
         //then
         assertEquals(dto.getId(), entity.getNumber());

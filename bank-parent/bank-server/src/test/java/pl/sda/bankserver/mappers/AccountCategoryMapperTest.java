@@ -1,7 +1,7 @@
 package pl.sda.bankserver.mappers;
 
 import org.junit.Test;
-import pl.sda.bankcommons.domain.dtos.AccountCategoryCreationDto;
+import pl.sda.bankcommons.domain.dtos.AccountCategoryDto;
 import pl.sda.bankserver.domain.Account;
 import pl.sda.bankserver.domain.AccountCategory;
 
@@ -27,7 +27,7 @@ public class AccountCategoryMapperTest {
         entity.setAccount(account);
 
         //when
-        AccountCategoryCreationDto dto = AccountCategoryMapper.INSTANCE.accountCategoryToAccountCategoryCreationDto(entity);
+        AccountCategoryDto dto = AccountCategoryMapper.INSTANCE.accountCategoryToAccountCategoryCreationDto(entity);
 
         //then
         assertEquals(dto.getId(), entity.getId());
@@ -38,7 +38,7 @@ public class AccountCategoryMapperTest {
     @Test
     public void accountCategoryCreationDtoToAccountCategory() {
         //given
-        AccountCategoryCreationDto dto = new AccountCategoryCreationDto();
+        AccountCategoryDto dto = new AccountCategoryDto();
         dto.setId(5678);
         dto.setCategoryName("EFGH");
         dto.setAccountId(1234);

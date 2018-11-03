@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import pl.sda.bankclient.service.CustomerService;
-import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.CustomerDto;
 
 @Controller
 public class CustomersController {
@@ -25,57 +25,57 @@ public class CustomersController {
 
     @GetMapping("/customers/save")
     public String viewFormToCreateCustomer(Model model) {
-        model.addAttribute("save", new CustomerRegistrationDto());
+        model.addAttribute("save", new CustomerDto());
         return "customers/save";
     }
 
     @PostMapping("/customers/save")
-    public String saveCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
+    public String saveCustomer(@ModelAttribute CustomerDto customerDto) {
         //TODO
         return "customers/save";
     }
 
     @GetMapping("/customers/find")
     public String viewFormToFindCustomer(Model model) {
-        model.addAttribute("find", new CustomerRegistrationDto());
+        model.addAttribute("find", new CustomerDto());
         return "customers/find";
     }
 
     @PostMapping("/customers/find")
-    public String findCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
+    public String findCustomer(@ModelAttribute CustomerDto customerDto) {
         return "customers/find";
     }
 
     @GetMapping("/customers/findall")
     public String findAllCustomersByParam(Model model) {
-        model.addAttribute("findall", new CustomerRegistrationDto());
+        model.addAttribute("findall", new CustomerDto());
         return "customers/findall";
     }
 
     @PostMapping("/customers/findall")
-    public String findAllCustomers(@ModelAttribute CustomerRegistrationDto customerDto) {
+    public String findAllCustomers(@ModelAttribute CustomerDto customerDto) {
         return "customers/findall";
     }
 
     @GetMapping("/customers/update")
     public String chooseCustomerForUpdate(Model model) {
-        model.addAttribute("update", new CustomerRegistrationDto());
+        model.addAttribute("update", new CustomerDto());
         return "customers/update";
     }
 
     @PutMapping("/customers/update")
-    public String updateCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
+    public String updateCustomer(@ModelAttribute CustomerDto customerDto) {
         return "customers/update";
     }
 
     @GetMapping("customers/delete")
     public String findCustomerToDelete(Model model) {
-        model.addAttribute("delete", new CustomerRegistrationDto());
+        model.addAttribute("delete", new CustomerDto());
         return "customers/delete";
     }
 
     @DeleteMapping("customers/delete")
-    public String deleteCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
+    public String deleteCustomer(@ModelAttribute CustomerDto customerDto) {
         return "customers/delete";
     }
 }

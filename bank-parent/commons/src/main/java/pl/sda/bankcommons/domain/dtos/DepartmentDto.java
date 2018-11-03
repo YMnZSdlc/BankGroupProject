@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @Valid
-public class DepartmentRegistrationDto {
+public class DepartmentDto {
 
     private Integer id;
 
@@ -27,9 +27,9 @@ public class DepartmentRegistrationDto {
             "posiadać 9 cyfr")
     private String phoneNumber;
 
-    private List<Integer> customerIds;
+    private List<CustomerDto> customers;
 
-    private List<Integer> workerIds;
+    private List<WorkerDto> workers;
 
     private Integer addressId;
 }

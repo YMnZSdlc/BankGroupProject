@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Data
 @Valid
-public class CardRegistrationDto {
+public class CardDto {
 
     private Integer id;
 

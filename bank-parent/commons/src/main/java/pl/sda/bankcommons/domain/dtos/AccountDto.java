@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @Valid
-public class AccountRegistrationDto {
+public class AccountDto {
 
     private Integer id;
 

@@ -15,7 +15,7 @@ import java.util.List;
 
 @Data
 @Valid
-public class CustomerRegistrationDto {
+public class CustomerDto {
 
     private Integer id;
 
@@ -56,7 +56,7 @@ public class CustomerRegistrationDto {
 
     private Sex sex;
 
-    private List<Integer> accountIds;
+    private List<AccountDto> accounts;
 
     private Integer departmentId;
 

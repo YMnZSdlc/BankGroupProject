@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @Valid
-public class AddressRegistrationDto {
+public class AddressDto {
 
     private Integer id;
 

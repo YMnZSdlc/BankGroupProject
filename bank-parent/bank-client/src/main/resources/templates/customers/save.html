@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Bank Website</title>
+    <title>Save Customer</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,8 +21,8 @@
             <a class="navbar-brand" href="#">YourBank</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li class="dropdown">
+            <li><a href="/start">Home</a></li>
+            <li class="active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customers
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -102,23 +103,53 @@
     </div>
 </nav>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Column 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    <h2>Welcome to Customer Creator!</h2>
+    <p>Create a new Customer</p>
+    <form th:object="${save}" th:action="@{/customers}" method="post">
+        <table class="table table-hover" style="width:350px">
+            <thead>
+            <tr>
+                <th>Password</th>
+                <td><input type="text" th:field="*{password}"></td>
+            </tr>
+            <tr>
+                <th>First Name</th>
+                <td><input type="text" th:field="*{firstName}"></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td><input type="text" th:field="*{lastName}"></td>
+            </tr>
+            <tr>
+                <th>Pesel</th>
+                <td><input type="text" th:field="*{pesel}"></td>
+
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="text" th:field="*{email}"></td>
+
+            </tr>
+            <tr>
+                <th>Phone number</th>
+                <td><input type="text" th:field="*{phoneNumber}"></td>
+
+            </tr>
+            <tr>
+                <th>Date of birth</th>
+                <td><input type="text" th:field="*{dateOfBirth}"></td>
+
+            </tr>
+            <tr>
+                <th>Sex</th>
+                <td><input type="text" th:field="*{sex}"></td>
+            </tr>
+            </thead>
+        </table>
+        <div>
+            <button th:href="customers" type="submit">Submit</button>
         </div>
-        <div class="col-sm-4">
-            <h3>Column 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-    </div>
+    </form>
 </div>
 
 </body>

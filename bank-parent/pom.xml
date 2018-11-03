@@ -10,5 +10,5 @@
         <module>bank-server</module>
         <module>bank-client</module>
         <module>commons</module>
-    </modules>
+   </modules>
 </project>

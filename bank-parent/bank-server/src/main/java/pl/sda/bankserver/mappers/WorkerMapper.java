@@ -12,11 +12,15 @@ public interface WorkerMapper {
 
     WorkerMapper INSTANCE = Mappers.getMapper(WorkerMapper.class);
 
-    @Mappings({@Mapping(target = "departmentId", source = "entity.department.id"),
-            @Mapping(target = "addressId", source = "entity.address.id")})
+    @Mappings({
+            @Mapping(target = "departmentId", source = "entity.department.id"),
+            @Mapping(target = "addressId", source = "entity.address.id")
+    })
     WorkerDto workerToWorkerDto(Worker entity);
 
-    @Mappings({@Mapping(target = "department.id", source = "dto.departmentId"),
-            @Mapping(target = "address.id", source = "dto.addressId")})
-    Worker WorkerDtoToWorker(WorkerDto dto);
+    @Mappings({
+            @Mapping(target = "department.id", source = "dto.departmentId"),
+            @Mapping(target = "address.id", source = "dto.addressId")
+    })
+    Worker workerDtoToWorker(WorkerDto dto);
 }

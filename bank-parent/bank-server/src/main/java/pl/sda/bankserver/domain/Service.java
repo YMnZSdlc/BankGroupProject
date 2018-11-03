@@ -23,7 +23,7 @@ public class Service {
     private ServiceEnum service;
 
     @Column(name = "service_no")
-    private int number;
+    private Integer number;
 
     @Column(name = "service_title")
     private String title;

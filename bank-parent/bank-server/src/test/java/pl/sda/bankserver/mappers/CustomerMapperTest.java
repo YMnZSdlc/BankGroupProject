@@ -1,38 +1,37 @@
 package pl.sda.bankserver.mappers;
 
 import org.junit.Test;
-import pl.sda.bankcommons.domain.dtos.WorkerDto;
-import pl.sda.bankserver.domain.Worker;
+import pl.sda.bankcommons.domain.dtos.CustomerDto;
+import pl.sda.bankserver.domain.Customer;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-public class WorkerMapperTest {
+public class CustomerMapperTest {
 
     @Test
-    public void workerToWorkerDto() {
-
+    public void customerToCustomerDto() {
     }
 
     @Test
-    public void workerDtoToWorker() {
+    public void customerDtoToCustomer() {
         //given
-        WorkerDto dto = FakeDtos.createWorkerDto();
+        CustomerDto dto = FakeDtos.createCustomerDto();
 
         //when
-        Worker entity = WorkerMapper.INSTANCE.workerDtoToWorker(dto);
+        Customer entity = CustomerMapper.INSTANCE.customerDtoToCustomer(dto);
 
         //then
         assertEquals(entity.getId(), dto.getId());
         assertEquals(entity.getPassword(), dto.getPassword());
         assertEquals(entity.getFirstName(), dto.getFirstName());
         assertEquals(entity.getLastName(), dto.getLastName());
-        assertEquals(entity.getSalary(), dto.getSalary());
         assertEquals(entity.getPesel(), dto.getPesel());
-        assertEquals(entity.getEmploymentDate(), dto.getEmploymentDate());
+        assertEquals(entity.getCreateDate(), dto.getCreateDate());
         assertEquals(entity.getEmail(), dto.getEmail());
         assertEquals(entity.getPhoneNumber(), dto.getPhoneNumber());
-        assertEquals(entity.getSex(), dto.getSex());
         assertEquals(entity.getDateOfBirth(), dto.getDateOfBirth());
+        assertEquals(entity.getSex(), dto.getSex());
+//        assertEquals(entity.getAccounts(), dto.getAccounts()); TODO
         assertEquals(entity.getDepartment().getId(), dto.getDepartmentId());
         assertEquals(entity.getAddress().getId(), dto.getAddressId());
     }

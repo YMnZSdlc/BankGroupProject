@@ -33,8 +33,8 @@ public class AccountHistoryController {
     }
     
     @GetMapping("/server/accounthistory/find")
-    public AccountHistory findAccountHistory(@RequestParam Map<String, String> customQuery) {
-        return accountHistoryService.findAccountHistory(customQuery);
+    public void findAccountHistory(@RequestParam Map<String, String> customQuery) {
+        accountHistoryService.findAccountHistory(customQuery);
     }
     
     @PutMapping("/server/accounthistory/update")

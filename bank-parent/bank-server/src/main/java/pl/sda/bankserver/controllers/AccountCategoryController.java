@@ -33,8 +33,8 @@ public class AccountCategoryController {
     }
     
     @GetMapping("/server/accountcategory/find")
-    public AccountCategory findAccountCategory(@RequestParam Map<String, String> customQuery) {
-        return accountCategoryService.findAccountCategory(customQuery);
+    public void findAccountCategory(@RequestParam Map<String, String> customQuery) {
+        accountCategoryService.findAccountCategory(customQuery);
     }
     
     @PutMapping("/server/accountcategory/update")

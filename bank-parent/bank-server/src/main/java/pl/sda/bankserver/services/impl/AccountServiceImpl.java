@@ -7,6 +7,7 @@ import pl.sda.bankserver.domain.Account;
 import pl.sda.bankserver.repository.AccountRepository;
 import pl.sda.bankserver.services.AccountService;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -38,7 +39,7 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> findAccount(Map<String, String> customQuery) {
         String number= "";
 
-        return null;
+        return accountRepository.findAllByNumber(number);
     }
     
     @Override

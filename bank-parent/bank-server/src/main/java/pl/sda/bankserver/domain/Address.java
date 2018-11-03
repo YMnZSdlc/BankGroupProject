@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Validated
-@Builder
+ @Builder
 public class Address {
 
     @Id

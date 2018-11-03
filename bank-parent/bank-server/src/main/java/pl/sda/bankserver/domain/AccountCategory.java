@@ -1,5 +1,6 @@
 package pl.sda.bankserver.domain;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "account_category")
 @Validated
+@Builder
 public class AccountCategory {
     
     @Id

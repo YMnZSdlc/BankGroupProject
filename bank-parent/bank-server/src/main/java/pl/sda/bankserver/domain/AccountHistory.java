@@ -1,5 +1,6 @@
 package pl.sda.bankserver.domain;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -11,6 +12,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @Validated
+@Builder
 @Table(name = "account_history")
 public class AccountHistory {
     @Id

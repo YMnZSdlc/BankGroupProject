@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.sda.bankcommons.domain.dtos.AccountRegistrationDto;
 import pl.sda.bankserver.domain.Account;
+import pl.sda.bankserver.repository.AccountRepository;
 import pl.sda.bankserver.services.AccountService;
 
 import java.util.List;
@@ -12,25 +13,31 @@ import java.util.Map;
 @Service
 public class AccountServiceImpl implements AccountService {
     
-    private AccountService accountService;
+    private AccountRepository accountRepository;
     
     @Autowired
-    public AccountServiceImpl(AccountService accountService) {
-        this.accountService = accountService;
+    public AccountServiceImpl(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
     }
     
     @Override
     public void createAccount(AccountRegistrationDto registrationDto) {
-    
+    Account account =Account.builder()
+            .number(registrationDto.getNumber())
+            .balance(registrationDto.getBalance())
+            .build();
+    accountRepository.saveAndFlush(account);
     }
     
     @Override
     public List<Account> findAll() {
-        return null;
+        return accountRepository.findAll();
     }
     
     @Override
     public List<Account> findAccount(Map<String, String> customQuery) {
+        String number= "";
+
         return null;
     }
     

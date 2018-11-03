@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
-public class AccountRegistrationDto {
+public class  AccountRegistrationDto {
 
     private Integer id;
     private String number;

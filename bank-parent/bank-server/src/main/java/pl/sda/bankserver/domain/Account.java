@@ -1,5 +1,6 @@
 package pl.sda.bankserver.domain;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -14,6 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Validated
+@Builder
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

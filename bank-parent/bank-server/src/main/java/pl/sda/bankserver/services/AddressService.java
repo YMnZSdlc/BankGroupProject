@@ -6,7 +6,7 @@ import pl.sda.bankserver.domain.Address;
 import java.util.List;
 import java.util.Map;
 
-public interface AddressService {
+public interface  AddressService {
     
     void createAddress(AddressRegistrationDto registrationDto);
     

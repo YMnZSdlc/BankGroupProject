@@ -27,8 +27,7 @@ public class CustomerController {
     }
     
     @GetMapping("/server/customer/all")
-    public List<Customer> findAll() {
-        return null;
+    public List<Customer> findAll() { return null;
     }
     
     @GetMapping("/server/customer/find")

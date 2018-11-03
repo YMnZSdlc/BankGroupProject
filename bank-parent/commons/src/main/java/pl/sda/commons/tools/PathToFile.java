@@ -14,7 +14,7 @@ public class PathToFile {
         if (osName.equals("Mac OS X")) {
             return userHome + "/desktop/Pdf";
         } else if (osName.equals("Windows 10")) {
-            return userHome;
+            return "";
         } else {
             throw new OsNotFound("Os Not Found");
         }

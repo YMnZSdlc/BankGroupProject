@@ -3,7 +3,6 @@ package pl.sda.bankserver.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.validation.annotation.Validated;
 import pl.sda.bankcommons.domain.dtos.CardTypeEnum;
 
@@ -13,7 +12,6 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Data
-@Setter
 @Entity
 @NoArgsConstructor
 @Validated

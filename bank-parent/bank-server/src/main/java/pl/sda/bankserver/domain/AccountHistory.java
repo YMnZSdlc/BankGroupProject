@@ -2,7 +2,6 @@ package pl.sda.bankserver.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
@@ -11,7 +10,6 @@ import java.math.BigDecimal;
 
 @Entity
 @Data
-@Setter
 @NoArgsConstructor
 @Validated
 @Table(name = "account_history")

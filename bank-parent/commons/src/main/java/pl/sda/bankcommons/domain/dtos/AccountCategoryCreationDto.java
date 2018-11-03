@@ -9,5 +9,5 @@ public class AccountCategoryCreationDto {
 
     private Integer id;
     private String categoryName;
-    private List<Integer> accountIds;
+    private Integer accountId;
 }

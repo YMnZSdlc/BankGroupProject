@@ -10,8 +10,9 @@ public interface AccountMapper {
 
     AccountMapper INSTANCE = Mappers.getMapper(AccountMapper.class);
 
-//    @Mapping(source = , target = "")
-    AccountRegistrationDto accountToAccountRegistrationDto (Account entity);
+    //    @Mapping(source = , target = "")
+    AccountRegistrationDto accountToAccountRegistrationDto(Account entity);
 
-    Account accountRegistrationDtoToAccount (AccountRegistrationDto dto);
+    Account accountRegistrationDtoToAccount(AccountRegistrationDto dto);
+
 }

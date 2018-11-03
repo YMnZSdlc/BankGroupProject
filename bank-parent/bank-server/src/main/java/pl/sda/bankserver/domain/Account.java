@@ -1,9 +1,7 @@
 package pl.sda.bankserver.domain;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
@@ -14,8 +12,6 @@ import java.util.List;
 
 @Entity
 @Data
-@Setter
-@Getter
 @NoArgsConstructor
 @Validated
 public class Account {
@@ -56,7 +52,6 @@ public class Account {
             inverseJoinColumns = @JoinColumn(name = "account_id", referencedColumnName = "id")
     )
     private List<Customer> customers;
-
 
 
 }

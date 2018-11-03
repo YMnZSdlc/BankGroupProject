@@ -10,9 +10,9 @@ import pl.sda.bankserver.domain.Service;
 public interface ServiceMapper {
     ServiceMapper INSTANCE = Mappers.getMapper(ServiceMapper.class);
 
-    @Mapping(target = "addressId", source = "entity.address.id")
+    @Mapping(target = "accountId", source = "entity.account.id")
     ServiceDto serviceToServiceCreationDto(Service entity);
 
-    @Mapping(target = "address.id", source = "dto.addressId")
+    @Mapping(target = "account.id", source = "dto.accountId")
     Service serviceCreationDtoToService(ServiceDto dto);
 }

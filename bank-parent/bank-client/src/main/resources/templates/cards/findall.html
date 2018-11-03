@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Bank Website</title>
+    <title>Find all Cards</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,7 +21,7 @@
             <a class="navbar-brand" href="#">YourBank</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li><a href="/start">Home</a></li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customers
                     <span class="caret"></span></a>
@@ -76,7 +77,7 @@
                     <li><a href="/accounts/findall">Find all</a></li>
                 </ul>
             </li>
-            <li class="dropdown">
+            <li class="active">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cards
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -102,23 +103,29 @@
     </div>
 </nav>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Column 1</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 2</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-        </div>
-    </div>
+    <h2>Welcome to Cards Searching!</h2>
+    <p>Try to find all Cards</p>
+    <form th:object="${findall}" th:action="@{/cards}" method="post">
+        <table class="table table-hover" style="width:350px">
+            <thead>
+            <tr>
+                <th>Type of Card</th>
+                <td><input type="text" th:field="*{cardType}"></td>
+                <td><button th:href="cards" type="submit">Find by Type</button> </td>
+            </tr>
+            <tr>
+                <th>Activation Date</th>
+                <td><input type="text" th:field="*{activationDate}"></td>
+                <td><button th:href="cards" type="submit">Find by Activation Date</button> </td>
+            </tr>
+            <tr>
+                <th>Expire Date</th>
+                <td><input type="text" th:field="*{expireDate}"></td>
+                <td><button th:href="cards" type="submit">Find by Expire Date</button> </td>
+            </tr>
+            </thead>
+        </table>
+    </form>
 </div>
 
 </body>

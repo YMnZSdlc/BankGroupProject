@@ -1,20 +1,48 @@
 package pl.sda.bankserver.mappers;
 
-import pl.sda.bankserver.domain.Account;
+import pl.sda.bankserver.domain.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class FakeDomains {
 
-    public Account createAccount (){
-        Account entity = new Account();
-        entity.setId(1234);
-        entity.setNumber("1234");
-        entity.setCreateDate(LocalDateTime.of(2018,10,20,12,22));
-        entity.setBalance(new BigDecimal("12345.6"));
-        return entity;
+    FakeDomains fakeDomains = new FakeDomains();
+
+    public Account createAccount() {
+        Account account = new Account();
+        account.setId(1234);
+        account.setNumber("1234");
+        account.setCreateDate(LocalDateTime.of(2018, 10, 20, 12, 22));
+        account.setBalance(new BigDecimal("12345.6"));
+
+        return account;
     }
+
+    public AccountCategory createAccountCategory() {
+        AccountCategory accountCategory = new AccountCategory();
+        accountCategory.setId(1234);
+        accountCategory.setCategoryName("1234");
+        Account account = fakeDomains.createAccount();
+        accountCategory.setAccount(account);
+
+        return accountCategory;
+    }
+
+    public AccountHistory createAccountHistory() {
+        AccountHistory accountHistory = new AccountHistory();
+
+        return accountHistory;
+    }
+
+    public Address createAddress() {
+        Address address = new Address();
+
+        return address;
+    }
+
+    public Card
+
 
 
 }

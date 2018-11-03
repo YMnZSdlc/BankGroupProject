@@ -28,9 +28,9 @@ public class AddressDtoTest {
         address.setHomeNo("666");
         address.setCity("Zgierz");
         address.setZipCode("00-666");
-        address.setCustomerAddressIds(null);
-        address.setDepartmentAddressIds(null);
-        address.setWorkerAddressIds(null);
+        address.setCustomersAddresses(null);
+        address.setDepartmentsAddresses(null);
+        address.setWorkerAddresses(null);
         
         return address;
     }

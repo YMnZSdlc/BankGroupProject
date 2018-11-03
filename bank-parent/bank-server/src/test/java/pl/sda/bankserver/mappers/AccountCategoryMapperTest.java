@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 public class AccountCategoryMapperTest {
 
     @Test
-    public void accountCategoryToAccountCategoryCreationDto() {
+    public void accountCategoryToAccountCategoryDto() {
         //given
         Account account = new Account();
         account.setId(1234);
@@ -36,7 +36,7 @@ public class AccountCategoryMapperTest {
     }
 
     @Test
-    public void accountCategoryCreationDtoToAccountCategory() {
+    public void accountCategoryDtoToAccountCategory() {
         //given
         AccountCategoryDto dto = new AccountCategoryDto();
         dto.setId(5678);

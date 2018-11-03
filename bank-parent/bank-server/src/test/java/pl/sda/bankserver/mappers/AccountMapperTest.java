@@ -25,9 +25,6 @@ public class AccountMapperTest {
         assertEquals(dtoOut.getBalance(), entityIn.getId());
         assertEquals(dtoOut.getServices(), entityIn.getId());
         assertEquals(dtoOut.getCards(), entityIn.getId());
-        assertEquals(dtoOut.get, entityIn.getId());
-        assertEquals(dtoOut.getService(), entityIn.getId());
-        assertEquals(dtoOut.getService(), entityIn.getId());
     }
 
     @Test

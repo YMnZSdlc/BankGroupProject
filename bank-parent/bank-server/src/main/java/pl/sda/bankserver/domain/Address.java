@@ -38,5 +38,5 @@ public class Address {
     private List<Worker> workerAddresses;
 
     @OneToMany(mappedBy = "address")
-    private List<Worker> departamentsAddresses;
+    private List<Worker> departmentAddresses;
 }

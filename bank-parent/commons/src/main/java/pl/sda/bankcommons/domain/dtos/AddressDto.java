@@ -34,9 +34,9 @@ public class AddressDto {
     @NotNull(message = "Pole nie może być puste")
     private String zipCode;
 
-    private List<Integer> customerAddressIds;
+    private List<CustomerDto> customersAddresses;
 
-    private List<Integer> workerAddressIds;
+    private List<WorkerDto> workerAddresses;
 
-    private List<Integer> departmentAddressIds;
+    private List<WorkerDto> departmentAddresses;
 }

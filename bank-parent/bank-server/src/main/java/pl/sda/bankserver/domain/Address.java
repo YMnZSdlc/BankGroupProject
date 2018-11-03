@@ -1,5 +1,6 @@
 package pl.sda.bankserver.domain;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -11,6 +12,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Validated
+@Builder
 public class Address {
 
     @Id
@@ -38,5 +40,5 @@ public class Address {
     private List<Worker> workerAddresses;
 
     @OneToMany(mappedBy = "address")
-    private List<Worker> departamentsAddresses;
+    private List<Department> departmentsAddresses;
 }

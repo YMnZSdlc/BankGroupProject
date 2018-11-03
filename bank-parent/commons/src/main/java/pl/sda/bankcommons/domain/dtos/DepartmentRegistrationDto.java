@@ -12,19 +12,18 @@ import java.util.List;
 @Valid
 public class DepartmentRegistrationDto {
 
-    private Integer id;
-
     @NotNull(message = "Pole nie może być puste")
     @Size(min = 3, max = 30, message = "Nazwa oddziału nie może być krótsza niż 3 znaki i nie może przekraczać 30 " +
             "znaków")
-    private String deptName;
 
     @NotNull(message = "Pole nie może być puste")
-    private Integer deptNo;
+    private String deptName;
 
     @NotNull(message = "Pole nie może być puste")
     @Pattern(regexp = "^(\\+48|)(\\s+|)([0-9]{9}|(\\d{3})\\s+(\\d{3})\\s+(\\d{3}))$", message = "Numer telefonu musi " +
             "posiadać 9 cyfr")
+    private Integer deptNo;
+
     private String phoneNumber;
 
     private List<Integer> customerIds;

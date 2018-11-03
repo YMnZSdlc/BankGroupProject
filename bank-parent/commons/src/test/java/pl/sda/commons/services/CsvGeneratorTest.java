@@ -42,7 +42,9 @@ class CsvGeneratorTest {
 
     @Test
     void isFileExist() {
-        File file = new File(PATH);
+        Properties properties = System.getProperties();
+        String path = properties.get("user.home").toString();
+        File file = new File(path);
         assertTrue(file.exists());
     }
 

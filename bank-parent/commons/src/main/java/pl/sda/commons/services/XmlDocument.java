@@ -67,7 +67,7 @@ public class XmlDocument implements Convertable {
         TransformerFactory transformerFactory = newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
-        StreamResult result = new StreamResult(new File(PATH));
+        StreamResult result = new StreamResult(new File(PATH)+"Xml");
         transformer.transform(source, result);
     }
 }

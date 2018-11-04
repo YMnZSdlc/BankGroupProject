@@ -33,7 +33,7 @@ public class WorkerController {
     }
     
     @GetMapping("/server/worker/find")
-    public Worker findWorker(@RequestParam Map<String, String> customQuery) {
+    public List<Worker> findWorker(@RequestParam Map<String, String> customQuery) {
         return workerService.findWorker(customQuery);
     }
     

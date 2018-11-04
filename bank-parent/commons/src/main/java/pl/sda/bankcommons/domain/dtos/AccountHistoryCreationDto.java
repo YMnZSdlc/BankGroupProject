@@ -1,5 +1,6 @@
 package pl.sda.bankcommons.domain.dtos;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.validation.Valid;
@@ -8,6 +9,7 @@ import java.math.BigDecimal;
 
 @Data
 @Valid
+@AllArgsConstructor
 public class AccountHistoryCreationDto {
 
     private Integer id;

@@ -8,6 +8,7 @@ import pl.sda.bankserver.domain.AccountHistory;
 import pl.sda.bankserver.repository.AccountHistoryRepository;
 import pl.sda.bankserver.services.AccountHistoryService;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -35,16 +36,26 @@ public class AccountHistoryServiceImpl implements AccountHistoryService {
         return accountHistoryRepository.findAll();
     }
     
-    //@Override
-    //public List<AccountHistory> findAccountHistory(Integer id){
-      //  return accountHistoryRepository.findAllById(id);
-    //}
+    @Override
+    public List<AccountHistory> findAccountHistory(Map<String, String> customQuery){
+        String balanceBefore = customQuery.get("balanceBefore");
+        String balanceAfter = customQuery.get("balanceAfter");
+        return accountHistoryRepository.findAllByBalanceBeforeAndOrBalanceAfter(balanceBefore, balanceAfter);
+    }
     
     @Override
     public void updateAccountHistory(Map<String, String> customQuery, AccountHistoryCreationDto creationDto) {
+        AccountHistory accountHistory = findAccountHistory(customQuery).get(0);
+        accountHistory = AccountHistory.builder()
+                .balanceBefore(new BigDecimal(10000))
+                .balanceAfter(new BigDecimal(12000))
+                .build();
+        accountHistoryRepository.save(accountHistory);
     }
     
     @Override
     public void deleteAccountHistory(Map<String, String> customQuery) {
+        AccountHistory accountHistory = findAccountHistory(customQuery).get(0);
+        accountHistoryRepository.delete(accountHistory);
     }
 }

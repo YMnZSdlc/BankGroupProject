@@ -33,7 +33,7 @@ public class ServiceController {
     }
     
     @GetMapping("/server/service/find")
-    public Service findService(@RequestParam Map<String, String> customQuery) {
+    public List<Service> findService(@RequestParam Map<String, String> customQuery) {
         return serviceService.findService(customQuery);
     }
     

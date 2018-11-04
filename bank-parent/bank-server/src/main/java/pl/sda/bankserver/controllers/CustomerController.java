@@ -32,7 +32,7 @@ public class CustomerController {
     }
     
     @GetMapping("/server/customer/find")
-    public Customer findCustomer(@RequestParam Map<String, String> customQuery) {
+    public List<Customer> findCustomer(@RequestParam Map<String, String> customQuery) {
         return customerService.findCustomer(customQuery);
     }
     

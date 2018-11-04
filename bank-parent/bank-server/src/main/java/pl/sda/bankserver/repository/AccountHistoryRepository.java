@@ -10,4 +10,6 @@ import java.util.List;
 public interface AccountHistoryRepository extends JpaRepository<AccountHistory, Integer> {
 List<AccountHistory>findAll();
 List<AccountHistory>findAllById(Integer id);
+
+    List<AccountHistory> findAllByBalanceBeforeAndOrBalanceAfter(String balanceBefore, String balanceAfter);
 }

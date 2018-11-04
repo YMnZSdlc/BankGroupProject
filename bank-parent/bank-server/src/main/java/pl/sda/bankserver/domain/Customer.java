@@ -6,17 +6,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import pl.sda.bankcommons.domain.enums.Sex;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -57,7 +47,12 @@ public class Customer {
     @Enumerated(EnumType.STRING)
     private Sex sex;
 
-    @ManyToMany(mappedBy = "customers")
+    @ManyToMany
+    @JoinTable(
+            name = "customer_accounts",
+            joinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "account_id", referencedColumnName = "id")
+    )
     private List<Account> accounts;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -43,7 +43,7 @@ public class CustomerMapperTest {
         assertEquals(entity.getDateOfBirth(), dto.getDateOfBirth());
         assertEquals(entity.getSex(), dto.getSex());
 //        assertEquals(entity.getAccounts(), dto.getAccounts());
-        assertEquals(entity.getAccounts().get(0).getAccountHistories(), dto.getAccounts().get(0).getAccountHistories());
+        assertEquals(entity.getAccounts().get(0).getAccountHistories().get(0).getBalanceAfter(), dto.getAccounts().get(0).getAccountHistories().get(0).getBalanceAfter());
         assertEquals(entity.getDepartment().getId(), dto.getDepartmentId());
         assertEquals(entity.getAddress().getId(), dto.getAddressId());
     }

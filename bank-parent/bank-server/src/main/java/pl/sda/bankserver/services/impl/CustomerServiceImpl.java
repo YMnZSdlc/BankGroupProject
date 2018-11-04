@@ -27,13 +27,13 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<CustomerRegistrationDto> findAll() {
+    public List<CustomerDto> findAll() {
         List<Customer> all = customerRepository.findAll();
         return all.stream().map(this::toDto).collect(Collectors.toList());
     }
 
-    private CustomerRegistrationDto toDto(Customer customer) {
-        CustomerRegistrationDto dto = new CustomerRegistrationDto();
+    private CustomerDto toDto(Customer customer) {
+        CustomerDto dto = new CustomerDto();
         dto.setFirstName(customer.getFirstName());
         dto.setLastName(customer.getLastName());
         dto.setEmail(customer.getEmail());

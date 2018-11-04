@@ -22,6 +22,7 @@ public class DepartmentDtoTest {
     
     private DepartmentDto createValidDepartamentRegistrationDto() {
         DepartmentDto department = new DepartmentDto();
+        department.setId(425);
         department.setDeptNo(1);
         department.setDeptName("Oddzial Psychiatryczny");
         department.setPhoneNumber("666 666 666");

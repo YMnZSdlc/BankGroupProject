@@ -8,10 +8,11 @@ import static org.junit.Assert.*;
 
 public class AccountMapperTest {
 
-    private FakeDomains fakeDomains = new FakeDomains();
+    FakeDomains fakeDomains = new FakeDomains();
+    FakeDtos fakeDtos = new FakeDtos();
 
     @Test
-    public void accountToAccountRegistrationDto() {
+    public void accountToAccountDto() {
         //given
         Account entityIn = fakeDomains.createAccount();
 
@@ -23,28 +24,28 @@ public class AccountMapperTest {
         assertEquals(dtoOut.getNumber(), entityIn.getNumber());
         assertEquals(dtoOut.getCreateDate(), entityIn.getCreateDate());
         assertEquals(dtoOut.getBalance(), entityIn.getBalance());
-//        assertEquals(dtoOut.getServices(), entityIn.getServices());
-//        assertEquals(dtoOut.getCards(), entityIn.getCards());
-        assertEquals(dtoOut.getAccountCategoryId(), entityIn.getAccountCategory().getId());
-//        assertEquals(dtoOut.getAccountHistories(), entityIn.getAccountHistories());
-//        assertEquals(dtoOut.getCustomers(), entityIn.getCustomers());
+        assertEquals(dtoOut.getServices(), entityIn.getServices());
+        assertEquals(dtoOut.getCards(), entityIn.getCards());
+        assertEquals(dtoOut.getAccountCategoryId(), entityIn.getAccountCategory());
+        assertEquals(dtoOut.getAccountHistories(), entityIn.getAccountHistories());
     }
 
     @Test
     public void accountRegistrationDtoToAccount() {
         //given
-        AccountDto dto = FakeDtos.createAccountDto();
+        AccountDto dtoIn = fakeDtos.createAccountDto();
+
         //when
-        Account entity = AccountMapper.INSTANCE.accountRegistrationDtoToAccount(dto);
+        Account entityOut = AccountMapper.INSTANCE.accountRegistrationDtoToAccount(dtoIn);
+
         //then
-        assertEquals(entity.getId(), dto.getId());
-        assertEquals(entity.getNumber(), dto.getNumber());
-        assertEquals(entity.getCreateDate(), dto.getCreateDate());
-        assertEquals(entity.getBalance(), dto.getBalance());
-//        assertEquals(entity.getServices(), dto.getServices());
-//        assertEquals(entity.getCreateDate(), dto.getCreateDate());
-        assertEquals(entity.getCards(), dto.getCards());
-        assertEquals(entity.getAccountCategory().getId(), dto.getAccountCategoryId());
-        assertEquals(entity.getAccountHistories(), dto.getAccountHistories());
+        assertEquals(entityOut.getId(), dtoIn.getId());
+        assertEquals(entityOut.getNumber(), dtoIn.getNumber());
+        assertEquals(entityOut.getCreateDate(), dtoIn.getCreateDate());
+        assertEquals(entityOut.getBalance(), dtoIn.getBalance());
+        assertEquals(entityOut.getServices(), dtoIn.getServices());
+        assertEquals(entityOut.getCards(), dtoIn.getCards());
+        assertEquals(entityOut.getAccountCategory(), dtoIn.getAccountCategoryId());
+        assertEquals(entityOut.getAccountHistories(), dtoIn.getAccountHistories());
     }
 }

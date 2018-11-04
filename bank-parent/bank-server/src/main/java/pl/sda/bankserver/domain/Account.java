@@ -1,5 +1,6 @@
 package pl.sda.bankserver.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @Validated
 public class Account {

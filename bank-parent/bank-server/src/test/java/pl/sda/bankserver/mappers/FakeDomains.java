@@ -13,6 +13,16 @@ import java.util.List;
 
 public class FakeDomains {
 
+    private Account account;
+    private AccountCategory accountCategory;
+    private AccountHistory accountHistory;
+    private Address address;
+    private Card card;
+    private Customer customer;
+    private Department department;
+    private Service service;
+    private Worker worker;
+
     public Account createAccount() {
         Account account = new Account();
 
@@ -21,8 +31,10 @@ public class FakeDomains {
         account.setCreateDate(LocalDateTime.of(2018, 10, 20, 12, 22));
         account.setBalance(new BigDecimal("12345.6"));
         List<Service> services = new ArrayList<>();
+        services.add(createService());
         account.setServices(services);
         List<Card> cards = new ArrayList<>();
+        cards.add(createCard());
         account.setCards(cards);
         AccountCategory accountCategory = new AccountCategory();
         account.setAccountCategory(accountCategory);
@@ -38,8 +50,7 @@ public class FakeDomains {
 
         accountCategory.setId(1234);
         accountCategory.setCategoryName("1234");
-        Account account = new Account();
-        accountCategory.setAccount(account);
+        accountCategory.setAccount(createAccount());
 
         return accountCategory;
     }
@@ -50,8 +61,7 @@ public class FakeDomains {
         accountHistory.setId(1234);
         accountHistory.setBalanceBefore(new BigDecimal("123.4"));
         accountHistory.setBalanceAfter(new BigDecimal("567.8"));
-        Account account = new Account();
-        accountHistory.setAccount(account);
+        accountHistory.setAccount(createAccount());
 
         return accountHistory;
     }
@@ -66,10 +76,13 @@ public class FakeDomains {
         address.setCity("Zgierz");
         address.setZipCode("12-345");
         List<Customer> customers = new ArrayList<>();
+        customers.add(createCustomer());
         address.setCustomersAddresses(customers);
         List<Worker> workers = new ArrayList<>();
+        workers.add(createWorker());
         address.setWorkerAddresses(workers);
         List<Worker> workersDep = new ArrayList<>();
+        workersDep.add(createWorker());
         address.setDepartmentsAddresses(workersDep);
 
         return address;
@@ -84,8 +97,7 @@ public class FakeDomains {
         card.setCvcCvvCode(123);
         card.setActivationDate(LocalDate.of(2018, 10, 20));
         card.setExpireDate(LocalDate.of(2020, 10, 19));
-        Account account = new Account();
-        card.setAccount(account);
+        card.setAccount(createAccount());
 
         return card;
     }
@@ -104,11 +116,10 @@ public class FakeDomains {
         customer.setDateOfBirth(LocalDate.of(1990, 10, 12));
         customer.setSex(Sex.M);
         List<Account> accounts = new ArrayList<>();
+        accounts.add(createAccount());
         customer.setAccounts(accounts);
-        Department department = new Department();
-        customer.setDepartment(department);
-        Address address = new Address();
-        customer.setAddress(address);
+        customer.setDepartment(createDepartment());
+        customer.setAddress(createAddress());
 
         return customer;
     }
@@ -121,11 +132,12 @@ public class FakeDomains {
         department.setDeptNo(5);
         department.setPhoneNumber("987 765 543");
         List<Customer> customers = new ArrayList<>();
+        customers.add(createCustomer());
         department.setCustomers(customers);
         List<Worker> workers = new ArrayList<>();
+        workers.add(createWorker());
         department.setWorkers(workers);
-        Address address = new Address();
-        department.setAddress(address);
+        department.setAddress(createAddress());
 
         return department;
     }
@@ -144,8 +156,7 @@ public class FakeDomains {
         service.setEndTime(LocalDateTime.of(2022, 10, 10, 12, 12, 12));
         service.setSenderAccount("BLA bla BLa");
         service.setRecipientAccount("lorem");
-        Account account = new Account();
-        service.setAccount(account);
+//        service.setAccount(createAccount());
 
         return service;
     }
@@ -164,10 +175,8 @@ public class FakeDomains {
         worker.setPhoneNumber("123 456 789");
         worker.setSex(Sex.M);
         worker.setDateOfBirth(LocalDate.of(1988, 10, 12));
-        Department department = new Department();
-        worker.setDepartment(department);
-        Address address = new Address();
-        worker.setAddress(address);
+        worker.setDepartment(createDepartment());
+        worker.setAddress(createAddress());
 
         return worker;
     }

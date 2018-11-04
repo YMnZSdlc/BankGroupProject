@@ -9,14 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import pl.sda.bankclient.service.CustomerService;
+import pl.sda.bankclient.service.IService;
 import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
 
 @Controller
 public class CustomersController {
 
+    IService<CustomerRegistrationDto> customerService;
+
     @Autowired
-    CustomerService customerService;
+    public CustomersController(IService<CustomerRegistrationDto> customerService) {
+        this.customerService = customerService;
+    }
 
     @GetMapping("/customers")
     public String showCustomers() {

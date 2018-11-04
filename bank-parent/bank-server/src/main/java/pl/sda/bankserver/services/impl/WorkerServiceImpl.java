@@ -11,36 +11,36 @@ import java.util.Map;
 
 @Service
 public class WorkerServiceImpl implements WorkerService {
-    
+
     private WorkerService workerService;
-    
+
     @Autowired
-        public WorkerServiceImpl(WorkerService workerService) {
+    public WorkerServiceImpl(WorkerService workerService) {
         this.workerService = workerService;
     }
-    
+
     @Override
     public void createWorker(WorkerRegistrationDto registrationDto) {
-    
+
     }
-    
+
     @Override
     public List<Worker> findAll() {
         return null;
     }
-    
+
     @Override
-    public List<Worker> findWorker(Map<String, String> customQuery) {
+    public Worker findWorker(Map<String, String> customQuery) {
         return null;
     }
-    
+
     @Override
     public void updateWorker(Map<String, String> customQuery, WorkerRegistrationDto registrationDto) {
-    
+
     }
-    
+
     @Override
     public void deleteWorker(Map<String, String> customQuery) {
-    
+
     }
 }

@@ -1,10 +1,10 @@
 package pl.sda.bankclient.service;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
 
-@Component
+@Service
 public class CustomerService implements IService<CustomerRegistrationDto> {
 
     RestTemplate restTemplate = new RestTemplate();

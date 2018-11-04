@@ -4,4 +4,6 @@ public interface IService<T> {
 
     T save(T dto);
 
+    void find(T dto);
+
 }

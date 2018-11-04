@@ -8,12 +8,12 @@ import java.util.Map;
 
 public interface ServiceService {
     void createService(ServiceCreationDto creationDto);
-    
+
     List<Service> findAll();
-    
-    List<Service> findService(Map<String, String> customQuery);
-    
+
+    Service findService(Map<String, String> customQuery);
+
     void updateService(Map<String, String> customQuery, ServiceCreationDto creationDto);
-    
+
     void deleteService(Map<String, String> customQuery);
 }

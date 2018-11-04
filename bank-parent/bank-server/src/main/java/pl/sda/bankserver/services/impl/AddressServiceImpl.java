@@ -12,14 +12,14 @@ import java.util.Map;
 
 @Service
 public class AddressServiceImpl implements AddressService {
-    
+
     private AddressRepository addressRepository;
-    
+
     @Autowired
     public AddressServiceImpl(AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
     }
-    
+
     @Override
     public void createAddress(AddressRegistrationDto registrationDto) {
         Address address = Address.builder()
@@ -31,12 +31,12 @@ public class AddressServiceImpl implements AddressService {
                 .build();
         addressRepository.saveAndFlush(address);
     }
-    
+
     @Override
     public List<Address> findAll() {
         return addressRepository.findAll();
     }
-    
+
     @Override
     public List<Address> findAddress(Map<String, String> customQuery) {
         String streetName = customQuery.get("streetName");
@@ -47,7 +47,7 @@ public class AddressServiceImpl implements AddressService {
         return addressRepository.findAllByStreetNameOrAndStreetNoOrAndHomeNoOrAndCityOrAndZipCode(streetName,
                 streetNo, homeNo, city, zipCode);
     }
-    
+
     @Override
     public void updateAddress(Map<String, String> customQuery, AddressRegistrationDto registrationDto) {
         Address address = findAddress(customQuery).get(0);
@@ -60,7 +60,7 @@ public class AddressServiceImpl implements AddressService {
                 .build();
         addressRepository.save(address);
     }
-    
+
     @Override
     public void deleteAddress(Map<String, String> customQuery) {
         Address address = findAddress(customQuery).get(0);

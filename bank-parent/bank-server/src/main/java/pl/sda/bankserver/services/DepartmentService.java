@@ -8,12 +8,12 @@ import java.util.Map;
 
 public interface DepartmentService {
     void createDepartment(DepartmentRegistrationDto registrationDto);
-    
+
     List<Department> findAll();
-    
+
     List<Department> findDepartment(Map<String, String> customQuery);
-    
+
     void updateDepartment(Map<String, String> customQuery, DepartmentRegistrationDto registrationDto);
-    
+
     void deleteDepartment(Map<String, String> customQuery);
 }

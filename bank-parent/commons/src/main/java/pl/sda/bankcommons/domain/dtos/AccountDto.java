@@ -30,6 +30,4 @@ public class AccountDto {
     private Integer accountCategoryId;
 
     private List<AccountHistoryDto> accountHistories;
-
-    private List<CustomerDto> customers;
 }

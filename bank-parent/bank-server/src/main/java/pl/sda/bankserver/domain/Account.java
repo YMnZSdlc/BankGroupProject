@@ -1,5 +1,6 @@
 package pl.sda.bankserver.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Entity
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @Validated
 public class Account {
@@ -39,14 +41,4 @@ public class Account {
 
     @OneToMany(mappedBy = "account")
     private List<AccountHistory> accountHistories;
-
-    @ManyToMany
-    @JoinTable(
-            name = "customer_accounts",
-            joinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "account_id", referencedColumnName = "id")
-    )
-    private List<Customer> customers;
-
-
 }

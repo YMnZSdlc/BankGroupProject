@@ -7,6 +7,9 @@ import pl.sda.bankcommons.domain.dtos.AccountHistoryDto;
 import pl.sda.bankserver.domain.AccountHistory;
 
 @Mapper
+/**TODO
+ * pola się nie mapują
+ * */
 public interface AccountHistoryMapper {
 
     AccountHistoryMapper INSTANCE = Mappers.getMapper(AccountHistoryMapper.class);

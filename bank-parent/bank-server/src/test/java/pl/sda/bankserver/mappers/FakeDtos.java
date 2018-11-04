@@ -13,10 +13,46 @@ import static java.time.LocalDate.of;
 import static java.time.LocalDateTime.of;
 
 public class FakeDtos {
-    static List<ServiceDto> serviceDtoList(){
+    static List<ServiceDto> serviceDtoList() {
         List<ServiceDto> serviceDtoList = new ArrayList<>();
         serviceDtoList.add(createServiceDto());
         return serviceDtoList;
+    }
+
+    static List<CustomerDto> customerDtoList() {
+        List<CustomerDto> customerDtoList = new ArrayList<>();
+        customerDtoList.add(createCustomerDto());
+        return customerDtoList;
+    }
+
+    static List<WorkerDto> workerDtoList() {
+        List<WorkerDto> workerDtoList = new ArrayList<>();
+        workerDtoList.add(createWorkerDto());
+        return workerDtoList;
+    }
+
+    static List<AccountDto> accountDtoList() {
+        List<AccountDto> accountDtoList = new ArrayList<>();
+        accountDtoList.add(createAccountDto());
+        return accountDtoList;
+    }
+
+    static List<DepartmentDto> departmentDtoList() {
+        List<DepartmentDto> departmentDtoList = new ArrayList<>();
+        departmentDtoList.add(createDepartmentDto());
+        return departmentDtoList;
+    }
+
+    static List<CardDto> cardDtoList() {
+        List<CardDto> cardDtoList = new ArrayList<>();
+        cardDtoList.add(createCardDto());
+        return cardDtoList;
+    }
+
+    static List<AccountHistoryDto> accountHistoryDtoList() {
+        List<AccountHistoryDto> accountHistoryDtoList = new ArrayList<>();
+        accountHistoryDtoList.add(createAccountHistoryDto());
+        return accountHistoryDtoList;
     }
 
     static AccountCategoryDto createAccountCategoryDto() {
@@ -34,9 +70,9 @@ public class FakeDtos {
         dto.setCreateDate(of(2017, 10, 20, 15, 45));
         dto.setBalance(new BigDecimal("156"));
         dto.setServices(serviceDtoList());
-//        dto.setCard(); TODO
+        dto.setCards(cardDtoList());
         dto.setAccountCategoryId(534);
-//        dto.setAccountHistoryIds(); TODO
+        dto.setAccountHistories(accountHistoryDtoList());
         return dto;
     }
 
@@ -56,9 +92,9 @@ public class FakeDtos {
         dto.setHomeNo("1");
         dto.setCity("Łódź");
         dto.setZipCode("54-614");
-//        dto.setCustomersAddresses(); TODO
-//        dto.setWorkerAddresses(); TODO
-//        dto.setDepartmentsAddresses(); TODO
+        dto.setCustomersAddresses(customerDtoList());
+        dto.setWorkerAddresses(workerDtoList());
+        dto.setDepartmentsAddresses(workerDtoList());
         return dto;
     }
 
@@ -86,7 +122,7 @@ public class FakeDtos {
         dto.setPhoneNumber("525458216");
         dto.setDateOfBirth(of(1972, 05, 16));
         dto.setSex(Sex.M);
-//        dto.setAccounts(); TODO
+        dto.setAccounts(accountDtoList());
         dto.setDepartmentId(3345);
         dto.setAddressId(4342);
         return dto;
@@ -98,8 +134,8 @@ public class FakeDtos {
         dto.setDeptName("Centrala");
         dto.setDeptNo(47);
         dto.setPhoneNumber("745896325");
-//        dto.setCustomers(); TODO
-//        dto.setWorkers(); TODO
+        dto.setCustomers(customerDtoList());
+        dto.setWorkers(workerDtoList());
         dto.setAddressId(13);
         return dto;
     }

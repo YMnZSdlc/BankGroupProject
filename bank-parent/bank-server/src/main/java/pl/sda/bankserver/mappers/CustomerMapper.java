@@ -6,8 +6,14 @@ import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 import pl.sda.bankcommons.domain.dtos.CustomerDto;
 import pl.sda.bankserver.domain.Customer;
+import pl.sda.bankserver.domain.Department;
 
 @Mapper
+/**TODO
+ *
+ * pola departmentId, addressId się nie mapują
+ *
+ * */
 public interface CustomerMapper {
     CustomerMapper INSTANCE = Mappers.getMapper(CustomerMapper.class);
 
@@ -24,4 +30,7 @@ public interface CustomerMapper {
             @Mapping(target = "accounts", source = "accounts")
     })
     Customer customerDtoToCustomer(CustomerDto dto);
+
+    @Mapping(target = "id", source = "departmentId")
+    Department departmentIdToDepartment(Integer departmentId);
 }

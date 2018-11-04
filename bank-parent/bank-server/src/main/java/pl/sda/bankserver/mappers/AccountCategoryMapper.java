@@ -7,6 +7,9 @@ import pl.sda.bankcommons.domain.dtos.AccountCategoryDto;
 import pl.sda.bankserver.domain.AccountCategory;
 
 @Mapper
+/**TODO
+* pola się nie mapują
+* */
 public interface AccountCategoryMapper {
 
     AccountCategoryMapper INSTANCE = Mappers.getMapper(AccountCategoryMapper.class);

@@ -2,9 +2,7 @@ package pl.sda.bankserver.mappers;
 
 import org.junit.Test;
 import pl.sda.bankcommons.domain.dtos.AddressDto;
-import pl.sda.bankcommons.domain.dtos.CustomerDto;
 import pl.sda.bankserver.domain.Address;
-import pl.sda.bankserver.domain.Customer;
 
 import static org.junit.Assert.*;
 
@@ -14,6 +12,17 @@ public class AddressMapperTest {
 
     @Test
     public void addressToAddressDto() {
+        //given
+        FakeDomains fakeDomains = new FakeDomains();
+        fakeDomains.createFakeDomains();
+        Address entityIn = fakeDomains.getAddress();
+
+        //when
+        AddressDto dtoOut = AddressMapper.INSTANCE.addressToAddressDto(entityIn);
+
+        //then
+        assertEquals(dtoOut.getId(),    entityIn.getId());
+
     }
 
     @Test

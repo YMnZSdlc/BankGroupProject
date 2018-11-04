@@ -14,6 +14,16 @@ public class DepartmentMapperTest {
 
     @Test
     public void departmentToDepartmentDto() {
+        //given
+        FakeDomains fakeDomains = new FakeDomains();
+        fakeDomains.createFakeDomains();
+        Department entityIn = fakeDomains.getDepartment();
+
+        //when
+        DepartmentDto dtoOut = DepartmentMapper.INSTANCE.departmentToDepartmentDto(entityIn);
+
+        //then
+        assertEquals(dtoOut.getId(),    entityIn.getId());
     }
 
     @Test

@@ -10,6 +10,16 @@ public class CardMapperTest {
 
     @Test
     public void cardToCardDto() {
+        //given
+        FakeDomains fakeDomains = new FakeDomains();
+        fakeDomains.createFakeDomains();
+        Card entityIn = fakeDomains.getCard();
+
+        //when
+        CardDto dtoOut = CardMapper.INSTANCE.cardToCardDto(entityIn);
+
+        //then
+        assertEquals(dtoOut.getId(),    entityIn.getId());
     }
 
     @Test

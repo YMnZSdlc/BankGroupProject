@@ -10,6 +10,17 @@ public class CustomerMapperTest {
 
     @Test
     public void customerToCustomerDto() {
+        //given
+        FakeDomains fakeDomains = new FakeDomains();
+        fakeDomains.createFakeDomains();
+        Customer entityIn = fakeDomains.getCustomer();
+
+        //when
+        CustomerDto dtoOut = CustomerMapper.INSTANCE.customerToCustomerDto(entityIn);
+
+        //then
+        assertEquals(dtoOut.getId(),    entityIn.getId());
+
     }
 
     @Test

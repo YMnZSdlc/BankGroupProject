@@ -10,6 +10,16 @@ public class ServiceMapperTest {
 
     @Test
     public void serviceToServiceDto() {
+        //given
+        FakeDomains fakeDomains = new FakeDomains();
+        fakeDomains.createFakeDomains();
+        Service entityIn = fakeDomains.getService();
+
+        //when
+        ServiceDto dtoOut = ServiceMapper.INSTANCE.serviceToServiceDto(entityIn);
+
+        //then
+        assertEquals(dtoOut.getId(),    entityIn.getId());
     }
 
     @Test

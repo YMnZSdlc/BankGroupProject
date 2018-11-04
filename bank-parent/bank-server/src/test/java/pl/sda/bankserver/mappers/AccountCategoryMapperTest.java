@@ -2,11 +2,7 @@ package pl.sda.bankserver.mappers;
 
 import org.junit.Test;
 import pl.sda.bankcommons.domain.dtos.AccountCategoryDto;
-import pl.sda.bankserver.domain.Account;
 import pl.sda.bankserver.domain.AccountCategory;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,24 +11,17 @@ public class AccountCategoryMapperTest {
     @Test
     public void accountCategoryToAccountCategoryDto() {
         //given
-        Account account = new Account();
-        account.setId(1234);
-        account.setNumber("1234");
-        account.setCreateDate(LocalDateTime.of(2018,10,20,12,22));
-        account.setBalance(new BigDecimal("12345.6"));
-
-        AccountCategory entity = new AccountCategory();
-        entity.setId(1234);
-        entity.setCategoryName("ABCD");
-        entity.setAccount(account);
+        FakeDomains fakeDomains = new FakeDomains();
+        fakeDomains.createFakeDomains();
+        AccountCategory entityIn = fakeDomains.getAccountCategory();
 
         //when
-        AccountCategoryDto dto = AccountCategoryMapper.INSTANCE.accountCategoryToAccountCategoryDto(entity);
+        AccountCategoryDto dtoOut = AccountCategoryMapper.INSTANCE.accountCategoryToAccountCategoryDto(entityIn);
 
         //then
-        assertEquals(dto.getId(), entity.getId());
-        assertEquals(dto.getCategoryName(), entity.getCategoryName());
-        assertEquals(dto.getAccountId(), entity.getAccount().getId());
+        assertEquals(dtoOut.getId(),            entityIn.getId());
+        assertEquals(dtoOut.getCategoryName(),  entityIn.getCategoryName());
+        assertEquals(dtoOut.getAccountId(),     entityIn.getAccount().getId());
     }
 
     @Test

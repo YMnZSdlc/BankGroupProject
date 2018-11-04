@@ -102,54 +102,57 @@
         </ul>
     </div>
 </nav>
+
 <div class="container">
     <h2>Welcome to Customers Searching!</h2>
     <p>Try to find all Customers</p>
+
     <form th:object="${findall}" th:action="@{/customers}" method="post">
+
         <table class="table table-hover" style="width:350px">
             <thead>
-            <tr>
-                <th>First Name</th>
-                <td><input type="text" th:field="*{firstName}"></td>
-                <td>
-                    <button type="submit">Find by first name</button></td>
-            </tr>
-            <tr>
-                <th>Last Name</th>
-                <td><input type="text" th:field="*{lastName}"></td>
-                <td>
-                    <button type="submit">Find by last name</button></td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td><input type="text" th:field="*{email}"></td>
 
-                <td>
-                    <button type="submit">Find by E-mail</button></td>
-            </tr>
-            <tr>
-                <th>Phone number</th>
-                <td><input type="text" th:field="*{phoneNumber}"></td>
-                <td>
-                    <button type="submit">Find by phone number</button></td>
+            <th:block th:each="customer : ${findall}">
+                <tr>
+                    <th>First Name</th>
+                    <td th:text="${customer.firstName}"></td>
+                </tr>
 
-            </tr>
-            <tr>
-                <th>Date of birth</th>
-                <td><input type="text" th:field="*{dateOfBirth}"></td>
-                <td>
-                    <button type="submit">Find by date of birth</button></td>
+                <tr>
+                    <th>Last Name</th>
+                    <td th:text="${customer.lastName}"></td>
+                </tr>
 
-            </tr>
-            <tr>
-                <th>Sex</th>
-                <td><input type="text" th:field="*{sex}"></td>
-                <td>
-                    <button type="submit">Find by sex</button></td>
-            </tr>
+                <tr>
+                    <th>E-mail</th>
+                    <td th:text="${customer.email}"></td>
+                </tr>
+
+                <tr>
+                    <th>Phone number</th>
+                    <td th:text="${customer.phoneNumber}"></td>
+                </tr>
+
+                <tr>
+                    <th>Date of birth</th>
+                    <td th:text="${customer.dateOfBirth}"></td>
+                </tr>
+
+                <tr>
+                    <th>Sex</th>
+                    <td th:text="${customer.sex}"></td>
+                </tr>
+
+            </th:block>
             </thead>
         </table>
+        <td>
+            <button type="submit">Find all</button>
+        </td>
 
+        <td>
+            <button th:href="customers" type="submit">Find all customers</button>
+        </td>
     </form>
 </div>
 

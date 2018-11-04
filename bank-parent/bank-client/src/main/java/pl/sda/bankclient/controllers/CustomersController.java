@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import pl.sda.bankclient.service.IService;
 import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 public class CustomersController {
 
@@ -56,17 +53,15 @@ public class CustomersController {
 
     @GetMapping("/customers/findall")
     public String findAllCustomersByParam(Model model) {
-        List<CustomerRegistrationDto> list = new ArrayList<CustomerRegistrationDto>();
-        model.addAttribute("findall", list);
+        model.addAttribute("findall", customerService.findAll());
         return "customers/findall";
     }
-
-    @PostMapping("/customers/findall")
-    public String findAllCustomers(Model model) {
-        //call find all in service
-        //model.addAttribute("findall", list);
-        return "customers/findall";
-    }
+//
+//    @PostMapping("/customers/findall")
+//    public String findAllCustomers(Model model) {
+//        model.addAttribute("findall", customerService.findAll());
+//        return "customers/findall";
+//    }
 
     @GetMapping("/customers/update")
     public String chooseCustomerForUpdate(Model model) {

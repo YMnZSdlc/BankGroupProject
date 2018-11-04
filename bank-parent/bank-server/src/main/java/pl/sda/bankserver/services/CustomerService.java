@@ -9,7 +9,7 @@ import java.util.Map;
 public interface CustomerService {
     void createCustomer(CustomerRegistrationDto registrationDto);
 
-    List<Customer> findAll();
+    List<CustomerRegistrationDto> findAll();
 
     Customer findCustomer(Map<String, String> customQuery);
 

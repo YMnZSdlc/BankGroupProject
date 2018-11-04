@@ -2,7 +2,7 @@ package pl.sda.bankserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.bankcommons.domain.dtos.AccountHistoryCreationDto;
+import pl.sda.bankcommons.domain.dtos.AccountHistoryDto;
 import pl.sda.bankserver.domain.AccountHistory;
 import pl.sda.bankserver.repository.AccountHistoryRepository;
 import pl.sda.bankserver.services.AccountHistoryService;
@@ -21,7 +21,7 @@ public class AccountHistoryServiceImpl implements AccountHistoryService {
     }
 
     @Override
-    public void createAccountHistory(AccountHistoryCreationDto creationDto) {
+    public void createAccountHistory(AccountHistoryDto creationDto) {
 
     }
 
@@ -36,7 +36,7 @@ public class AccountHistoryServiceImpl implements AccountHistoryService {
     }
 
     @Override
-    public void updateAccountHistory(Map<String, String> customQuery, AccountHistoryCreationDto creationDto) {
+    public void updateAccountHistory(Map<String, String> customQuery, AccountHistoryDto creationDto) {
 
     }
 

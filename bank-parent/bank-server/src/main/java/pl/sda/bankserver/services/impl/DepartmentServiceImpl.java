@@ -2,7 +2,7 @@ package pl.sda.bankserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.bankcommons.domain.dtos.DepartmentRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.DepartmentDto;
 import pl.sda.bankserver.domain.Department;
 import pl.sda.bankserver.repository.DepartmentRepository;
 import pl.sda.bankserver.services.DepartmentService;
@@ -23,7 +23,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public void createDepartment(DepartmentRegistrationDto registrationDto) {
+    public void createDepartment(DepartmentDto registrationDto) {
         Department department = Department.builder()
                 .deptName(registrationDto.getDeptName())
                 .deptNo(registrationDto.getDeptNo())
@@ -46,7 +46,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public void updateDepartment(Map<String, String> customQuery, DepartmentRegistrationDto registrationDto) {
+    public void updateDepartment(Map<String, String> customQuery, DepartmentDto registrationDto) {
         Department department = findDepartment(customQuery).get(0);
         department = Department.builder()
                 .deptName(registrationDto.getDeptName())

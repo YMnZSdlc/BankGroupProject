@@ -22,7 +22,6 @@ import java.util.List;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
 @Validated

@@ -3,7 +3,7 @@ package pl.sda.bankserver.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.sda.bankcommons.domain.dtos.DepartmentRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.DepartmentDto;
 import pl.sda.bankserver.domain.Department;
 import pl.sda.bankserver.services.DepartmentService;
 
@@ -23,7 +23,7 @@ public class DepartmentController {
     
     @PostMapping("/server/department/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createDepartment(@RequestBody @Valid DepartmentRegistrationDto registrationDto) {
+    public void createDepartment(@RequestBody @Valid DepartmentDto registrationDto) {
         departmentService.createDepartment(registrationDto);
     }
     
@@ -38,7 +38,7 @@ public class DepartmentController {
     }
     
     @PutMapping("/server/department/update")
-    public void updateDepartment(@RequestParam Map<String, String> customQuery, @RequestBody @Valid DepartmentRegistrationDto registrationDto) {
+    public void updateDepartment(@RequestParam Map<String, String> customQuery, @RequestBody @Valid DepartmentDto registrationDto) {
         departmentService.updateDepartment(customQuery, registrationDto);
     }
     

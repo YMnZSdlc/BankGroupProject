@@ -35,6 +35,5 @@ public class AddressMapperTest {
         assertEquals(entity.getCustomersAddresses().get(0).getFirstName(), dto.getCustomersAddresses().get(0).getFirstName());
         assertEquals(entity.getWorkerAddresses().get(0).getPhoneNumber(), dto.getWorkerAddresses().get(0).getPhoneNumber());
         assertEquals(entity.getWorkerAddresses().get(0).getPassword(), dto.getWorkerAddresses().get(0).getPassword());
-        assertEquals(entity.getDepartmentsAddresses().get(0).getDateOfBirth(), dto.getDepartmentsAddresses().get(0).getDateOfBirth());
     }
 }

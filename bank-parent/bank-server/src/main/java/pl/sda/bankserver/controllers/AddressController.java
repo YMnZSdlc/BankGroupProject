@@ -3,7 +3,7 @@ package pl.sda.bankserver.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.sda.bankcommons.domain.dtos.AddressRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.AddressDto;
 import pl.sda.bankserver.domain.Address;
 import pl.sda.bankserver.services.AddressService;
 
@@ -23,7 +23,7 @@ public class AddressController {
 
     @PostMapping("/server/address/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAddress(@RequestBody @Valid AddressRegistrationDto registrationDto) {
+    public void createAddress(@RequestBody @Valid AddressDto registrationDto) {
         addressService.createAddress(registrationDto);
     }
     
@@ -38,7 +38,7 @@ public class AddressController {
     }
     
     @PutMapping("/server/address/update")
-    public void updateAddress(@RequestParam Map<String, String> customQuery, @RequestBody @Valid AddressRegistrationDto
+    public void updateAddress(@RequestParam Map<String, String> customQuery, @RequestBody @Valid AddressDto
             registrationDto) {
         addressService.updateAddress(customQuery, registrationDto);
     }

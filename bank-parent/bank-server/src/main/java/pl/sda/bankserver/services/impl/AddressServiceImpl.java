@@ -2,7 +2,7 @@ package pl.sda.bankserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.bankcommons.domain.dtos.AddressRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.AddressDto;
 import pl.sda.bankserver.domain.Address;
 import pl.sda.bankserver.repository.AddressRepository;
 import pl.sda.bankserver.services.AddressService;
@@ -21,7 +21,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void createAddress(AddressRegistrationDto registrationDto) {
+    public void createAddress(AddressDto registrationDto) {
         Address address = Address.builder()
                 .streetName(registrationDto.getStreetName())
                 .streetNo(registrationDto.getStreetNo())
@@ -49,7 +49,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void updateAddress(Map<String, String> customQuery, AddressRegistrationDto registrationDto) {
+    public void updateAddress(Map<String, String> customQuery, AddressDto registrationDto) {
         //TODO fix
         Address address = findAddress(customQuery).get(0);
         address = Address.builder()

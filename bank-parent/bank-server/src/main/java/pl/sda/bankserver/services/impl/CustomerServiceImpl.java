@@ -2,7 +2,7 @@ package pl.sda.bankserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.CustomerDto;
 import pl.sda.bankserver.domain.Customer;
 import pl.sda.bankserver.repository.CustomerRepository;
 import pl.sda.bankserver.services.CustomerService;
@@ -21,7 +21,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void createCustomer(CustomerRegistrationDto registrationDto) {
+    public void createCustomer(CustomerDto registrationDto) {
 
     }
 
@@ -36,7 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void updateCustomer(Map<String, String> customQuery, CustomerRegistrationDto registrationDto) {
+    public void updateCustomer(Map<String, String> customQuery, CustomerDto registrationDto) {
 
     }
 

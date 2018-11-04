@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.sda.bankcommons.domain.dtos.AccountHistoryCreationDto;
+import pl.sda.bankcommons.domain.dtos.AccountHistoryDto;
 import pl.sda.bankserver.domain.AccountHistory;
 import pl.sda.bankserver.services.AccountHistoryService;
 
@@ -30,7 +30,7 @@ public class AccountHistoryController {
 
     @PostMapping("/server/accounthistory/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAccountHistory(@RequestBody @Valid AccountHistoryCreationDto creationDto) {
+    public void createAccountHistory(@RequestBody @Valid AccountHistoryDto creationDto) {
         accountHistoryService.createAccountHistory(creationDto);
     }
 
@@ -45,7 +45,7 @@ public class AccountHistoryController {
     }
 
     @PutMapping("/server/accounthistory/update")
-    public void updateAccountHistory(@RequestParam Map<String, String> customQuery, @RequestBody @Valid AccountHistoryCreationDto creationDto) {
+    public void updateAccountHistory(@RequestParam Map<String, String> customQuery, @RequestBody @Valid AccountHistoryDto creationDto) {
         accountHistoryService.updateAccountHistory(customQuery, creationDto);
     }
 

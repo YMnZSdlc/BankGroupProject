@@ -2,7 +2,7 @@ package pl.sda.bankserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.bankcommons.domain.dtos.AccountRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.AccountDto;
 import pl.sda.bankserver.domain.Account;
 import pl.sda.bankserver.repository.AccountRepository;
 import pl.sda.bankserver.services.AccountService;
@@ -13,15 +13,15 @@ import java.util.Map;
 @Service
 public class AccountServiceImpl implements AccountService {
 
-    private AccountRepository AccountRepository;
+    private AccountRepository accountRepository;
 
     @Autowired
-    public AccountServiceImpl(AccountRepository AccountRepository) {
-        this.AccountRepository = AccountRepository;
+    public AccountServiceImpl(AccountRepository accountRepository) {
+        this.accountRepository = accountRepository;
     }
 
     @Override
-    public void createAccount(AccountRegistrationDto registrationDto) {
+    public void createAccount(AccountDto registrationDto) {
 
     }
 
@@ -36,7 +36,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void updateAccount(Map<String, String> customQuery, AccountRegistrationDto registrationDto) {
+    public void updateAccount(Map<String, String> customQuery, AccountDto registrationDto) {
 
     }
 

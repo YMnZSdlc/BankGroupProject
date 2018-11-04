@@ -130,7 +130,6 @@ public class FakeDtos {
 
     static DepartmentDto createDepartmentDto() {
         DepartmentDto dto = new DepartmentDto();
-        dto.setId(3212);
         dto.setDeptName("Centrala");
         dto.setDeptNo(47);
         dto.setPhoneNumber("745896325");

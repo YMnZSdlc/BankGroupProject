@@ -39,8 +39,8 @@ public class FakeDomains {
         AccountCategory accountCategory = new AccountCategory();
         account.setAccountCategory(accountCategory);
         List<AccountHistory> accountHistories = new ArrayList<>();
-        accountHistories.add(createAccountHistory());
         account.setAccountHistories(accountHistories);
+        List<Customer> customers = new ArrayList<>();
 
         return account;
     }

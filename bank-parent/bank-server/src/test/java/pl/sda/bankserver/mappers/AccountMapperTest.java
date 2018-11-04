@@ -31,7 +31,7 @@ public class AccountMapperTest {
     }
 
     @Test
-    public void accountDtoToAccount() {
+    public void accountRegistrationDtoToAccount() {
         //given
         AccountDto dtoIn = fakeDtos.createAccountDto();
 

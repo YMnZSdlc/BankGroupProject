@@ -37,7 +37,14 @@ public class AccountMapperTest {
         //when
         Account entity = AccountMapper.INSTANCE.accountRegistrationDtoToAccount(dto);
         //then
-//        assertEquals(entity.getId(), dto.getId());
-        assertEquals(entity.getServices(), dto.getServices());
+        assertEquals(entity.getId(), dto.getId());
+        assertEquals(entity.getNumber(), dto.getNumber());
+        assertEquals(entity.getCreateDate(), dto.getCreateDate());
+        assertEquals(entity.getBalance(), dto.getBalance());
+//        assertEquals(entity.getServices(), dto.getServices());
+//        assertEquals(entity.getCreateDate(), dto.getCreateDate());
+        assertEquals(entity.getCards(), dto.getCards());
+        assertEquals(entity.getAccountCategory().getId(), dto.getAccountCategoryId());
+        assertEquals(entity.getAccountHistories(), dto.getAccountHistories());
     }
 }

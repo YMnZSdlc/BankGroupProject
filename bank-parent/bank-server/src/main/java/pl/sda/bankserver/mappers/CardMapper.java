@@ -7,6 +7,11 @@ import pl.sda.bankcommons.domain.dtos.CardDto;
 import pl.sda.bankserver.domain.Card;
 
 @Mapper
+/**TODO
+ *
+ * pola accountId się nie mapują
+ *
+ * */
 public interface CardMapper {
 
     CardMapper INSTANCE = Mappers.getMapper(CardMapper.class);

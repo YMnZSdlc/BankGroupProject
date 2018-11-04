@@ -8,6 +8,7 @@ import pl.sda.bankcommons.domain.dtos.AddressDto;
 import pl.sda.bankserver.domain.Address;
 
 @Mapper
+
 public interface AddressMapper {
 
     AddressMapper INSTANCE = Mappers.getMapper(AddressMapper.class);
@@ -25,5 +26,4 @@ public interface AddressMapper {
             @Mapping(target = "departmentsAddresses", source = "departmentsAddresses")
     })
     Address addressDtoToAddress(AddressDto dto);
-
 }

@@ -34,5 +34,5 @@ public class Department {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
-    private Address address;
+    private Address address= new Address();
 }

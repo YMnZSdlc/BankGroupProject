@@ -8,6 +8,11 @@ import pl.sda.bankcommons.domain.dtos.DepartmentDto;
 import pl.sda.bankserver.domain.Department;
 
 @Mapper
+/**TODO
+ *
+ * pola addressId się nie mapują
+ *
+ * */
 public interface DepartmentMapper {
     DepartmentMapper INSTANCE = Mappers.getMapper(DepartmentMapper.class);
 

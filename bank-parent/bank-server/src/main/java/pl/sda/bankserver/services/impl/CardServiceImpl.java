@@ -10,6 +10,9 @@ import pl.sda.bankserver.services.CardService;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.Integer.parseInt;
+import static java.time.LocalDate.parse;
+
 @Service
 public class CardServiceImpl implements CardService {
 
@@ -44,8 +47,12 @@ public class CardServiceImpl implements CardService {
         String cvcCvvCode = customQuery.get("cvcCvvCode");
         String activationDate = customQuery.get("activationDate");
         String expireDate = customQuery.get("expireDate");
-        return cardRepository.findAllByCardTypeOrAndCardNoOrAndCvcCvvCodeAndOrActivationDateAndOrExpireDate(
-                cardType, cardNo, cvcCvvCode, activationDate, expireDate);
+        return cardRepository.findByCardTypeOrCardNoOrCvcCvvCodeOrActivationDateOrExpireDate(
+                cardType,
+                cardNo,
+                parseInt(cvcCvvCode),
+                parse(activationDate),
+                parse(expireDate));
     }
 
     @Override

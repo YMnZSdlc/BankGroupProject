@@ -44,12 +44,13 @@ public class AddressServiceImpl implements AddressService {
         String homeNo = customQuery.get("homeNo");
         String city = customQuery.get("city");
         String zipCode = customQuery.get("zipCode");
-        return addressRepository.findAllByStreetNameOrAndStreetNoOrAndHomeNoOrAndCityOrAndZipCode(streetName,
-                streetNo, homeNo, city, zipCode);
+        return addressRepository.findByStreetNameOrStreetNoOrHomeNoOrCityOrZipCode(
+                streetName, streetNo, homeNo, city, zipCode);
     }
 
     @Override
     public void updateAddress(Map<String, String> customQuery, AddressRegistrationDto registrationDto) {
+        //TODO fix
         Address address = findAddress(customQuery).get(0);
         address = Address.builder()
                 .streetName(registrationDto.getStreetName())

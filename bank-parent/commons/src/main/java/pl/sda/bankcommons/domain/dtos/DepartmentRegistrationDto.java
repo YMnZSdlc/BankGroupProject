@@ -20,10 +20,11 @@ public class DepartmentRegistrationDto {
     private String deptName;
 
     @NotNull(message = "Pole nie może być puste")
-    @Pattern(regexp = "^(\\+48|)(\\s+|)([0-9]{9}|(\\d{3})\\s+(\\d{3})\\s+(\\d{3}))$", message = "Numer telefonu musi " +
-            "posiadać 9 cyfr")
     private Integer deptNo;
 
+    @NotNull(message = "Pole nie może być puste")
+    @Pattern(regexp = "^(\\+48|)(\\s+|)([0-9]{9}|(\\d{3})\\s+(\\d{3})\\s+(\\d{3}))$", message = "Numer telefonu musi " +
+            "posiadać 9 cyfr")
     private String phoneNumber;
 
     private List<Integer> customerIds;

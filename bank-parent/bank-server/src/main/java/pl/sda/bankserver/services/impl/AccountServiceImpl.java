@@ -13,42 +13,43 @@ import java.util.Map;
 
 @Service
 public class AccountServiceImpl implements AccountService {
-    
+
     private AccountRepository accountRepository;
-    
+
     @Autowired
     public AccountServiceImpl(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
-    
+
     @Override
     public void createAccount(AccountRegistrationDto registrationDto) {
-    Account account =Account.builder()
-            .number(registrationDto.getNumber())
-            .balance(registrationDto.getBalance())
-            .build();
-    accountRepository.saveAndFlush(account);
+        Account account = Account.builder()
+                .number(registrationDto.getNumber())
+                .createDate(registrationDto.getCreateDate())
+                .balance(registrationDto.getBalance())
+                .build();
+        accountRepository.saveAndFlush(account);
     }
-    
+
     @Override
     public List<Account> findAll() {
         return accountRepository.findAll();
     }
-    
+
     @Override
     public List<Account> findAccount(Map<String, String> customQuery) {
-        String number= "";
+        String number = "";
 
         return accountRepository.findAllByNumber(number);
     }
-    
+
     @Override
     public void updateAccount(Map<String, String> customQuery, AccountRegistrationDto registrationDto) {
-    
+
     }
-    
+
     @Override
     public void deleteAccount(Map<String, String> customQuery) {
-    
+
     }
 }

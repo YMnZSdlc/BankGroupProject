@@ -23,7 +23,52 @@ public class FakeDomains {
     private Service service;
     private Worker worker;
 
-    public Account createAccount() {
+    public void createFakeDomains (){
+        this.account = createAccount();
+        this.accountCategory = createAccountCategory();
+        this.accountHistory = createAccountHistory();
+        this.address = createAddress();
+        this.card = createCard();
+        this.customer = createCustomer();
+        this.department = createDepartment();
+        this.service = createService();
+        this.worker = createWorker();
+
+        fillEmptyFields();
+    }
+
+    private void fillEmptyFields() {
+        this.account.getServices().add(this.service);
+        this.account.getCards().add(this.card);
+        this.account.setAccountCategory(this.accountCategory);
+        this.account.getAccountHistories().add(this.accountHistory);
+
+        this.accountCategory.setAccount(this.account);
+
+        this.accountHistory.setAccount(this.account);
+
+        this.address.getCustomersAddresses().add(this.customer);
+        this.address.getWorkerAddresses().add(this.worker);
+        this.address.getDepartmentsAddresses().add(this.worker);
+
+        this.card.setAccount(this.account);
+
+        this.customer.getAccounts().add(this.account);
+        this.customer.setDepartment(this.department);
+        this.customer.setAddress(this.address);
+
+        this.department.getCustomers().add(this.customer);
+        this.department.getWorkers().add(this.worker);
+        this.department.setAddress(address);
+
+        this.service.setAccount(this.account);
+
+        this.worker.setDepartment(this.department);
+        this.worker.setAddress(this.address);
+    }
+
+
+    private Account createAccount() {
         Account account = new Account();
 
         account.setId(1234);
@@ -31,42 +76,38 @@ public class FakeDomains {
         account.setCreateDate(LocalDateTime.of(2018, 10, 20, 12, 22));
         account.setBalance(new BigDecimal("12345.6"));
         List<Service> services = new ArrayList<>();
-        services.add(createService());
         account.setServices(services);
         List<Card> cards = new ArrayList<>();
-        cards.add(createCard());
         account.setCards(cards);
-        AccountCategory accountCategory = new AccountCategory();
-        account.setAccountCategory(accountCategory);
+        account.setAccountCategory(new AccountCategory());
         List<AccountHistory> accountHistories = new ArrayList<>();
         account.setAccountHistories(accountHistories);
-        List<Customer> customers = new ArrayList<>();
 
         return account;
     }
 
-    public AccountCategory createAccountCategory() {
+    private AccountCategory createAccountCategory() {
         AccountCategory accountCategory = new AccountCategory();
 
         accountCategory.setId(1234);
         accountCategory.setCategoryName("1234");
-        accountCategory.setAccount(createAccount());
+        accountCategory.setAccount(new Account());
 
         return accountCategory;
     }
 
-    public AccountHistory createAccountHistory() {
+    private AccountHistory createAccountHistory() {
         AccountHistory accountHistory = new AccountHistory();
 
         accountHistory.setId(1234);
         accountHistory.setBalanceBefore(new BigDecimal("123.4"));
         accountHistory.setBalanceAfter(new BigDecimal("567.8"));
-        accountHistory.setAccount(createAccount());
+        accountHistory.setAccount(new Account());
 
         return accountHistory;
     }
 
-    public Address createAddress() {
+    private Address createAddress() {
         Address address = new Address();
 
         address.setId(1234);
@@ -76,19 +117,16 @@ public class FakeDomains {
         address.setCity("Zgierz");
         address.setZipCode("12-345");
         List<Customer> customers = new ArrayList<>();
-        customers.add(createCustomer());
         address.setCustomersAddresses(customers);
         List<Worker> workers = new ArrayList<>();
-        workers.add(createWorker());
         address.setWorkerAddresses(workers);
         List<Worker> workersDep = new ArrayList<>();
-        workersDep.add(createWorker());
         address.setDepartmentsAddresses(workersDep);
 
         return address;
     }
 
-    public Card createCard() {
+    private Card createCard() {
         Card card = new Card();
 
         card.setId(1243);
@@ -97,12 +135,12 @@ public class FakeDomains {
         card.setCvcCvvCode(123);
         card.setActivationDate(LocalDate.of(2018, 10, 20));
         card.setExpireDate(LocalDate.of(2020, 10, 19));
-        card.setAccount(createAccount());
+        card.setAccount(new Account());
 
         return card;
     }
 
-    public Customer createCustomer() {
+    private Customer createCustomer() {
         Customer customer = new Customer();
 
         customer.setId(6578);
@@ -116,15 +154,14 @@ public class FakeDomains {
         customer.setDateOfBirth(LocalDate.of(1990, 10, 12));
         customer.setSex(Sex.M);
         List<Account> accounts = new ArrayList<>();
-        accounts.add(createAccount());
         customer.setAccounts(accounts);
         customer.setDepartment(createDepartment());
-        customer.setAddress(createAddress());
+        customer.setAddress(new Address());
 
         return customer;
     }
 
-    public Department createDepartment() {
+    private Department createDepartment() {
         Department department = new Department();
 
         department.setId(7654);
@@ -132,17 +169,15 @@ public class FakeDomains {
         department.setDeptNo(5);
         department.setPhoneNumber("987 765 543");
         List<Customer> customers = new ArrayList<>();
-        customers.add(createCustomer());
         department.setCustomers(customers);
         List<Worker> workers = new ArrayList<>();
-        workers.add(createWorker());
         department.setWorkers(workers);
-        department.setAddress(createAddress());
+        department.setAddress(new Address());
 
         return department;
     }
 
-    public Service createService() {
+    private Service createService() {
         Service service = new Service();
 
         service.setId(5432);
@@ -156,12 +191,12 @@ public class FakeDomains {
         service.setEndTime(LocalDateTime.of(2022, 10, 10, 12, 12, 12));
         service.setSenderAccount("BLA bla BLa");
         service.setRecipientAccount("lorem");
-//        service.setAccount(createAccount());
+        service.setAccount(new Account());
 
         return service;
     }
 
-    public Worker createWorker() {
+    private Worker createWorker() {
         Worker worker = new Worker();
 
         worker.setId(6578);
@@ -175,9 +210,50 @@ public class FakeDomains {
         worker.setPhoneNumber("123 456 789");
         worker.setSex(Sex.M);
         worker.setDateOfBirth(LocalDate.of(1988, 10, 12));
-        worker.setDepartment(createDepartment());
-        worker.setAddress(createAddress());
+        worker.setDepartment(new Department());
+        worker.setAddress(new Address());
 
+        return worker;
+    }
+
+
+
+    public FakeDomains() {
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public AccountCategory getAccountCategory() {
+        return accountCategory;
+    }
+
+    public AccountHistory getAccountHistory() {
+        return accountHistory;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public Worker getWorker() {
         return worker;
     }
 }

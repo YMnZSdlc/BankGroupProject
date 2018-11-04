@@ -45,7 +45,7 @@ public class CardServiceImpl implements CardService {
         String cvcCvvCode = customQuery.get("cvcCvvCode");
         String activationDate = customQuery.get("activationDate");
         String expireDate = customQuery.get("expireDate");
-        return  cardRepository.findAllByCardTypeOrAndCardNoOrAndCvcCvvCodeAndOrActivationDateAndOrExpireDate(
+        return  cardRepository.findAllByCardTypeAndCardNoAndCvcCvvCodeAndActivationDateAndExpireDate(
                 cardType, cardNo, cvcCvvCode, activationDate, expireDate);
     }
     

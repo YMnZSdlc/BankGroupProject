@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.sda.bankcommons.domain.dtos.WorkerRegistrationDto;
 import pl.sda.bankserver.domain.Worker;
+import pl.sda.bankserver.repository.WorkerRepository;
 import pl.sda.bankserver.services.WorkerService;
 
 import java.util.List;
@@ -12,11 +13,11 @@ import java.util.Map;
 @Service
 public class WorkerServiceImpl implements WorkerService {
     
-    private WorkerService workerService;
+    private WorkerRepository workerRepository;
     
     @Autowired
-        public WorkerServiceImpl(WorkerService workerService) {
-        this.workerService = workerService;
+        public WorkerServiceImpl(WorkerRepository workerRepository) {
+        this.workerRepository = workerRepository;
     }
     
     @Override

@@ -3,6 +3,7 @@ package pl.sda.bankserver.services.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.sda.bankcommons.domain.dtos.ServiceCreationDto;
+import pl.sda.bankserver.repository.ServicesRepository;
 import pl.sda.bankserver.services.ServiceService;
 
 import java.util.List;
@@ -11,11 +12,11 @@ import java.util.Map;
 @Service
 public class ServiceServiceImpl implements ServiceService {
     
-    private ServiceService serviceService;
+    private ServicesRepository servicesRepository;
     
     @Autowired
-    public ServiceServiceImpl(ServiceService serviceService) {
-        this.serviceService = serviceService;
+    public ServiceServiceImpl(ServicesRepository servicesRepository) {
+        this.servicesRepository = servicesRepository;
     }
     
     @Override

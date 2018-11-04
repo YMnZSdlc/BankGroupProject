@@ -29,7 +29,7 @@ public class AccountHistoryController {
     
     @GetMapping("/server/accounthistory/all")
     public List<AccountHistory> findAll() {
-        return null;
+        return accountHistoryService.findAll();
     }
     
     @GetMapping("/server/accounthistory/find")

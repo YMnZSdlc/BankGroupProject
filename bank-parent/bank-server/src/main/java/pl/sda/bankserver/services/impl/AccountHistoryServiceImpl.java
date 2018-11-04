@@ -40,7 +40,7 @@ public class AccountHistoryServiceImpl implements AccountHistoryService {
     public List<AccountHistory> findAccountHistory(Map<String, String> customQuery){
         String balanceBefore = customQuery.get("balanceBefore");
         String balanceAfter = customQuery.get("balanceAfter");
-        return accountHistoryRepository.findAllByBalanceBeforeAndOrBalanceAfter(balanceBefore, balanceAfter);
+        return accountHistoryRepository.findByBalanceBeforeGreaterThanEqualAndBalanceAfterLessThanEqual(balanceBefore, balanceAfter);
     }
     
     @Override

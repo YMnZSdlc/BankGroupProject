@@ -5,43 +5,43 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import pl.sda.bankcommons.domain.dtos.AccountHistoryCreationDto;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
+import pl.sda.bankcommons.domain.dtos.AccountCategoryCreationDto;
 
-import java.math.BigDecimal;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest
+@SpringBootTest
 public class AccountCategoryControllerTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    WebApplicationContext context;
+
     @Autowired
     private ObjectMapper mapper;
 
-    private AccountHistoryCreationDto creationDto;
+    private AccountCategoryCreationDto creationDto;
 
     @Before
     public void setup() {
-        creationDto = new AccountHistoryCreationDto(null, new BigDecimal(10000),
-                new BigDecimal(12000), null);
+        creationDto = new AccountCategoryCreationDto(1, "Nowy typ konta", null);
     }
 
     @Test
-    public void shouldReturnOkStatus() throws Exception {
+    public void shouldReturnCreatedStatus() throws Exception {
         String json = mapper.writeValueAsString(creationDto);
-        this.mockMvc.perform(post("/server/accountcategory/create")
+        MockMvc mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+        mockMvc.perform(post("/server/accountcategory/create")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json)
                 .accept(MediaType.APPLICATION_JSON))
-                .andDo(print()).andExpect(status().isOk());
+                .andDo(print()).andExpect(status().isCreated());
     }
 }

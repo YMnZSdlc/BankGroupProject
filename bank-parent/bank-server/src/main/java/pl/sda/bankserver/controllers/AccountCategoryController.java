@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.sda.bankcommons.domain.dtos.AccountCategoryCreationDto;
 import pl.sda.bankserver.domain.AccountCategory;
 import pl.sda.bankserver.services.AccountCategoryService;
+import pl.sda.bankserver.services.impl.AccountCategoryServiceImpl;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -24,7 +25,7 @@ public class AccountCategoryController {
     @PostMapping("/server/accountcategory/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void createAccountCategory(@RequestBody @Valid AccountCategoryCreationDto creationDto) {
-//        accountCategoryService.createAccountCategory(creationDto);
+        accountCategoryService.createAccountCategory(creationDto);
     }
     
     @GetMapping("/server/accountcategory/all")

@@ -11,5 +11,5 @@ public interface AccountHistoryRepository extends JpaRepository<AccountHistory, 
 List<AccountHistory>findAll();
 List<AccountHistory>findAllById(Integer id);
 
-    List<AccountHistory> findAllByBalanceBeforeAndOrBalanceAfter(String balanceBefore, String balanceAfter);
+    List<AccountHistory> findByBalanceBeforeGreaterThanEqualAndBalanceAfterLessThanEqual(String balanceBefore, String balanceAfter);
 }

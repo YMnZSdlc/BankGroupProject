@@ -13,13 +13,15 @@ public interface CustomerMapper {
 
     @Mappings({
             @Mapping(target = "departmentId", source = "entity.department.id"),
-            @Mapping(target = "addressId", source = "entity.address.id")
+            @Mapping(target = "addressId", source = "entity.address.id"),
+            @Mapping(target = "accounts", source = "accounts")
     })
     CustomerDto customerToCustomerDto(Customer entity);
 
     @Mappings({
             @Mapping(target = "department.id", source = "dto.departmentId"),
-            @Mapping(target = "address.id", source = "dto.addressId")
+            @Mapping(target = "address.id", source = "dto.addressId"),
+            @Mapping(target = "accounts", source = "accounts")
     })
     Customer customerDtoToCustomer(CustomerDto dto);
 }

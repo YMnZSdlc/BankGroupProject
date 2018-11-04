@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class AccountMapperTest {
 
-    FakeDomains fakeDomains = new FakeDomains();
+    private FakeDomains fakeDomains = new FakeDomains();
 
     @Test
     public void accountToAccountRegistrationDto() {
@@ -22,18 +22,22 @@ public class AccountMapperTest {
         assertEquals(dtoOut.getId(), entityIn.getId());
         assertEquals(dtoOut.getNumber(), entityIn.getNumber());
         assertEquals(dtoOut.getCreateDate(), entityIn.getCreateDate());
-        assertEquals(dtoOut.getBalance(), entityIn.getId());
-        assertEquals(dtoOut.getServices(), entityIn.getId());
-        assertEquals(dtoOut.getCards(), entityIn.getId());
+        assertEquals(dtoOut.getBalance(), entityIn.getBalance());
+//        assertEquals(dtoOut.getServices(), entityIn.getServices());
+//        assertEquals(dtoOut.getCards(), entityIn.getCards());
+        assertEquals(dtoOut.getAccountCategoryId(), entityIn.getAccountCategory().getId());
+//        assertEquals(dtoOut.getAccountHistories(), entityIn.getAccountHistories());
+//        assertEquals(dtoOut.getCustomers(), entityIn.getCustomers());
     }
 
     @Test
     public void accountRegistrationDtoToAccount() {
         //given
-
+        AccountDto dto = FakeDtos.createAccountDto();
         //when
-
+        Account entity = AccountMapper.INSTANCE.accountRegistrationDtoToAccount(dto);
         //then
-
+//        assertEquals(entity.getId(), dto.getId());
+        assertEquals(entity.getServices(), dto.getServices());
     }
 }

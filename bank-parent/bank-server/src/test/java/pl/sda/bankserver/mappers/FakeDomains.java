@@ -29,7 +29,6 @@ public class FakeDomains {
         List<AccountHistory> accountHistories = new ArrayList<>();
         account.setAccountHistories(accountHistories);
         List<Customer> customers = new ArrayList<>();
-        account.setCustomers(customers);
 
         return account;
     }

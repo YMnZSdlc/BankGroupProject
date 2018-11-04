@@ -6,11 +6,18 @@ import pl.sda.bankcommons.domain.enums.ServiceEnum;
 import pl.sda.bankcommons.domain.enums.Sex;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.time.LocalDate.of;
 import static java.time.LocalDateTime.of;
 
 public class FakeDtos {
+    static List<ServiceDto> serviceDtoList(){
+        List<ServiceDto> serviceDtoList = new ArrayList<>();
+        serviceDtoList.add(createServiceDto());
+        return serviceDtoList;
+    }
 
     static AccountCategoryDto createAccountCategoryDto() {
         AccountCategoryDto dto = new AccountCategoryDto();
@@ -26,11 +33,10 @@ public class FakeDtos {
         dto.setNumber("2643544114631845");
         dto.setCreateDate(of(2017, 10, 20, 15, 45));
         dto.setBalance(new BigDecimal("156"));
-//        dto.setService(); TODO
+        dto.setServices(serviceDtoList());
 //        dto.setCard(); TODO
         dto.setAccountCategoryId(534);
 //        dto.setAccountHistoryIds(); TODO
-//        dto.setCustomerIds(); TODO
         return dto;
     }
 
@@ -52,7 +58,7 @@ public class FakeDtos {
         dto.setZipCode("54-614");
 //        dto.setCustomersAddresses(); TODO
 //        dto.setWorkerAddresses(); TODO
-//        dto.setDepartmentAddresses(); TODO
+//        dto.setDepartmentsAddresses(); TODO
         return dto;
     }
 

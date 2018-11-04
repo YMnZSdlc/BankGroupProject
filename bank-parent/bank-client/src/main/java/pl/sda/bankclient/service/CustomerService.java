@@ -1,18 +1,19 @@
 package pl.sda.bankclient.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import pl.sda.bankcommons.domain.dtos.CustomerDto;
+import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
 
-@Component
-public class CustomerService implements IService<CustomerDto> {
+@Service
+public class CustomerService implements IService<CustomerRegistrationDto> {
 
-    @Autowired
-    RestTemplate restTemplate;
+    RestTemplate restTemplate = new RestTemplate();
 
-    public CustomerDto save(CustomerDto entity) {
-        return restTemplate.postForObject("localhost:8080/customers/save", entity, CustomerDto.class);
+    public CustomerRegistrationDto save(CustomerRegistrationDto dto) {
+        return restTemplate.postForObject("localhost:8080/customers/save", dto, CustomerRegistrationDto.class);
     }
 
+    public void find(CustomerRegistrationDto customerDto) {
+
+    }
 }

@@ -12,11 +12,11 @@ import java.util.List;
 @Valid
 public class DepartmentDto {
 
-    private Integer id;
-
     @NotNull(message = "Pole nie może być puste")
     @Size(min = 3, max = 30, message = "Nazwa oddziału nie może być krótsza niż 3 znaki i nie może przekraczać 30 " +
             "znaków")
+
+    @NotNull(message = "Pole nie może być puste")
     private String deptName;
 
     @NotNull(message = "Pole nie może być puste")

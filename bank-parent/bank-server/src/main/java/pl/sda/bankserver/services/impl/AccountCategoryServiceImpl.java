@@ -2,7 +2,7 @@ package pl.sda.bankserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.bankcommons.domain.dtos.AccountCategoryCreationDto;
+import pl.sda.bankcommons.domain.dtos.AccountCategoryDto;
 import pl.sda.bankserver.domain.AccountCategory;
 import pl.sda.bankserver.repository.AccountCategoryRepository;
 import pl.sda.bankserver.services.AccountCategoryService;
@@ -21,7 +21,7 @@ public class AccountCategoryServiceImpl implements AccountCategoryService {
     }
 
     @Override
-    public void createAccountCategory(AccountCategoryCreationDto creationDto) {
+    public void createAccountCategory(AccountCategoryDto creationDto) {
 
     }
 
@@ -36,7 +36,7 @@ public class AccountCategoryServiceImpl implements AccountCategoryService {
     }
 
     @Override
-    public void updateAccountCategory(Map<String, String> customQuery, AccountCategoryCreationDto creationDto) {
+    public void updateAccountCategory(Map<String, String> customQuery, AccountCategoryDto creationDto) {
 
     }
 

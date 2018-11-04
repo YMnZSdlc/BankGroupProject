@@ -2,7 +2,7 @@ package pl.sda.bankserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.CustomerDto;
 import pl.sda.bankserver.domain.Customer;
 import pl.sda.bankserver.repository.CustomerRepository;
 import pl.sda.bankserver.services.CustomerService;
@@ -22,18 +22,18 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void createCustomer(CustomerRegistrationDto registrationDto) {
+    public void createCustomer(CustomerDto registrationDto) {
 
     }
 
     @Override
-    public List<CustomerRegistrationDto> findAll() {
+    public List<CustomerDto> findAll() {
         List<Customer> all = customerRepository.findAll();
         return all.stream().map(this::toDto).collect(Collectors.toList());
     }
 
-    private CustomerRegistrationDto toDto(Customer customer) {
-        CustomerRegistrationDto dto = new CustomerRegistrationDto();
+    private CustomerDto toDto(Customer customer) {
+        CustomerDto dto = new CustomerDto();
         dto.setFirstName(customer.getFirstName());
         dto.setLastName(customer.getLastName());
         dto.setEmail(customer.getEmail());
@@ -47,7 +47,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void updateCustomer(Map<String, String> customQuery, CustomerRegistrationDto registrationDto) {
+    public void updateCustomer(Map<String, String> customQuery, CustomerDto registrationDto) {
 
     }
 

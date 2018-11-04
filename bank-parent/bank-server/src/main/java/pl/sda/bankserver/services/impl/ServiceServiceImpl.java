@@ -2,7 +2,7 @@ package pl.sda.bankserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.bankcommons.domain.dtos.ServiceCreationDto;
+import pl.sda.bankcommons.domain.dtos.ServiceDto;
 import pl.sda.bankserver.repository.ServicesRepository;
 import pl.sda.bankserver.services.ServiceService;
 
@@ -20,7 +20,7 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public void createService(ServiceCreationDto creationDto) {
+    public void createService(ServiceDto creationDto) {
 
     }
 
@@ -35,7 +35,7 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public void updateService(Map<String, String> customQuery, ServiceCreationDto creationDto) {
+    public void updateService(Map<String, String> customQuery, ServiceDto creationDto) {
 
     }
 

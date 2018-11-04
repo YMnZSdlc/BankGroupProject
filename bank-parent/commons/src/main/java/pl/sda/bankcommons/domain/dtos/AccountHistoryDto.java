@@ -4,16 +4,19 @@ import lombok.Data;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.math.BigDecimal;
 
 @Data
 @Valid
-public class AccountCategoryCreationDto {
+public class AccountHistoryDto {
 
     private Integer id;
 
     @NotNull(message = "Pole nie może być puste")
-    private String categoryName;
+    private BigDecimal balanceBefore;
 
-    private List<Integer> accountIds;
+    @NotNull(message = "Pole nie może być puste")
+    private BigDecimal balanceAfter;
+
+    private Integer accountId;
 }

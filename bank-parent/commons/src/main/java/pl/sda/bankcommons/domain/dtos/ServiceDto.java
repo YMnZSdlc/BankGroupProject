@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Valid
-public class ServiceCreationDto {
+public class ServiceDto {
 
     private Integer id;
 

@@ -11,7 +11,7 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 import java.util.Set;
 
-public class DepartmentRegistrationDtoTest {
+public class DepartmentDtoTest {
     private Validator validator;
     
     @Before
@@ -20,29 +20,30 @@ public class DepartmentRegistrationDtoTest {
         validator = factory.getValidator();
     }
     
-    private DepartmentRegistrationDto createValidDepartamentRegistrationDto() {
-        DepartmentRegistrationDto department = new DepartmentRegistrationDto();
+    private DepartmentDto createValidDepartamentRegistrationDto() {
+        DepartmentDto department = new DepartmentDto();
+        department.setId(425);
         department.setDeptNo(1);
         department.setDeptName("Oddzial Psychiatryczny");
         department.setPhoneNumber("666 666 666");
-        department.setCustomerIds(null);
-        department.setWorkerIds(null);
+        department.setCustomers(null);
+        department.setWorkers(null);
         department.setAddressId(null);
         return department;
     }
     
-    private DepartmentRegistrationDto createEmptyDepartamentRegistrationDto() {
-        DepartmentRegistrationDto department = new DepartmentRegistrationDto();
+    private DepartmentDto createEmptyDepartamentRegistrationDto() {
+        DepartmentDto department = new DepartmentDto();
         return department;
     }
     
     @Test
     public void ifDepartamentRegistrationDtoIsValid() {
         //given
-        DepartmentRegistrationDto department = createValidDepartamentRegistrationDto();
+        DepartmentDto department = createValidDepartamentRegistrationDto();
         //when
-        Set<ConstraintViolation<DepartmentRegistrationDto>> violations = validator.validate(department);
-        for (ConstraintViolation<DepartmentRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<DepartmentDto>> violations = validator.validate(department);
+        for (ConstraintViolation<DepartmentDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -54,10 +55,10 @@ public class DepartmentRegistrationDtoTest {
     @Test
     public void ifDepartamentRegistrationDtoIsEmpty() {
         //given
-        DepartmentRegistrationDto department = createEmptyDepartamentRegistrationDto();
+        DepartmentDto department = createEmptyDepartamentRegistrationDto();
         //when
-        Set<ConstraintViolation<DepartmentRegistrationDto>> violations = validator.validate(department);
-        for (ConstraintViolation<DepartmentRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<DepartmentDto>> violations = validator.validate(department);
+        for (ConstraintViolation<DepartmentDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -70,11 +71,11 @@ public class DepartmentRegistrationDtoTest {
     @Ignore
     public void ifDepartamenttNameIsNullValidationFails() {
         //given
-        DepartmentRegistrationDto department = createValidDepartamentRegistrationDto();
+        DepartmentDto department = createValidDepartamentRegistrationDto();
         department.setDeptName(null);
         //when
-        Set<ConstraintViolation<DepartmentRegistrationDto>> violations = validator.validate(department);
-        for (ConstraintViolation<DepartmentRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<DepartmentDto>> violations = validator.validate(department);
+        for (ConstraintViolation<DepartmentDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -86,11 +87,11 @@ public class DepartmentRegistrationDtoTest {
     @Test
     public void ifDepartamenttNameIsTooLongValidationFails() {
         //given
-        DepartmentRegistrationDto department = createValidDepartamentRegistrationDto();
+        DepartmentDto department = createValidDepartamentRegistrationDto();
         department.setDeptName("Oddzial ktorego nazwa jest stanoczo za dluga");
         //when
-        Set<ConstraintViolation<DepartmentRegistrationDto>> violations = validator.validate(department);
-        for (ConstraintViolation<DepartmentRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<DepartmentDto>> violations = validator.validate(department);
+        for (ConstraintViolation<DepartmentDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -102,11 +103,11 @@ public class DepartmentRegistrationDtoTest {
     @Test
     public void ifDepartamenttNumberIsNullValidationFails() {
         //given
-        DepartmentRegistrationDto department = createValidDepartamentRegistrationDto();
+        DepartmentDto department = createValidDepartamentRegistrationDto();
         department.setDeptNo(null);
         //when
-        Set<ConstraintViolation<DepartmentRegistrationDto>> violations = validator.validate(department);
-        for (ConstraintViolation<DepartmentRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<DepartmentDto>> violations = validator.validate(department);
+        for (ConstraintViolation<DepartmentDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -118,11 +119,11 @@ public class DepartmentRegistrationDtoTest {
     @Test
     public void ifPhoneNumberIsNullValidationFails() {
         //given
-        DepartmentRegistrationDto department = createValidDepartamentRegistrationDto();
+        DepartmentDto department = createValidDepartamentRegistrationDto();
         department.setPhoneNumber(null);
         //when
-        Set<ConstraintViolation<DepartmentRegistrationDto>> violations = validator.validate(department);
-        for (ConstraintViolation<DepartmentRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<DepartmentDto>> violations = validator.validate(department);
+        for (ConstraintViolation<DepartmentDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -134,11 +135,11 @@ public class DepartmentRegistrationDtoTest {
     @Test
     public void ifPhoneNumberIsTooLongValidationFails() {
         //given
-        DepartmentRegistrationDto department = createValidDepartamentRegistrationDto();
+        DepartmentDto department = createValidDepartamentRegistrationDto();
         department.setPhoneNumber("666 666 666 666 666");
         //when
-        Set<ConstraintViolation<DepartmentRegistrationDto>> violations = validator.validate(department);
-        for (ConstraintViolation<DepartmentRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<DepartmentDto>> violations = validator.validate(department);
+        for (ConstraintViolation<DepartmentDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());

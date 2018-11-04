@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @Valid
-public class AccountRegistrationDto {
+public class AccountDto {
 
     private Integer id;
 
@@ -23,13 +23,11 @@ public class AccountRegistrationDto {
     @NotNull(message = "Pole nie może być puste")
     private BigDecimal balance;
 
-    private List<Integer> serviceIds;
+    private List<ServiceDto> services;
 
-    private List<Integer> cardIds;
+    private List<CardDto> cards;
 
     private Integer accountCategoryId;
 
-    private List<Integer> accountHistoryIds;
-
-    private List<Integer> customerIds;
+    private List<AccountHistoryDto> accountHistories;
 }

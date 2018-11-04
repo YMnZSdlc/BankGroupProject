@@ -12,7 +12,7 @@ import javax.validation.constraints.Pattern;
 import java.lang.reflect.Field;
 import java.util.Set;
 
-public class AddressRegistrationDtoTest {
+public class AddressDtoTest {
     private Validator validator;
     
     @Before
@@ -21,32 +21,32 @@ public class AddressRegistrationDtoTest {
         validator = factory.getValidator();
     }
     
-    private AddressRegistrationDto createValidAddressRegistrationDto() {
-        AddressRegistrationDto address = new AddressRegistrationDto();
+    private AddressDto createValidAddressRegistrationDto() {
+        AddressDto address = new AddressDto();
         address.setStreetName("Nigdzie");
         address.setStreetNo("666Z");
         address.setHomeNo("666");
         address.setCity("Zgierz");
         address.setZipCode("00-666");
-        address.setCustomerAddressIds(null);
-        address.setDepartmentAddressIds(null);
-        address.setWorkerAddressIds(null);
+        address.setCustomersAddresses(null);
+        address.setDepartmentsAddresses(null);
+        address.setWorkerAddresses(null);
         
         return address;
     }
     
-    private AddressRegistrationDto createEmptyAddressRegistrationDto() {
-        AddressRegistrationDto address = new AddressRegistrationDto();
+    private AddressDto createEmptyAddressRegistrationDto() {
+        AddressDto address = new AddressDto();
         return address;
     }
     
     @Test
     public void ifAddressRegistrationDtoIsValid() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -58,10 +58,10 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifAddressRegistrationDtoIsEmpty() {
         //given
-        AddressRegistrationDto address = createEmptyAddressRegistrationDto();
+        AddressDto address = createEmptyAddressRegistrationDto();
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -73,11 +73,11 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifStreetNameIsNullValidationFails() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         address.setStreetName(null);
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -89,11 +89,11 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifStreetNameIsTooLongValidationFails() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         address.setStreetName("Ulica ktorej nazwa jest stanowczo za dluga");
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -105,11 +105,11 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifStreetNumberIsNullValidationFails() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         address.setStreetNo(null);
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -121,11 +121,11 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifStreetNumberIsTooLongValidationFails() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         address.setStreetNo("1 Stanowczo za dlugi numer");
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -137,11 +137,11 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifHometNumberIsTooLongValidationFails() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         address.setHomeNo("123456789123");
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -153,11 +153,11 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifCityIsTooLongValidationFails() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         address.setCity("Miasto ktorego nazwa jest stanowczo za dluga");
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -169,11 +169,11 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifCityIsNullValidationFails() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         address.setCity(null);
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -185,11 +185,11 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifZipCodeIsTooLongValidationFails() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         address.setZipCode("92-1234");
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -201,11 +201,11 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifZipCodeIsTooShortValidationFails() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         address.setZipCode("12");
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -217,11 +217,11 @@ public class AddressRegistrationDtoTest {
     @Test
     public void ifZipCodeIsNullValidationFails() {
         //given
-        AddressRegistrationDto address = createValidAddressRegistrationDto();
+        AddressDto address = createValidAddressRegistrationDto();
         address.setZipCode(null);
         //when
-        Set<ConstraintViolation<AddressRegistrationDto>> violations = validator.validate(address);
-        for (ConstraintViolation<AddressRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<AddressDto>> violations = validator.validate(address);
+        for (ConstraintViolation<AddressDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -231,7 +231,7 @@ public class AddressRegistrationDtoTest {
     }
     
     private Pattern[] getPatterns(String model) throws NoSuchFieldException {
-        Field field = AddressRegistrationDto.class.getDeclaredField(model);
+        Field field = AddressDto.class.getDeclaredField(model);
         return field.getAnnotationsByType(Pattern.class);
     }
     

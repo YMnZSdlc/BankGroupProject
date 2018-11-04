@@ -4,21 +4,20 @@ package pl.sda.bankclient.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.bankclient.service.IService;
-import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.CustomerDto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class CustomersController {
 
-    IService<CustomerRegistrationDto> customerService;
+    IService<CustomerDto> customerService;
 
     @Autowired
-    public CustomersController(IService<CustomerRegistrationDto> customerService) {
+    public CustomersController(IService<CustomerDto> customerService) {
         this.customerService = customerService;
     }
 
@@ -29,53 +28,54 @@ public class CustomersController {
 
     @GetMapping("/customers/save")
     public String viewFormToCreateCustomer(Model model) {
-        model.addAttribute("save", new CustomerRegistrationDto());
+        model.addAttribute("save", new CustomerDto());
         return "customers/save";
     }
 
     @PostMapping("/customers/save")
-    public String saveCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
+    public String saveCustomer(@ModelAttribute CustomerDto customerDto) {
         customerService.save(customerDto);
         return "customers/save";
     }
 
     @GetMapping("/customers/find")
     public String viewFormToFindCustomer(Model model) {
-        model.addAttribute("find", new CustomerRegistrationDto());
+        model.addAttribute("find", new CustomerDto());
         return "customers/find";
     }
 
     @PostMapping("/customers/find")
-    public String findCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
+    public String findCustomer(@ModelAttribute CustomerDto customerDto) {
         customerService.find(customerDto);
         return "customers/find";
     }
 
     @GetMapping("/customers/findall")
     public String findAllCustomersByParam(Model model) {
-        model.addAttribute("findall", customerService.findAll());
+        List<CustomerDto> list = new ArrayList<CustomerDto>();
+        model.addAttribute("findall", list);
         return "customers/findall";
     }
 
     @GetMapping("/customers/update")
     public String chooseCustomerForUpdate(Model model) {
-        model.addAttribute("update", new CustomerRegistrationDto());
+        model.addAttribute("update", new CustomerDto());
         return "customers/update";
     }
 
     @PutMapping("/customers/update")
-    public String updateCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
+    public String updateCustomer(@ModelAttribute CustomerDto customerDto) {
         return "customers/update";
     }
 
     @GetMapping("customers/delete")
     public String findCustomerToDelete(Model model) {
-        model.addAttribute("delete", new CustomerRegistrationDto());
+        model.addAttribute("delete", new CustomerDto());
         return "customers/delete";
     }
 
     @DeleteMapping("customers/delete")
-    public String deleteCustomer(@ModelAttribute CustomerRegistrationDto customerDto) {
+    public String deleteCustomer(@ModelAttribute CustomerDto customerDto) {
         return "customers/delete";
     }
 }

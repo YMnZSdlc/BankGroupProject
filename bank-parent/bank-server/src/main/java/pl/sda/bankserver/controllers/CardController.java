@@ -3,7 +3,7 @@ package pl.sda.bankserver.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.sda.bankcommons.domain.dtos.CardRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.CardDto;
 import pl.sda.bankserver.domain.Card;
 import pl.sda.bankserver.services.CardService;
 
@@ -23,7 +23,7 @@ public class CardController {
     
     @PostMapping("/server/card/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCard(@RequestBody @Valid CardRegistrationDto registrationDto) {
+    public void createCard(@RequestBody @Valid CardDto registrationDto) {
 //        cardService.createCard(registrationDto);
     }
     
@@ -38,7 +38,7 @@ public class CardController {
     }
     
     @PutMapping("/server/card/update")
-    public void updateCard(@RequestParam Map<String, String> customQuery, @RequestBody @Valid CardRegistrationDto registrationDto) {
+    public void updateCard(@RequestParam Map<String, String> customQuery, @RequestBody @Valid CardDto registrationDto) {
         cardService.updateCard(customQuery, registrationDto);
     }
     

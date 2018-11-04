@@ -3,7 +3,7 @@ package pl.sda.bankserver.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.sda.bankcommons.domain.dtos.WorkerRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.WorkerDto;
 import pl.sda.bankserver.domain.Worker;
 import pl.sda.bankserver.services.WorkerService;
 
@@ -23,7 +23,7 @@ public class WorkerController {
     
     @PostMapping("/server/worker/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createWorker(@RequestBody @Valid WorkerRegistrationDto registrationDto) {
+    public void createWorker(@RequestBody @Valid WorkerDto registrationDto) {
         workerService.createWorker(registrationDto);
     }
     
@@ -38,7 +38,7 @@ public class WorkerController {
     }
     
     @PutMapping("/server/worker/update")
-    public void updateWorker(@RequestParam Map<String, String> customQuery, @RequestBody @Valid WorkerRegistrationDto registrationDto) {
+    public void updateWorker(@RequestParam Map<String, String> customQuery, @RequestBody @Valid WorkerDto registrationDto) {
         workerService.updateWorker(customQuery, registrationDto);
     }
     

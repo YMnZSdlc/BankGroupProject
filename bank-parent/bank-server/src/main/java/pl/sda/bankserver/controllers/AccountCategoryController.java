@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import pl.sda.bankcommons.domain.dtos.AccountCategoryCreationDto;
+import pl.sda.bankcommons.domain.dtos.AccountCategoryDto;
+import pl.sda.bankcommons.domain.dtos.AccountCategoryDto;
 import pl.sda.bankserver.domain.AccountCategory;
 import pl.sda.bankserver.services.AccountCategoryService;
 
@@ -30,7 +31,7 @@ public class AccountCategoryController {
     
     @PostMapping("/server/accountcategory/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAccountCategory(@RequestBody @Valid AccountCategoryCreationDto creationDto) {
+    public void createAccountCategory(@RequestBody @Valid AccountCategoryDto creationDto) {
 //        accountCategoryService.createAccountCategory(creationDto);
     }
     
@@ -46,7 +47,7 @@ public class AccountCategoryController {
     
     @PutMapping("/server/accountcategory/update")
     public void updateAccountCategory(@RequestParam Map<String, String> customQuery, @RequestBody @Valid
-            AccountCategoryCreationDto creationDto) {
+            AccountCategoryDto creationDto) {
         accountCategoryService.updateAccountCategory(customQuery, creationDto);
     }
     

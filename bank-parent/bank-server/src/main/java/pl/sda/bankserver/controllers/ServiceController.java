@@ -3,7 +3,7 @@ package pl.sda.bankserver.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import pl.sda.bankcommons.domain.dtos.ServiceCreationDto;
+import pl.sda.bankcommons.domain.dtos.ServiceDto;
 import pl.sda.bankserver.domain.Service;
 import pl.sda.bankserver.services.ServiceService;
 
@@ -23,7 +23,7 @@ public class ServiceController {
     
     @PostMapping("/server/service/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createService(@RequestBody @Valid ServiceCreationDto creationDto) {
+    public void createService(@RequestBody @Valid ServiceDto creationDto) {
 //        serviceService.createService(creationDto);
     }
     
@@ -38,7 +38,7 @@ public class ServiceController {
     }
     
     @PutMapping("/server/service/update")
-    public void updateService(@RequestParam Map<String, String> customQuery, @RequestBody @Valid ServiceCreationDto creationDto) {
+    public void updateService(@RequestParam Map<String, String> customQuery, @RequestBody @Valid ServiceDto creationDto) {
         serviceService.updateService(customQuery, creationDto);
     }
     

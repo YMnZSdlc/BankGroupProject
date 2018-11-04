@@ -2,15 +2,8 @@ package pl.sda.bankserver.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-import pl.sda.bankcommons.domain.dtos.AccountRegistrationDto;
+import org.springframework.web.bind.annotation.*;
+import pl.sda.bankcommons.domain.dtos.AccountDto;
 import pl.sda.bankserver.domain.Account;
 import pl.sda.bankserver.services.AccountService;
 
@@ -30,7 +23,7 @@ public class AccountController {
 
     @PostMapping("/server/account/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAccount(@RequestBody @Valid AccountRegistrationDto registrationDto) {
+    public void createAccount(@RequestBody @Valid AccountDto registrationDto) {
         accountService.createAccount(registrationDto);
     }
 
@@ -45,7 +38,7 @@ public class AccountController {
     }
 
     @PutMapping("/server/account/update")
-    public void updateAccount(@RequestParam Map<String, String> customQuery, @RequestBody @Valid AccountRegistrationDto registrationDto) {
+    public void updateAccount(@RequestParam Map<String, String> customQuery, @RequestBody @Valid AccountDto registrationDto) {
         accountService.updateAccount(customQuery, registrationDto);
     }
 

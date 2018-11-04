@@ -37,7 +37,7 @@ public class AddressRepositoryTest {
         // when
         List<Address> result = addressRepository.findAllById(id);
         //then
-        Address address = result.get(0);
+//        Address address = result.get(0);
         //TODO assertions need to be fixed
         //TESTS should be separated
 //        assertEquals(address.getId(), id.get(0));

@@ -2,7 +2,7 @@ package pl.sda.bankserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.bankcommons.domain.dtos.WorkerRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.WorkerDto;
 import pl.sda.bankserver.domain.Worker;
 import pl.sda.bankserver.repository.WorkerRepository;
 import pl.sda.bankserver.services.WorkerService;
@@ -21,7 +21,7 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
-    public void createWorker(WorkerRegistrationDto registrationDto) {
+    public void createWorker(WorkerDto registrationDto) {
 
     }
 
@@ -36,7 +36,7 @@ public class WorkerServiceImpl implements WorkerService {
     }
 
     @Override
-    public void updateWorker(Map<String, String> customQuery, WorkerRegistrationDto registrationDto) {
+    public void updateWorker(Map<String, String> customQuery, WorkerDto registrationDto) {
 
     }
 

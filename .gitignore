@@ -60,3 +60,12 @@ hs_err_pid*
 *.iws
 *.iml
 *.ipr
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+bank-parent/commons/target/

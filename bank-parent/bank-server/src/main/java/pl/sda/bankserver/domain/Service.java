@@ -1,6 +1,7 @@
 package pl.sda.bankserver.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -23,6 +24,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Validated
 public class Service {
     @Id
@@ -33,7 +35,7 @@ public class Service {
     private ServiceEnum service;
 
     @Column(name = "service_no")
-    private int number;
+    private Integer number;
 
     @Column(name = "service_title")
     private String title;

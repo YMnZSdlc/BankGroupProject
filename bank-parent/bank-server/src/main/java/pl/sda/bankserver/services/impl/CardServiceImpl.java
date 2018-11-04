@@ -2,7 +2,7 @@ package pl.sda.bankserver.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.sda.bankcommons.domain.dtos.CardRegistrationDto;
+import pl.sda.bankcommons.domain.dtos.CardDto;
 import pl.sda.bankserver.domain.Card;
 import pl.sda.bankserver.repository.CardRepository;
 import pl.sda.bankserver.services.CardService;
@@ -24,7 +24,7 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
-    public void createCard(CardRegistrationDto registrationDto) {
+    public void createCard(CardDto registrationDto) {
         Card card = Card.builder()
                 .cardType(registrationDto.getCardType())
                 .cardNo(registrationDto.getCardNo())
@@ -56,7 +56,7 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
-    public void updateCard(Map<String, String> customQuery, CardRegistrationDto registrationDto) {
+    public void updateCard(Map<String, String> customQuery, CardDto registrationDto) {
         Card card = findCard(customQuery).get(0);
         card = Card.builder()
                 .id(card.getId())

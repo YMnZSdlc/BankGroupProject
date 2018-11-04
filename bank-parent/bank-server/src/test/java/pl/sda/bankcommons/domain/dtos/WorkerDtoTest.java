@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
 
-public class WorkerRegistrationDtoTest {
+public class WorkerDtoTest {
     
     private Validator validator;
     
@@ -23,8 +23,8 @@ public class WorkerRegistrationDtoTest {
         validator = factory.getValidator();
     }
     
-    private WorkerRegistrationDto createValidWorkerRegistrationDto() {
-        WorkerRegistrationDto worker = new WorkerRegistrationDto();
+    private WorkerDto createValidWorkerRegistrationDto() {
+        WorkerDto worker = new WorkerDto();
         worker.setPassword("aaaaAAAA1111");
         worker.setFirstName("Jan");
         worker.setLastName("Kowalski");
@@ -40,18 +40,18 @@ public class WorkerRegistrationDtoTest {
         return worker;
     }
     
-    private WorkerRegistrationDto createEmptyWorkerRegistrationDto() {
-        WorkerRegistrationDto worker = new WorkerRegistrationDto();
+    private WorkerDto createEmptyWorkerRegistrationDto() {
+        WorkerDto worker = new WorkerDto();
         return worker;
     }
     
     @Test
     public void ifWorkerRegistrationDtoIsValid() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -63,10 +63,10 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifWorkerRegistrationDtoIsEmpty() {
         //given
-        WorkerRegistrationDto worker = createEmptyWorkerRegistrationDto();
+        WorkerDto worker = createEmptyWorkerRegistrationDto();
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + ": "
                     + violation.getMessage());
@@ -78,11 +78,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifPasswordIsNullValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setPassword(null);
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -94,11 +94,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifFirstNameIsNullValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setFirstName(null);
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -110,11 +110,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifFirstNameIsTooShortValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setFirstName("Aa");
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -126,11 +126,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifFirstNameIsTooLongValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setFirstName("Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -142,11 +142,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifLastNameIsNullValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setLastName(null);
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -157,11 +157,11 @@ public class WorkerRegistrationDtoTest {
     
     @Test
     public void ifSalaryIsNullValidationFails() {
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setSalary(null);
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -173,11 +173,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifPeselIsTooShortValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setPesel("123");
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -189,11 +189,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifPeselIsTooLongtValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setPesel("123456789123456789");
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -205,11 +205,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifPeselIsNullValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setPesel(null);
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -221,11 +221,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifEmploymentDateIsFutureValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setEmploymentDate(LocalDate.of(2070, 12, 12));
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -237,11 +237,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifEmailIsNullValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setEmail(null);
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -253,11 +253,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifEmailIsInvalidEmailValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setEmail("aaaaa.com");
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -269,11 +269,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifPhoneNumberIsNullValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setPhoneNumber(null);
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -285,11 +285,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifPhoneNumberIsWrongValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setPhoneNumber("666");
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());
@@ -301,11 +301,11 @@ public class WorkerRegistrationDtoTest {
     @Test
     public void ifDateOfBirthIsFutureValidationFails() {
         //given
-        WorkerRegistrationDto worker = createValidWorkerRegistrationDto();
+        WorkerDto worker = createValidWorkerRegistrationDto();
         worker.setDateOfBirth(LocalDate.of(2070, 12, 12));
         //when
-        Set<ConstraintViolation<WorkerRegistrationDto>> violations = validator.validate(worker);
-        for (ConstraintViolation<WorkerRegistrationDto> violation : violations) {
+        Set<ConstraintViolation<WorkerDto>> violations = validator.validate(worker);
+        for (ConstraintViolation<WorkerDto> violation : violations) {
             System.out.println(violation.getRootBeanClass() + " Validation: "
                     + violation.getPropertyPath() + " "
                     + violation.getMessage());

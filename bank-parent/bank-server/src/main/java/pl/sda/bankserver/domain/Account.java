@@ -51,13 +51,4 @@ public class Account {
 
     @OneToMany(mappedBy = "account")
     private List<AccountHistory> accountHistories;
-
-    @ManyToMany
-    @JoinTable(
-            name = "customer_accounts",
-            joinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "account_id", referencedColumnName = "id")
-    )
-    private List<Customer> customers;
-
 }

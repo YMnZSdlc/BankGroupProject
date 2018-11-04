@@ -9,6 +9,7 @@ import pl.sda.bankserver.services.CustomerService;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -26,8 +27,18 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> findAll() {
-        return null;
+    public List<CustomerRegistrationDto> findAll() {
+        List<Customer> all = customerRepository.findAll();
+        return all.stream().map(this::toDto).collect(Collectors.toList());
+    }
+
+    private CustomerRegistrationDto toDto(Customer customer) {
+        CustomerRegistrationDto dto = new CustomerRegistrationDto();
+        dto.setFirstName(customer.getFirstName());
+        dto.setLastName(customer.getLastName());
+        dto.setEmail(customer.getEmail());
+        dto.setPesel(customer.getPesel());
+        return dto;
     }
 
     @Override

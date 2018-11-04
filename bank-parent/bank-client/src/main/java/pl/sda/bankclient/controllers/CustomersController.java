@@ -56,13 +56,12 @@ public class CustomersController {
         model.addAttribute("findall", list);
         return "customers/findall";
     }
-
-    @PostMapping("/customers/findall")
-    public String findAllCustomers(Model model) {
-        //call find all in service
-        //model.addAttribute("findall", list);
-        return "customers/findall";
-    }
+//
+//    @PostMapping("/customers/findall")
+//    public String findAllCustomers(Model model) {
+//        model.addAttribute("findall", customerService.findAll());
+//        return "customers/findall";
+//    }
 
     @GetMapping("/customers/update")
     public String chooseCustomerForUpdate(Model model) {

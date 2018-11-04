@@ -7,8 +7,8 @@ import pl.sda.bankcommons.domain.dtos.AccountHistoryDto;
 import pl.sda.bankserver.domain.AccountHistory;
 
 @Mapper
-/**TODO
- * pola się nie mapują
+/**
+ * TODO pole accountId się nie mapuje
  * */
 public interface AccountHistoryMapper {
 

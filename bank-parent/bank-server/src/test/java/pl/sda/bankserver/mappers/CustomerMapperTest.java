@@ -19,7 +19,7 @@ public class CustomerMapperTest {
         CustomerDto dtoOut = CustomerMapper.INSTANCE.customerToCustomerDto(entityIn);
 
         //then
-        assertEquals(dtoOut.getId(),    entityIn.getId());
+        assertEquals(dtoOut.getId(), entityIn.getId());
 
     }
 

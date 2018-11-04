@@ -19,11 +19,6 @@ public class AccountHistoryMapperTest {
         AccountHistoryDto dtoOut = AccountHistoryMapper.INSTANCE.accountHistoryToAccountHistoryDto(entityIn);
 
         //then
-        assertEquals(dtoOut.getId(),            entityIn.getId());
-
-    }
-
-    @Test
-    public void accountHistoryDtoToAccountHistory() {
+        assertEquals(dtoOut.getId(), entityIn.getId());
     }
 }

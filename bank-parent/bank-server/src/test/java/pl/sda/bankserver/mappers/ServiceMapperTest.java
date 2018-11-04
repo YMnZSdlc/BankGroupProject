@@ -19,7 +19,7 @@ public class ServiceMapperTest {
         ServiceDto dtoOut = ServiceMapper.INSTANCE.serviceToServiceDto(entityIn);
 
         //then
-        assertEquals(dtoOut.getId(),    entityIn.getId());
+        assertEquals(dtoOut.getId(), entityIn.getId());
     }
 
     @Test

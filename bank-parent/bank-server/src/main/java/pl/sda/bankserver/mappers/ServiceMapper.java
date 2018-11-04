@@ -7,6 +7,11 @@ import pl.sda.bankcommons.domain.dtos.ServiceDto;
 import pl.sda.bankserver.domain.Service;
 
 @Mapper
+/**
+ *
+ * TODO pole accountId się nie mapuje
+ *
+ * */
 public interface ServiceMapper {
     ServiceMapper INSTANCE = Mappers.getMapper(ServiceMapper.class);
 

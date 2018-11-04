@@ -11,7 +11,7 @@ import pl.sda.bankserver.domain.Department;
 @Mapper
 /**
  *
- * TODO pola addressId się nie mapują
+ * TODO pole addressId się nie mapuje
  *
  * */
 public interface DepartmentMapper {

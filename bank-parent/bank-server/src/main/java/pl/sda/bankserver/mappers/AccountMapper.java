@@ -8,9 +8,9 @@ import pl.sda.bankcommons.domain.dtos.AccountDto;
 import pl.sda.bankserver.domain.Account;
 
 @Mapper
-/**TODO
+/**
  *
- * pola accountCategoryId się nie mapują
+ * TODO polae accountCategoryId się nie mapuj
  *
  * */
 public interface AccountMapper {

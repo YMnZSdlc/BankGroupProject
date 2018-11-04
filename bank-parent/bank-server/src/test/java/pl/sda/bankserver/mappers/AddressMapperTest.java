@@ -8,8 +8,6 @@ import static org.junit.Assert.*;
 
 public class AddressMapperTest {
 
-
-
     @Test
     public void addressToAddressDto() {
         //given
@@ -21,8 +19,7 @@ public class AddressMapperTest {
         AddressDto dtoOut = AddressMapper.INSTANCE.addressToAddressDto(entityIn);
 
         //then
-        assertEquals(dtoOut.getId(),    entityIn.getId());
-
+        assertEquals(dtoOut.getId(), entityIn.getId());
     }
 
     @Test

@@ -19,9 +19,9 @@ public class AccountCategoryMapperTest {
         AccountCategoryDto dtoOut = AccountCategoryMapper.INSTANCE.accountCategoryToAccountCategoryDto(entityIn);
 
         //then
-        assertEquals(dtoOut.getId(),            entityIn.getId());
-        assertEquals(dtoOut.getCategoryName(),  entityIn.getCategoryName());
-        assertEquals(dtoOut.getAccountId(),     entityIn.getAccount().getId());
+        assertEquals(dtoOut.getId(), entityIn.getId());
+        assertEquals(dtoOut.getCategoryName(), entityIn.getCategoryName());
+        assertEquals(dtoOut.getAccountId(), entityIn.getAccount().getId());
     }
 
     @Test
@@ -36,8 +36,8 @@ public class AccountCategoryMapperTest {
         AccountCategory entity = AccountCategoryMapper.INSTANCE.accountCategoryDtoToAccountCategory(dto);
 
         //then
-        assertEquals(entity.getId(),dto.getId());
-        assertEquals(entity.getCategoryName(),dto.getCategoryName());
-        assertEquals(entity.getAccount().getId(),dto.getAccountId());
+        assertEquals(entity.getId(), dto.getId());
+        assertEquals(entity.getCategoryName(), dto.getCategoryName());
+        assertEquals(entity.getAccount().getId(), dto.getAccountId());
     }
 }

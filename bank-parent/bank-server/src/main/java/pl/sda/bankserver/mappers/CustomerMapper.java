@@ -9,9 +9,9 @@ import pl.sda.bankserver.domain.Customer;
 import pl.sda.bankserver.domain.Department;
 
 @Mapper
-/**TODO
+/**
  *
- * pola departmentId, addressId się nie mapują
+ * TODO pola departmentId, addressId się nie mapują
  *
  * */
 public interface CustomerMapper {

@@ -10,9 +10,6 @@ public class AccountMapperTest {
 
     FakeDtos fakeDtos = new FakeDtos();
 
-
-
-
     @Test
     public void accountToAccountDto() {
         //given

@@ -23,7 +23,7 @@ public class DepartmentMapperTest {
         DepartmentDto dtoOut = DepartmentMapper.INSTANCE.departmentToDepartmentDto(entityIn);
 
         //then
-        assertEquals(dtoOut.getId(),    entityIn.getId());
+        assertEquals(dtoOut.getId(), entityIn.getId());
     }
 
     @Test

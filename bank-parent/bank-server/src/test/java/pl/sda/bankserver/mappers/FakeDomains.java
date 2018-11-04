@@ -23,7 +23,7 @@ public class FakeDomains {
     private Service service;
     private Worker worker;
 
-    public void createFakeDomains (){
+    public void createFakeDomains() {
         this.account = createAccount();
         this.accountCategory = createAccountCategory();
         this.accountHistory = createAccountHistory();
@@ -215,7 +215,6 @@ public class FakeDomains {
 
         return worker;
     }
-
 
 
     public FakeDomains() {

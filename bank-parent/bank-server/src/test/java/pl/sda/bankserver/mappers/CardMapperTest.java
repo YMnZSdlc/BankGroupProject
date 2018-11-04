@@ -19,7 +19,7 @@ public class CardMapperTest {
         CardDto dtoOut = CardMapper.INSTANCE.cardToCardDto(entityIn);
 
         //then
-        assertEquals(dtoOut.getId(),    entityIn.getId());
+        assertEquals(dtoOut.getId(), entityIn.getId());
     }
 
     @Test

@@ -53,5 +53,6 @@ public class AccountCategoryServiceImpl implements AccountCategoryService {
     public void deleteAccountCategory(Map<String, String> customQuery) {
     AccountCategory accountCategory=findAccountCategory(customQuery).get(0);
     accountCategoryRepository.delete(accountCategory);
+        System.out.println("");
     }
 }

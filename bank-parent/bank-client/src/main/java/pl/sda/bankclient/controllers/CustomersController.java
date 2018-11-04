@@ -4,19 +4,22 @@ package pl.sda.bankclient.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import pl.sda.bankclient.service.CustomerService;
+import org.springframework.web.bind.annotation.*;
+import pl.sda.bankclient.service.IService;
 import pl.sda.bankcommons.domain.dtos.CustomerDto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class CustomersController {
 
+    IService<CustomerDto> customerService;
+
     @Autowired
-    CustomerService customerService;
+    public CustomersController(IService<CustomerDto> customerService) {
+        this.customerService = customerService;
+    }
 
     @GetMapping("/customers")
     public String showCustomers() {
@@ -31,7 +34,7 @@ public class CustomersController {
 
     @PostMapping("/customers/save")
     public String saveCustomer(@ModelAttribute CustomerDto customerDto) {
-        //TODO
+        customerService.save(customerDto);
         return "customers/save";
     }
 
@@ -43,19 +46,22 @@ public class CustomersController {
 
     @PostMapping("/customers/find")
     public String findCustomer(@ModelAttribute CustomerDto customerDto) {
+        customerService.find(customerDto);
         return "customers/find";
     }
 
     @GetMapping("/customers/findall")
     public String findAllCustomersByParam(Model model) {
-        model.addAttribute("findall", new CustomerDto());
+        List<CustomerDto> list = new ArrayList<CustomerDto>();
+        model.addAttribute("findall", list);
         return "customers/findall";
     }
-
-    @PostMapping("/customers/findall")
-    public String findAllCustomers(@ModelAttribute CustomerDto customerDto) {
-        return "customers/findall";
-    }
+//
+//    @PostMapping("/customers/findall")
+//    public String findAllCustomers(Model model) {
+//        model.addAttribute("findall", customerService.findAll());
+//        return "customers/findall";
+//    }
 
     @GetMapping("/customers/update")
     public String chooseCustomerForUpdate(Model model) {

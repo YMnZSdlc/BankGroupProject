@@ -49,7 +49,7 @@ public class FakeDomains {
 
         this.address.getCustomersAddresses().add(this.customer);
         this.address.getWorkerAddresses().add(this.worker);
-        this.address.getDepartmentsAddresses().add(this.worker);
+//    TODO    this.address.getDepartmentsAddresses().add(this.worker);
 
         this.card.setAccount(this.account);
 
@@ -120,7 +120,7 @@ public class FakeDomains {
         address.setCustomersAddresses(customers);
         List<Worker> workers = new ArrayList<>();
         address.setWorkerAddresses(workers);
-        List<Worker> workersDep = new ArrayList<>();
+        List<Department> workersDep = new ArrayList<>();
         address.setDepartmentsAddresses(workersDep);
 
         return address;

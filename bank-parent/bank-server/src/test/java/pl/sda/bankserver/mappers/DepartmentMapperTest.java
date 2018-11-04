@@ -38,7 +38,6 @@ public class DepartmentMapperTest {
         customerList.add(customer);
         entity.setCustomers(customerList);
         //then
-        assertEquals(entity.getId(), dto.getId());
         assertEquals(entity.getDeptName(), dto.getDeptName());
         assertEquals(entity.getDeptNo(), dto.getDeptNo());
         assertEquals(entity.getPhoneNumber(), dto.getPhoneNumber());

@@ -1,16 +1,25 @@
 package pl.sda.bankserver.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Validated
+@Builder
 public class Address {
 
     @Id
@@ -38,5 +47,5 @@ public class Address {
     private List<Worker> workerAddresses;
 
     @OneToMany(mappedBy = "address")
-    private List<Worker> departmentsAddresses;
+    private List<Department> departmentsAddresses;
 }

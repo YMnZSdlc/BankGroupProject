@@ -7,9 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import pl.sda.bankserver.domain.Address;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,7 +32,8 @@ public class AddressRepositoryTest {
     @Test
     public void findAllById() {
         //given
-        Integer id = 1;
+        List<Integer> id = new ArrayList<>();
+        id.add(1);
         // when
         List<Address> result = addressRepository.findAllById(id);
         //then
@@ -56,6 +58,10 @@ public class AddressRepositoryTest {
 
     @Test
     public void save() {
+        //given
+        List<Integer> id = new ArrayList<>();
+        id.add(1);
+
         // ---------- CREATE
         // given
         Address address = new Address();
@@ -74,9 +80,10 @@ public class AddressRepositoryTest {
 
         // ---------- UPDATE
         // given
-        address = addressRepository.findAllById(1).get(0);
+        address = addressRepository.findAllById(id).get(0);
         String city = address.getCity();
-        Integer id = address.getId();
+        id = new ArrayList<>();
+        id.add(address.getId());
         address.setCity("ABCDEFG");
         addressRepository.saveAndFlush(address);
         // when

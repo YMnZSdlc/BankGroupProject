@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.sda.bankcommons.domain.dtos.CustomerRegistrationDto;
 import pl.sda.bankserver.domain.Customer;
+import pl.sda.bankserver.repository.CustomerRepository;
 import pl.sda.bankserver.services.CustomerService;
 
 import java.util.List;
@@ -12,11 +13,11 @@ import java.util.Map;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    private CustomerService customerService;
+    private CustomerRepository customerRepository;
 
     @Autowired
-    public CustomerServiceImpl(CustomerService customerService) {
-        this.customerService = customerService;
+    public CustomerServiceImpl(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
     }
 
     @Override

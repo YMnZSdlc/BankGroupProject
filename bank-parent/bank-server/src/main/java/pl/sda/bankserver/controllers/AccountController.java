@@ -33,8 +33,8 @@ public class AccountController {
     }
     
     @GetMapping("/server/account/find")
-    public Account findAccount(@RequestParam Map<String, String> customQuery) {
-        return (Account) accountService.findAccount(customQuery);
+    public List<Account> findAccount(@RequestParam Map<String, String> customQuery) {
+        return accountService.findAccount(customQuery);
     }
     
     @PutMapping("/server/account/update")

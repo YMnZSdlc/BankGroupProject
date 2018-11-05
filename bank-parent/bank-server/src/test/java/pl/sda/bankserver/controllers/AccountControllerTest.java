@@ -11,16 +11,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import pl.sda.bankcommons.domain.dtos.AccountRegistrationDto;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.Month;
-
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -126,5 +122,10 @@ public class AccountControllerTest {
                 .andExpect(content()
                         .string(containsString("78188000094662356817820269")))
                 .andDo(print());
+    }
+
+    @Test
+    public void findAccountTest() throws Exception {
+
     }
 }

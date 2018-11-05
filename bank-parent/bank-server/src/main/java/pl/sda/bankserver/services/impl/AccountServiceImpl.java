@@ -38,8 +38,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<Account> findAccount(Map<String, String> customQuery) {
-        String number = "";
-
+        String number = customQuery.get("number");
         return accountRepository.findAllByNumber(number);
     }
 

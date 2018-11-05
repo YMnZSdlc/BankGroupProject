@@ -13,33 +13,33 @@ import java.util.Map;
 
 @Service
 public class AccountCategoryServiceImpl implements AccountCategoryService {
-    
+
     private AccountCategoryRepository accountCategoryRepository;
-    
+
     @Autowired
     public AccountCategoryServiceImpl(AccountCategoryRepository accountCategoryRepository) {
-        this.accountCategoryRepository=accountCategoryRepository;
+        this.accountCategoryRepository = accountCategoryRepository;
     }
-    
+
     @Override
     public void createAccountCategory(AccountCategoryCreationDto creationDto) {
-    AccountCategory accountCategory=AccountCategory.builder()
-            .categoryName(creationDto.getCategoryName())
-            .build();
-    accountCategoryRepository.saveAndFlush(accountCategory);
+        AccountCategory accountCategory = AccountCategory.builder()
+                .categoryName(creationDto.getCategoryName())
+                .build();
+        accountCategoryRepository.saveAndFlush(accountCategory);
     }
-    
+
     @Override
     public List<AccountCategory> findAll() {
         return accountCategoryRepository.findAll();
     }
-    
+
     @Override
     public List<AccountCategory> findAccountCategory(Map<String, String> customQuery) {
-        String categoryName=customQuery.get("categoryName");
+        String categoryName = customQuery.get("categoryName");
         return accountCategoryRepository.findAllByCategoryName(categoryName);
     }
-    
+
     @Override
     public void updateAccountCategory(Map<String, String> customQuery, AccountCategoryCreationDto creationDto) {
         AccountCategory accountCategory = findAccountCategory(customQuery).get(0);
@@ -48,11 +48,11 @@ public class AccountCategoryServiceImpl implements AccountCategoryService {
                 .build();
         accountCategoryRepository.save(accountCategory);
     }
-    
+
     @Override
     public void deleteAccountCategory(Map<String, String> customQuery) {
-    AccountCategory accountCategory=findAccountCategory(customQuery).get(0);
-    accountCategoryRepository.delete(accountCategory);
+        AccountCategory accountCategory = findAccountCategory(customQuery).get(0);
+        accountCategoryRepository.delete(accountCategory);
         System.out.println("");
     }
 }

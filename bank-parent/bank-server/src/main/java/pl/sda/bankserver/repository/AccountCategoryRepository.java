@@ -7,6 +7,7 @@ import pl.sda.bankserver.domain.AccountCategory;
 import java.util.List;
 
 public interface AccountCategoryRepository extends JpaRepository<AccountCategory, Integer> {
-List<AccountCategory>findAll();
-List<AccountCategory>findAllByCategoryName(String categoryName);
+    List<AccountCategory> findAll();
+
+    List<AccountCategory> findAllByCategoryName(String categoryName);
 }
